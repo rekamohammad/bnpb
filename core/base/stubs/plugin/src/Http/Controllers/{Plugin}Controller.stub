@@ -1,0 +1,205 @@
+<?php
+
+namespace Botble\{Plugin}\Http\Controllers;
+
+use Assets;
+use Botble\{Plugin}\Http\Requests\{Plugin}Request;
+use Botble\{Plugin}\Repositories\Interfaces\{Plugin}Interface;
+use Botble\Base\Http\Controllers\BaseController;
+use Illuminate\Http\Request;
+use MongoDB\Driver\Exception\Exception;
+use Botble\{Plugin}\Http\DataTables\{Plugin}DataTable;
+
+class {Plugin}Controller extends BaseController
+{
+    /**
+     * @var {Plugin}Interface
+     */
+    protected ${plugin}Repository;
+
+    /**
+     * {Plugin}Controller constructor.
+     * @param {Plugin}Interface ${plugin}Repository
+     * @author Sang Nguyen
+     */
+    public function __construct({Plugin}Interface ${plugin}Repository)
+    {
+        $this->{plugin}Repository = ${plugin}Repository;
+    }
+
+    /**
+     * Display all {plugin}
+     * @param {Plugin}DataTable $dataTable
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author Sang Nguyen
+     */
+    public function getList({Plugin}DataTable $dataTable)
+    {
+
+        page_title()->setTitle(trans('{plugin}::{plugin}.list'));
+
+        return $dataTable->renderTable(['title' => trans('{plugin}::{plugin}.list')]);
+    }
+
+    /**
+     * Show create form
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author Sang Nguyen
+     */
+    public function getCreate()
+    {
+        page_title()->setTitle(trans('{plugin}::{plugin}.create'));
+
+        return view('{plugin}::create');
+    }
+
+    /**
+     * Insert new {Plugin} into database
+     *
+     * @param {Plugin}Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @author Sang Nguyen
+     */
+    public function postCreate({Plugin}Request $request)
+    {
+        ${plugin} = $this->{plugin}Repository->createOrUpdate($request->input());
+
+        do_action(BASE_ACTION_AFTER_CREATE_CONTENT, {PLUGIN}_MODULE_SCREEN_NAME, $request, ${plugin});
+
+        if ($request->input('submit') === 'save') {
+            return redirect()->route('{plugin}.list')->with('success_msg', trans('bases::notices.create_success_message'));
+        } else {
+            return redirect()->route('{plugin}.edit', ${plugin}->id)->with('success_msg', trans('bases::notices.create_success_message'));
+        }
+    }
+
+    /**
+     * Show edit form
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author Sang Nguyen
+     */
+    public function getEdit($id)
+    {
+        ${plugin} = $this->{plugin}Repository->findById($id);
+        if (empty(${plugin})) {
+            abort(404);
+        }
+
+        page_title()->setTitle(trans('{plugin}::{plugin}.edit') . ' #' . $id);
+
+        return view('{plugin}::edit', compact('{plugin}'));
+    }
+
+    /**
+     * @param $id
+     * @param {Plugin}Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @author Sang Nguyen
+     */
+    public function postEdit($id, {Plugin}Request $request)
+    {
+        ${plugin} = $this->{plugin}Repository->findById($id);
+        if (empty(${plugin})) {
+            abort(404);
+        }
+        ${plugin}->fill($request->input());
+
+        $this->{plugin}Repository->createOrUpdate(${plugin});
+
+        do_action(BASE_ACTION_AFTER_UPDATE_CONTENT, {PLUGIN}_MODULE_SCREEN_NAME, $request, ${plugin});
+
+        if ($request->input('submit') === 'save') {
+            return redirect()->route('{plugin}.list')->with('success_msg', trans('bases::notices.update_success_message'));
+        } else {
+            return redirect()->route('{plugin}.edit', $id)->with('success_msg', trans('bases::notices.update_success_message'));
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return array
+     * @author Sang Nguyen
+     */
+    public function getDelete(Request $request, $id)
+    {
+        try {
+            ${plugin} = $this->{plugin}Repository->findById($id);
+            if (empty(${plugin})) {
+                abort(404);
+            }
+            $this->{plugin}Repository->delete(${plugin});
+
+            do_action(BASE_ACTION_AFTER_DELETE_CONTENT, {PLUGIN}_MODULE_SCREEN_NAME, $request, ${plugin});
+
+            return [
+                'error' => false,
+                'message' => trans('bases::notices.deleted'),
+            ];
+        } catch (Exception $e) {
+            return [
+                'error' => true,
+                'message' => trans('bases::notices.cannot_delete'),
+            ];
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return array|\Illuminate\Http\JsonResponse
+     * @author Sang Nguyen
+     */
+    public function postDeleteMany(Request $request)
+    {
+        $ids = $request->input('ids');
+        if (empty($ids)) {
+            return [
+                'error' => true,
+                'message' => trans('bases::notices.no_select'),
+            ];
+        }
+
+        foreach ($ids as $id) {
+            ${plugin} = $this->{plugin}Repository->findById($id);
+            $this->{plugin}Repository->delete(${plugin});
+            do_action(BASE_ACTION_AFTER_DELETE_CONTENT, {PLUGIN}_MODULE_SCREEN_NAME, $request, ${plugin});
+        }
+
+        return [
+            'error' => false,
+            'message' => trans('bases::notices.delete_success_message'),
+        ];
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     * @author Sang Nguyen
+     */
+    public function postChangeStatus(Request $request)
+    {
+        $ids = $request->input('ids');
+        if (empty($ids)) {
+            return [
+                'error' => true,
+                'message' => trans('bases::notices.no_select'),
+            ];
+        }
+
+        foreach ($ids as $id) {
+            ${plugin} = $this->{plugin}Repository->findById($id);
+            ${plugin}->status = $request->input('status');
+            $this->{plugin}Repository->createOrUpdate(${plugin});
+
+            do_action(BASE_ACTION_AFTER_UPDATE_CONTENT, {PLUGIN}_MODULE_SCREEN_NAME, $request, ${plugin});
+        }
+
+        return [
+            'error' => false,
+            'status' => $request->input('status'),
+            'message' => trans('bases::notices.update_success_message'),
+        ];
+    }
+}

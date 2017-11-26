@@ -1,0 +1,9 @@
+{
+    "name": "Backup",
+    "provider": "Botble\\Backup\\Providers\\BackupServiceProvider",
+    "plugin": "Botble\\Backup\\Plugin",
+    "author": "Sang Nguyen",
+    "url": "http://sangnguyen.info",
+    "version": "1.0",
+    "description": "Backup"
+}

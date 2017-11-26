@@ -1,0 +1,20 @@
+{
+  "name": "bnpb/theme",
+  "type": "BNPB theme",
+  "description": "Example theme for BNPB CMS",
+  "homepage": "https://www.bnpb.go.id",
+  "authors": [
+    {
+      "name": "BNPB",
+      "homepage": "https://www.bnpb.go.id"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Theme\\bnpb\\": "src/"
+    }
+  }
+}

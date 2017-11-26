@@ -1,0 +1,24 @@
+<?php
+
+use Botble\Widget\AbstractWidget;
+
+class CustomMenuWidget extends AbstractWidget
+{
+    /**
+     * The configuration array.
+     *
+     * @var array
+     */
+    protected $config = [];
+
+    protected $widgetDirectory = 'custom-menu';
+
+    public function __construct()
+    {
+        parent::__construct([
+            'name' => __('Custom Menu'),
+            'description' => __('Add a custom menu to your widget area.'),
+            'menu_id' => null,
+        ]);
+    }
+}

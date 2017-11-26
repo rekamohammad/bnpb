@@ -1,0 +1,56 @@
+<?php
+
+namespace Botble\{Plugin}\Providers;
+
+use Botble\{Plugin}\Models\{Plugin};
+use Illuminate\Support\ServiceProvider;
+use Botble\{Plugin}\Repositories\Caches\{Plugin}CacheDecorator;
+use Botble\{Plugin}\Repositories\Eloquent\{Plugin}Repository;
+use Botble\{Plugin}\Repositories\Interfaces\{Plugin}Interface;
+use Botble\Support\Services\Cache\Cache;
+use Botble\Base\Supports\Helper;
+
+class {Plugin}ServiceProvider extends ServiceProvider
+{
+    /**
+     * @var \Illuminate\Foundation\Application
+     */
+    protected $app;
+
+    /**
+     * @author Sang Nguyen
+     */
+    public function register()
+    {
+        if (setting('enable_cache', false)) {
+            $this->app->singleton({Plugin}Interface::class, function () {
+                return new {Plugin}CacheDecorator(new {Plugin}Repository(new {Plugin}()), new Cache($this->app['cache'], {Plugin}Repository::class));
+            });
+        } else {
+            $this->app->singleton({Plugin}Interface::class, function () {
+                return new {Plugin}Repository(new {Plugin}());
+            });
+        }
+
+        Helper::autoload(__DIR__ . '/../../helpers');
+    }
+
+    /**
+     * @author Sang Nguyen
+     */
+    public function boot()
+    {
+        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', '{plugin}');
+        $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/{plugin}.php', '{plugin}');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', '{plugin}');
+
+        if ($this->app->runningInConsole()) {
+            $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+
+            $this->publishes([__DIR__ . '/../../resources/views' => resource_path('views/vendor/{plugin}')], 'views');
+            $this->publishes([__DIR__ . '/../../resources/lang' => resource_path('lang/vendor/{plugin}')], 'lang');
+            $this->publishes([__DIR__ . '/../../config/{plugin}.php' => config_path('{plugin}.php')], 'config');
+        }
+    }
+}

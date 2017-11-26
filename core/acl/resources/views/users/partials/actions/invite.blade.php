@@ -1,0 +1,1 @@
+<a data-toggle="modal" role="button" href="#invite_modal">{{ trans('acl::users.invite_user') }}</a>

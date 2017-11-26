@@ -1,0 +1,336 @@
+/*===== File uploader =====*/
+.uploader {
+    width          : 100%;
+    position       : relative;
+    overflow       : hidden;
+    border         : 1px solid #dddddd;
+    background     : #ffffff;
+    padding        : 2px 2px 2px 10px;
+    display        : -moz-inline-box;
+    display        : inline-block;
+    vertical-align : middle;
+    zoom           : 1;
+
+    span {
+        &.action {
+            width       : 28px;
+            background  : url('#{$general-img-path}forms/add_files.png') no-repeat 0 0;
+            height      : 28px;
+            cursor      : pointer;
+            float       : right;
+            text-indent : -9999px;
+            display     : inline;
+            overflow    : hidden;
+        }
+        &.filename {
+            color         : #777777;
+            cursor        : pointer;
+            max-width     : 200px;
+            font-size     : 11px;
+            line-height   : 28px;
+            float         : left;
+            display       : block;
+            overflow      : hidden;
+            text-overflow : ellipsis;
+            white-space   : nowrap;
+        }
+    }
+    &:hover {
+        span {
+            &.action {
+                background-position : 0 -28px;
+            }
+        }
+    }
+    &:active {
+        span {
+            &.action {
+                background-position : 0 -56px;
+            }
+        }
+    }
+    input[type=file] {
+        width      : 100%;
+        margin-top : 0;
+        opacity    : 0;
+        position   : absolute;
+        top        : 0;
+        right      : 0;
+        bottom     : 0;
+        float      : right;
+        height     : 32px;
+        border     : none;
+        cursor     : pointer;
+    }
+    &.disabled {
+        span {
+            &.action {
+                color : #aaaaaa;
+            }
+            &.filename {
+                border-color : #dddddd;
+                color        : #aaaaaa;
+            }
+        }
+    }
+}
+
+.plupload_button {
+    display          : -moz-inline-box;
+    display          : inline-block;
+    text-decoration  : none;
+    color            : #ffffff;
+    background-color : #50abc2;
+    border           : 1px solid transparent;
+    padding          : 6px 16px;
+    margin-right     : 4px;
+    font-size        : 13px;
+}
+
+.plupload_button:hover, .plupload_button:focus {
+    background-color : #61b3c8;
+    color            : #ffffff;
+}
+
+a.plupload_disabled, a.plupload_disabled:hover {
+    color        : #999999;
+    border-color : #cccccc;
+    background   : #fcfcfc;
+    cursor       : default;
+}
+
+.plupload_start {
+    background-color : #65b688;
+}
+
+.plupload_start:hover, .plupload_start:focus {
+    background-color : #74bd94;
+}
+
+.plupload_wrapper {
+    width : 100%;
+}
+
+.plupload_container {
+    input {
+        border : 1px solid #dddddd;
+    }
+}
+
+.plupload_header {
+    background            : #4c5d68 url('#{$general-img-path}ui/plupload_title.png') no-repeat 18px;
+    display               : none;
+    border-radius         : 2px 2px 0 0;
+    -webkit-border-radius : 2px 2px 0 0;
+    -moz-border-radius    : 2px 2px 0 0;
+}
+
+.with-header {
+    .plupload_header {
+        display : block;
+    }
+    .plupload_filelist_header {
+        background-color      : #fafafa;
+        color                 : #333333;
+        border-radius         : 0;
+        -webkit-border-radius : 0;
+        -moz-border-radius    : 0;
+        border                : 1px solid #dddddd;
+        border-top            : 0;
+    }
+}
+
+.panel {
+    .plupload_filelist_header {
+        border-radius         : 0;
+        -webkit-border-radius : 0;
+        -moz-border-radius    : 0;
+        background-color      : #fcfcfc;
+        color                 : #333333;
+        border-radius         : 0;
+        -webkit-border-radius : 0;
+        -moz-border-radius    : 0;
+        border                : 0;
+        border-bottom         : 1px solid #dddddd;
+    }
+    .plupload_scroll {
+        .plupload_filelist {
+            border           : 0;
+            background-color : #ffffff;
+        }
+    }
+    .plupload_filelist_footer {
+        border-width     : 1px 0 0 0;
+        background-color : #fcfcfc;
+    }
+}
+
+.plupload_scroll .plupload_filelist_header .plupload_file_action, .plupload_scroll .plupload_filelist_footer .plupload_file_action {
+    margin-left  : 20px;
+    margin-right : 0;
+}
+
+.plupload_header_content {
+    padding : 14px 0 14px 75px;
+    color   : #ffffff;
+}
+
+.plupload_header_title {
+    font-size   : 14px;
+    font-weight : 600;
+}
+
+.plupload_header_text {
+    font-size : 11px;
+}
+
+.plupload_filelist {
+    margin     : 0;
+    padding    : 0;
+    list-style : none;
+
+    li {
+        padding       : 10px 12px;
+        background    : #ffffff;
+        border-bottom : 1px solid #eeeeee;
+    }
+    .plupload_file_name {
+        width         : 205px;
+        white-space   : nowrap;
+        text-overflow : ellipsis;
+    }
+}
+
+.plupload_scroll {
+    .plupload_filelist {
+        height       : 185px;
+        background   : #fcfcfc;
+        overflow-y   : scroll;
+        border-left  : 1px solid #dddddd;
+        border-right : 1px solid #dddddd;
+    }
+}
+
+.plupload_filelist_header {
+    padding               : 9px 12px 9px 12px;
+    background            : #4c5d68;
+    border-radius         : 2px 2px 0 0;
+    -webkit-border-radius : 2px 2px 0 0;
+    -moz-border-radius    : 2px 2px 0 0;
+    color                 : #ffffff;
+}
+
+.plupload_filelist_footer {
+    border           : 1px solid #dddddd;
+    border-top-color : #e5e5e5;
+    vertical-align   : middle;
+    padding          : 10px 12px;
+    background       : #fafafa;
+
+    .plupload_upload_status {
+        padding : 7px 0;
+    }
+}
+
+.plupload_file_name {
+    float       : left;
+    overflow    : hidden;
+    font-weight : 600;
+}
+
+.plupload_file_size, .plupload_file_status, .plupload_progress {
+    float : right;
+    width : 80px;
+}
+
+.plupload_file_size, .plupload_file_status, .plupload_file_action {
+    text-align  : right;
+    font-weight : 600;
+}
+
+.plupload_filelist_footer .plupload_file_size, .plupload_filelist_footer .plupload_file_status {
+    padding-top : 7px;
+}
+
+.plupload_file_action {
+    float       : right;
+    width       : 12px;
+    height      : 12px;
+    margin-left : 20px;
+    margin-top  : 4px;
+    opacity     : 0.8;
+    filter      : alpha(Opacity=80);
+
+    * {
+        display : none;
+        width   : 12px;
+        height  : 12px;
+    }
+}
+
+li {
+    &.plupload_uploading {
+        background : #ecf3dc;
+    }
+    &.plupload_done {
+        color : #aaaaaa;
+
+        a {
+            background : url('#{$general-img-path}ui/plupload_done.png') no-repeat;
+            cursor     : default;
+        }
+    }
+    &.plupload_delete {
+        a {
+            background : url('#{$general-img-path}ui/plupload_remove.png') no-repeat;
+        }
+    }
+    &.plupload_failed {
+        a {
+            background : url('#{$general-img-path}ui/plupload_error.png') no-repeat;
+            cursor     : default;
+        }
+    }
+    &.plupload_droptext {
+        background     : transparent;
+        text-align     : center;
+        vertical-align : middle;
+        border         : 0;
+        line-height    : 165px;
+        font-weight    : 600;
+        color          : #999999;
+    }
+}
+
+.plupload_progress, .plupload_upload_status {
+    display : none;
+}
+
+.plupload_progress_container {
+    margin-top : 6px;
+}
+
+.plupload_progress_bar {
+    width                 : 0px;
+    height                : 8px;
+    background            : #65b688;
+    border-radius         : 10px;
+    -webkit-border-radius : 10px;
+    -moz-border-radius    : 10px;
+}
+
+.plupload_clear, .plupload_clearer {
+    clear : both;
+}
+
+.plupload_clearer, .plupload_progress_bar {
+    display     : block;
+    font-size   : 0;
+    line-height : 0;
+}
+
+@media (max-width : 480px) {
+    .plupload_filelist_footer .plupload_file_action, .plupload_filelist_footer .plupload_file_status, .plupload_filelist_footer .plupload_file_size, .plupload_filelist_footer .plupload_progress {
+        display : none;
+    }
+}

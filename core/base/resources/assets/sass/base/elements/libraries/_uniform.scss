@@ -1,0 +1,355 @@
+/*===== Uniform. Checkbox =====*/
+.checker, .checker span, .checker input {
+    width  : 18px;
+    height : 18px;
+}
+
+.checker {
+    position       : relative;
+    margin-right   : 6px;
+    margin-top     : -3px;
+    display        : inline-block;
+    cursor         : pointer;
+    vertical-align : middle;
+
+    span {
+        border           : 1px solid #c5c5c5;
+        background-color : #ffffff;
+        display          : -moz-inline-box;
+        display          : inline-block;
+        text-align       : center;
+        position         : relative;
+
+        &:after {
+            content    : "";
+            background : url('#{$general-img-path}forms/check.png') no-repeat 50%;
+            opacity    : 0;
+            filter     : alpha(Opacity=0);
+            display    : block;
+            height     : 100%;
+            width      : 100%;
+            position   : absolute;
+            top        : 0;
+            left       : 0;
+        }
+        &.checked {
+            &:after {
+                content : "";
+                opacity : 1;
+                filter  : alpha(Opacity=100);
+            }
+        }
+    }
+    &.focus {
+        span {
+            &.checked {
+                &:after {
+                    opacity : 1;
+                    filter  : alpha(Opacity=100);
+                }
+            }
+        }
+    }
+    input[type=checkbox] {
+        opacity        : 0;
+        filter         : alpha(opacity=0);
+        -moz-opacity   : 0;
+        border         : none;
+        background     : none;
+        display        : -moz-inline-box;
+        display        : inline-block;
+        zoom           : 1;
+        margin         : 0;
+        vertical-align : top;
+        cursor         : pointer;
+        position       : absolute;
+        top            : -1px;
+        left           : -1px;
+        z-index        : 2;
+    }
+}
+
+.checkbox-danger {
+    .checker {
+        span {
+            &:after {
+                content          : "";
+                background-image : url('#{$general-img-path}forms/check_white.png');
+            }
+            &:hover {
+                border-color : #d65c4f;
+            }
+        }
+    }
+}
+
+.checkbox-danger .checker:active span, .checkbox-danger .checker.active span, .checkbox-danger .checker span.checked {
+    border-color     : #d65c4f;
+    background-color : #d65c4f;
+}
+
+.checkbox-success {
+    .checker {
+        span {
+            &:after {
+                content          : "";
+                background-image : url('#{$general-img-path}forms/check_white.png');
+            }
+            &:hover {
+                border-color : #65b688;
+            }
+        }
+    }
+}
+
+.checkbox-success .checker:active span, .checkbox-success .checker.active span, .checkbox-success .checker span.checked {
+    border-color     : #65b688;
+    background-color : #65b688;
+}
+
+.checkbox-primary {
+    .checker {
+        span {
+            &:after {
+                content          : "";
+                background-image : url('#{$general-img-path}forms/check_white.png');
+            }
+            &:hover {
+                border-color : #455763;
+            }
+        }
+    }
+}
+
+.checkbox-primary .checker:active span, .checkbox-primary .checker.active span, .checkbox-primary .checker span.checked {
+    border-color     : #455763;
+    background-color : #455763;
+}
+
+.checkbox-info {
+    .checker {
+        span {
+            &:after {
+                content          : "";
+                background-image : url('#{$general-img-path}forms/check_white.png');
+            }
+            &:hover {
+                border-color : #3ca2bb;
+            }
+        }
+    }
+}
+
+.checkbox-info .checker:active span, .checkbox-info .checker.active span, .checkbox-info .checker span.checked {
+    border-color     : #3ca2bb;
+    background-color : #3ca2bb;
+}
+
+.checker:active span, .checker.active span {
+    background-color : #f8f8f8;
+    border-color     : #d5d5d5;
+}
+
+.checker.focus span, .checker:hover span {
+    background-color : #fafafa;
+}
+
+.checker.focus:active span.checked:after, .checker:hover:active span.checked:after, .checker.active:hover span.checked:after, .checker.active.focus span.checked:after {
+    opacity : 0.8;
+    filter  : alpha(opacity=80);
+}
+
+.checker.disabled span, .checker.disabled:active span, .checker.disabled.active span {
+    opacity : 0.6;
+    filter  : alpha(opacity=60);
+}
+
+.checker.disabled span.checked, .checker.disabled:active span.checked, .checker.disabled.active span.checked {
+    opacity : 0.6;
+    filter  : alpha(opacity=60);
+}
+
+.checker.disabled span.checked:after, .checker.disabled:active span.checked:after, .checker.disabled.active span.checked:after {
+    opacity : 1;
+    filter  : alpha(opacity=100);
+}
+
+.choice, .choice span, .choice input {
+    width  : 18px;
+    height : 18px;
+}
+
+.choice {
+    position       : relative;
+    margin-right   : 6px;
+    margin-top     : -3px;
+    display        : inline-block;
+    cursor         : pointer;
+    vertical-align : middle;
+
+    span {
+        border                : 1px solid #c5c5c5;
+        background-color      : #ffffff;
+        display               : -moz-inline-box;
+        display               : inline-block;
+        border-radius         : 50%;
+        -webkit-border-radius : 50%;
+        -moz-border-radius    : 50%;
+        text-align            : center;
+        position              : relative;
+
+        &:after {
+            content    : "";
+            background : url('#{$general-img-path}forms/choice.png') no-repeat 50%;
+            opacity    : 0;
+            filter     : alpha(Opacity=0);
+            display    : block;
+            height     : 100%;
+            width      : 100%;
+            position   : absolute;
+            top        : 0;
+            left       : 0;
+        }
+        &.checked {
+            &:after {
+                content : "";
+                opacity : 1;
+                filter  : alpha(Opacity=100);
+            }
+        }
+    }
+    &.focus {
+        span {
+            &.checked {
+                &:after {
+                    opacity : 1;
+                    filter  : alpha(Opacity=100);
+                }
+            }
+        }
+    }
+    input[type=radio] {
+        position       : absolute;
+        top            : -1px;
+        left           : -1px;
+        z-index        : 2;
+        opacity        : 0;
+        filter         : alpha(opacity=0);
+        width          : 18px;
+        -moz-opacity   : 0;
+        border         : none;
+        background     : none;
+        display        : -moz-inline-box;
+        display        : inline-block;
+        text-align     : center;
+        float          : none;
+        margin         : 0;
+        vertical-align : top;
+        cursor         : pointer;
+    }
+}
+
+.choice:active span, .choice.active span {
+    background-color : #f8f8f8;
+    border-color     : #d5d5d5;
+}
+
+.choice.focus span, .choice:hover span {
+    background-color : #fafafa;
+}
+
+.radio-danger {
+    .choice {
+        span {
+            &:after {
+                content          : "";
+                background-image : url('#{$general-img-path}forms/choice_white.png');
+            }
+            &:hover {
+                border-color : #d65c4f;
+            }
+        }
+    }
+}
+
+.radio-danger .choice:active span, .radio-danger .choice.active span, .radio-danger .choice span.checked {
+    border-color     : #d65c4f;
+    background-color : #d65c4f;
+}
+
+.radio-success {
+    .choice {
+        span {
+            &:after {
+                content          : "";
+                background-image : url('#{$general-img-path}forms/choice_white.png');
+            }
+            &:hover {
+                border-color : #65b688;
+            }
+        }
+    }
+}
+
+.radio-success .choice:active span, .radio-success .choice.active span, .radio-success .choice span.checked {
+    border-color     : #65b688;
+    background-color : #65b688;
+}
+
+.radio-primary {
+    .choice {
+        span {
+            &:after {
+                content          : "";
+                background-image : url('#{$general-img-path}forms/choice_white.png');
+            }
+            &:hover {
+                border-color : #455763;
+            }
+        }
+    }
+}
+
+.radio-primary .choice:active span, .radio-primary .choice.active span, .radio-primary .choice span.checked {
+    border-color     : #455763;
+    background-color : #455763;
+}
+
+.radio-info {
+    .choice {
+        span {
+            &:after {
+                content          : "";
+                background-image : url('#{$general-img-path}forms/choice_white.png');
+            }
+            &:hover {
+                border-color : #3ca2bb;
+            }
+        }
+    }
+}
+
+.radio-info .choice:active span, .radio-info .choice.active span, .radio-info .choice span.checked {
+    border-color     : #3ca2bb;
+    background-color : #3ca2bb;
+}
+
+.choice.focus:active span.checked:after, .choice:hover:active span.checked:after, .choice.active:hover span.checked:after, .choice.active.focus span.checked:after {
+    opacity : 0.8;
+    filter  : alpha(opacity=80);
+}
+
+.choice.disabled span, .choice.disabled:active span, .choice.disabled.active span {
+    opacity : 0.6;
+    filter  : alpha(opacity=60);
+}
+
+.choice.disabled span.checked, .choice.disabled:active span.checked, .choice.disabled.active span.checked {
+    opacity : 0.6;
+    filter  : alpha(opacity=60);
+}
+
+.choice.disabled span.checked:after, .choice.disabled:active span.checked:after, .choice.disabled.active span.checked:after {
+    opacity : 1;
+    filter  : alpha(opacity=100);
+}

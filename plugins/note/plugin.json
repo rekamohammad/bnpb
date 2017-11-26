@@ -1,0 +1,9 @@
+{
+    "name": "Note",
+    "provider": "Botble\\Note\\Providers\\NoteServiceProvider",
+    "plugin": "Botble\\Note\\Plugin",
+    "author": "Sang Nguyen",
+    "url": "http://sangnguyen.info",
+    "version": "1.0",
+    "description": "Note"
+}

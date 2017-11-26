@@ -1,0 +1,1 @@
+<a data-toggle="modal" type="button" href="#add_super_user">{{ trans('bases::system.user.add_user') }}</a>

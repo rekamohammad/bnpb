@@ -1,0 +1,9 @@
+{
+    "name": "Block",
+    "provider": "Botble\\Block\\Providers\\BlockServiceProvider",
+    "plugin": "Botble\\Block\\Plugin",
+    "author": "Sang Nguyen",
+    "url": "http://sangnguyen.info",
+    "version": "1.0",
+    "description": "Block"
+}

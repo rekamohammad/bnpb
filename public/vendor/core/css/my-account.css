@@ -1,0 +1,14 @@
+.profile {
+  margin: 20px 0;
+}
+
+.profile .profile-usermenu ul li a.active {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+
+.profile .profile-usertitle-name {
+  margin: 5px 0 20px;
+}
+
+/*# sourceMappingURL=my-account.css.map */

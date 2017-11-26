@@ -1,0 +1,25 @@
+<?php
+
+namespace Botble\{Plugin}\Models;
+
+use Eloquent;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+/**
+ * Botble\{Plugin}\Models\{Plugin}
+ *
+ * @mixin \Eloquent
+ */
+class {Plugin} extends Eloquent
+{
+    use SoftDeletes;
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = '{plugin}';
+
+    protected $fillable = ['name'];
+}

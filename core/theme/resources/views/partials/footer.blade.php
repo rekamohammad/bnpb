@@ -1,0 +1,1 @@
+{!! Theme::asset()->container('footer')->scripts() !!}

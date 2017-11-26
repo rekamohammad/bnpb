@@ -1,0 +1,1 @@
+<i class="fa fa-plus"></i> {{ trans('bases::forms.create') }}

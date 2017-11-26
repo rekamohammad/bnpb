@@ -1,0 +1,9 @@
+{
+    "name": "Analytics",
+    "provider": "Botble\\Analytics\\Providers\\AnalyticsServiceProvider",
+    "plugin": "Botble\\Analytics\\Plugin",
+    "author": "Sang Nguyen",
+    "url": "http://sangnguyen.info",
+    "version": "1.0",
+    "description": "Analytics"
+}

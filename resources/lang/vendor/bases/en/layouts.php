@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'platform_admin' => 'Platform Administration',
+    'dashboard' => 'Dashboard',
+    'appearance' => 'Appearance',
+    'menu' => 'Menu',
+    'widgets' => 'Widgets',
+    'theme_options' => 'Theme options',
+    'plugins' => 'Plugins',
+    'settings' => 'Settings',
+    'setting_general' => 'General',
+    'feature_access_control' => 'Feature Access Control',
+    'role_permission' => 'Roles and Permissions',
+    'user_management' => 'User Management',
+    'super_user_management' => 'Super User Management',
+    'system_information' => 'System information',
+
+    'theme' => 'Theme',
+    'copyright' => 'Copyright :year &copy; :company. Version: <span>:version</span>',
+    'profile' => 'Profile',
+    'logout' => 'Logout',
+    'no_search_result' => 'No results found, please try with different keywords.',
+    'home' => 'Home',
+    'search' => 'Search',
+    'add_new' => 'Add new',
+    'n_a' => 'N/A',
+    'page_loaded_time' => 'Page loaded in',
+    'view_website' => 'View website',
+];

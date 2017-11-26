@@ -1,0 +1,1 @@
+{"version":3,"sources":["auth.scss"],"names":[],"mappings":"AAAA;EACI,iBAAiB;EACjB,kBAAkB;CACrB","file":"auth.css","sourcesContent":[".b-auth-wrapper {\n    max-width: 400px;\n    margin: 30px auto;\n}"]}

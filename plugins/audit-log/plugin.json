@@ -1,0 +1,9 @@
+{
+    "name": "AuditLog",
+    "provider": "Botble\\AuditLog\\Providers\\AuditLogServiceProvider",
+    "plugin": "Botble\\AuditLog\\Plugin",
+    "author": "Sang Nguyen",
+    "url": "http://sangnguyen.info",
+    "version": "1.0",
+    "description": "Record activities logs"
+}

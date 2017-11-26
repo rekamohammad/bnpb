@@ -1,0 +1,321 @@
+.iconselect-group {
+    [class^="icon-"] {
+        display : block;
+    }
+    input[name=icon] {
+        vertical-align : bottom;
+    }
+}
+
+.item {
+    &.item-page, &.item-category {
+        .fi {
+            padding-left : 10px;
+        }
+    }
+}
+
+#menu-left-hand-administration {
+    $item-color : white;
+    $item-background : #2d3a42;
+    $item-hover : lighten($item-background, 3%);
+    $item-focused : lighten($item-hover, 2%);
+    $icon-size : 16px;
+    $item-inner-margin : 14px;
+    $children-inner-margin-horizontal : $item-inner-margin * 1.5;
+    $children-padding-left : 50px;
+    $item-count-circle-size : 25px;
+    $action-group-margin : 0.15em;
+    $iconselect-grid-size : 5;
+    $iconselect-list-item-size : 65px;
+    $iconselect-border-color : #cccccc;
+    $sky-grey : #f7f7f7;
+    $dirty-grey : #dddddd;
+    $original-kendo-size : 16px;
+    $triangle-size : 14px;
+    $triangle-width : 7px;
+    $triangle-height : 12px;
+    $kendo-electric-blue : #00b0ff;
+
+    .icon {
+        @media (min-width : 992px) {
+            -webkit-transition : all 0.15s ease-in-out;
+            -moz-transition    : all 0.15s ease-in-out;
+            -o-transition      : all 0.15s ease-in-out;
+            transition         : all 0.15s ease-in-out;
+        }
+        vertical-align : text-bottom;
+    }
+    .action-groups {
+        display           : -webkit-flex;
+        display           : flex;
+        -webkit-flex-wrap : wrap;
+        flex-wrap         : wrap;
+        margin            : -1 * $action-group-margin;
+
+        .spacer {
+            -webkit-flex-grow : 1;
+            flex-grow         : 1;
+        }
+    }
+    .action-group {
+        display        : inline-block;
+        vertical-align : middle;
+        margin         : $action-group-margin;
+    }
+    .no-flexbox & {
+        .action-group-center {
+            text-align : center;
+            padding    : 0 5em;
+        }
+        .action-group-right {
+            float : right;
+        }
+        .tree {
+            clear : right;
+        }
+    }
+    .action-new-category {
+        padding-left  : $item-inner-margin;
+        padding-right : $item-inner-margin;
+
+        .icon {
+            margin-right : $item-inner-margin;
+        }
+    }
+    .btn-wide {
+        min-width : 7em;
+    }
+    .action-edit {
+        display        : inline-block;
+        vertical-align : middle;
+        margin         : 0 $item-inner-margin;
+    }
+    .tree {
+        padding : 20px;
+    }
+    .item, .item-preview {
+        display        : inline-block;
+        vertical-align : middle;
+
+        .icon {
+            display   : inline-block;
+            min-width : $icon-size;
+            margin    : $item-inner-margin 0 $item-inner-margin $item-inner-margin;
+        }
+    }
+    .item {
+        background          : $item-background;
+        color               : $item-color;
+        border-left         : 3px solid transparent;
+        min-width           : 23em;
+        display             : -webkit-inline-flex;
+        display             : inline-flex;
+        -webkit-align-items : center;
+        align-items         : center;
+        .fa {
+            margin-left : 10px;
+        }
+    }
+    .name {
+        display           : inline-block;
+        margin            : $item-inner-margin;
+        vertical-align    : middle;
+        -webkit-flex-grow : 1;
+        flex-grow         : 1;
+    }
+    .item-count {
+        display                 : inline-block;
+        display                 : -webkit-flex;
+        display                 : flex;
+        -webkit-align-items     : center;
+        align-items             : center;
+        -webkit-justify-content : center;
+        justify-content         : center;
+        border                  : 1px solid $item-color;
+        border-radius           : $item-count-circle-size / 2;
+        border-radius           : 50%;
+        text-align              : center;
+        width                   : $item-count-circle-size;
+        height                  : $item-count-circle-size;
+        vertical-align          : middle;
+        margin-right            : $item-inner-margin;
+        line-height             : $item-count-circle-size;
+    }
+    .no-flexbox & {
+        .item-category {
+            position : relative;
+
+            .name {
+                margin-right : $item-inner-margin * 2 + $item-count-circle-size;
+            }
+        }
+        .item-count {
+            position      : absolute;
+            top           : 50%;
+            right         : 0;
+            -ms-transform : translateY(-50%);
+            transform     : translateY(-50%);
+        }
+    }
+    // Inline item preview
+    .item-preview {
+        vertical-align : baseline;
+
+        .icon {
+            display : inline;
+            margin  : 0 $item-inner-margin 0 0;
+        }
+        .name {
+            display        : inline;
+            vertical-align : baseline;
+            margin         : 0 0.5em 0 0;
+        }
+    }
+    .iconselect {
+        max-height : $iconselect-list-item-size * $iconselect-grid-size;
+        list-style : none;
+        overflow-y : scroll;
+        font-size  : 0;
+
+        li {
+            display                 : inline-block;
+            vertical-align          : top;
+            width                   : $iconselect-list-item-size;
+            height                  : $iconselect-list-item-size;
+            border                  : 1px solid $iconselect-border-color;
+            text-align              : center;
+            font-size               : 14px;
+            // Flexbox
+            dispay                  : -webkit-inline-flex;
+            display                 : inline-flex;
+            -webkit-align-items     : center;
+            align-items             : center;
+            -webkit-justify-content : center;
+            justify-content         : center;
+            -webkit-flex-direction  : column;
+            flex-direction          : column;
+        }
+        .btn-primary {
+            border-color : transparent;
+        }
+        .no-flexbox & {
+            li {
+                padding-top : $iconselect-list-item-size/3;
+            }
+        }
+    }
+    // Bootstrap modal custom styles
+
+    .modal-for-edit {
+        .modal-text-new {
+            display : none;
+        }
+        &.modal-for-new {
+            .action-delete, .modal-text-edit {
+                display : none;
+            }
+            .modal-text-new {
+                display : inline;
+                display : initial;
+            }
+        }
+        .text {
+            text-align : right;
+        }
+        // Assume target is category by default
+        .modal-text-page {
+            display : none;
+        }
+        &.modal-target-page {
+            .action-delete {
+                display : none;
+            }
+            .modal-text-category {
+                display : none;
+            }
+            .modal-text-page {
+                display : inline;
+            }
+        }
+    }
+    // Bootstrap modal cross-contamination fixes
+    @media (min-width : 768px) {
+        .form-horizontal .control-label {
+            text-align : right;
+        }
+    }
+    // ## Kendo UI styles ##
+
+    .k-item .k-icon {
+        width              : $original-kendo-size - $triangle-height;
+        height             : 0;
+        border-radius      : 0;
+        border-style       : solid;
+        background         : none;
+        opacity            : 1;
+        border-width       : $triangle-width 0 $triangle-width $triangle-height;
+        border-color       : transparent transparent transparent #b4b4b4;
+        $transform : rotate(0);
+        -webkit-transform  : $transform;
+        transform          : $transform;
+        $transition : all 300ms;
+        -webkit-transition : $transition;
+        transition         : $transition;
+
+        &.k-minus {
+            border-color      : transparent transparent transparent $kendo-electric-blue;
+            $transform : rotate(90deg);
+            -webkit-transform : $transform;
+            transform         : $transform;
+        }
+    }
+    // Disable hover/focused background interfering with .item background
+    .k-state-hover, .k-state-focused {
+        background : transparent;
+    }
+    // Custom styles for focus
+    .k-state-focused .item {
+        background : $item-focused;
+    }
+    // Custom styles for hover
+    .k-state-hover .item {
+        background : $item-hover;
+    }
+    // Child items
+    .k-group .k-group {
+        $effect : rgba(0, 0, 0, 0.15);
+
+        // See below
+
+        .item {
+            // Hide icon on child items
+            .icon {
+                display : none;
+            }
+            // Replicate the effect caused by layout.less
+            background : multiply($item-background, $effect);
+        }
+        .k-state-focused .item {
+            background : multiply($item-focused, $effect);
+        }
+        .k-state-hover .item {
+            background : multiply($item-hover, $effect);
+        }
+        .name {
+            margin : $item-inner-margin $children-inner-margin-horizontal;
+        }
+        // Increase indent padding on child items
+        .k-item {
+            padding-left : $children-padding-left;
+        }
+    }
+}
+
+.iconselect-group {
+    .icon-item {
+        display : inline-block;
+        float   : left;
+        width   : 50px;
+    }
+}

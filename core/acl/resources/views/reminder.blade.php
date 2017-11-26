@@ -1,0 +1,1 @@
+{!! trans('acl::users.email_reminder_template', ['name' => $user, 'link' => route('access.reset-password', ['username' => $user, 'token' => $token])]) !!}

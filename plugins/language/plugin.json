@@ -1,0 +1,9 @@
+{
+    "name": "Language",
+    "provider": "Botble\\Language\\Providers\\LanguageServiceProvider",
+    "plugin": "Botble\\Language\\Plugin",
+    "author": "Sang Nguyen",
+    "url": "http://sangnguyen.info",
+    "version": "1.0",
+    "description": "Multilingual for BNPB CMS"
+}

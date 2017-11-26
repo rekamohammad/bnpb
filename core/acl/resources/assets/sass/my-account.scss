@@ -1,0 +1,16 @@
+.profile {
+    margin : 20px 0;
+    .profile-usermenu {
+        ul {
+            li {
+                a.active {
+                    text-decoration  : none;
+                    background-color : #eeeeee;
+                }
+            }
+        }
+    }
+    .profile-usertitle-name {
+        margin : 5px 0 20px;
+    }
+}

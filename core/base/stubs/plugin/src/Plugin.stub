@@ -1,0 +1,71 @@
+<?php
+
+namespace Botble\{Plugin};
+
+use Artisan;
+use Botble\Base\Supports\Commands\Permission;
+use Schema;
+use Botble\Base\Interfaces\PluginInterface;
+
+class Plugin implements PluginInterface
+{
+
+    /**
+     * @return array
+     * @author Sang Nguyen
+     */
+    public static function permissions()
+    {
+        return [
+            [
+                'name' => '{Plugin}',
+                'flag' => '{plugin}.list',
+                'is_feature' => true,
+            ],
+            [
+                'name' => 'Create',
+                'flag' => '{plugin}.create',
+                'parent_flag' => '{plugin}.list',
+            ],
+            [
+                'name' => 'Edit',
+                'flag' => '{plugin}.edit',
+                'parent_flag' => '{plugin}.list',
+            ],
+            [
+                'name' => 'Delete',
+                'flag' => '{plugin}.delete',
+                'parent_flag' => '{plugin}.list',
+            ]
+        ];
+    }
+
+    /**
+     * @author Sang Nguyen
+     */
+    public static function activate()
+    {
+        Permission::registerPermission(self::permissions());
+        Artisan::call('migrate', [
+            '--force' => true,
+            '--path' => 'plugins/{plugin}/database/migrations',
+        ]);
+    }
+
+    /**
+     * @author Sang Nguyen
+     */
+    public static function deactivate()
+    {
+
+    }
+
+    /**
+     * @author Sang Nguyen
+     */
+    public static function remove()
+    {
+        Permission::removePermission(self::permissions());
+        Schema::dropIfExists('{plugin}');
+    }
+}

@@ -1,0 +1,99 @@
+{
+    "name": "bnpb/platform",
+    "description": "The BNPB Platform based on Laravel Framework.",
+    "homepage": "https://BNPB.com",
+    "authors": [
+        {
+            "name": "Staff",
+            "email": "info@gluvia.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+        "php": ">=5.6.4",
+        "baum/baum": "~1.1",
+        "cartalyst/sentinel": "~2.0",
+        "davejamesmiller/laravel-breadcrumbs": "~3.0",
+        "doctrine/dbal": "^2.5",
+        "dompdf/dompdf": "0.6.2",
+        "google/apiclient": "~1.1",
+        "intervention/image": "~2.3",
+        "laravel/framework": "5.4.*",
+        "laravel/socialite": "^3.0",
+        "laravel/tinker": "~1.0",
+        "laravelcollective/html": "5.4.*",
+        "pragmarx/countries": "^0.1.0",
+        "roumen/sitemap": "~2.6",
+        "venturecraft/revisionable": "~1.27",
+        "yajra/laravel-datatables-buttons": "^2.0",
+        "yajra/laravel-datatables-oracle": "~7.8"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~5.7",
+        "barryvdh/laravel-debugbar": "2.*",
+        "barryvdh/laravel-ide-helper": "2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "Botble\\Support\\": "core/support/src",
+            "Botble\\ACL\\": "core/acl/src",
+            "Botble\\Assets\\": "core/assets/src",
+            "Botble\\Base\\": "core/base/src",
+            "Botble\\Dashboard\\": "core/dashboard/src",
+            "Botble\\Media\\": "core/media/src",
+            "Botble\\Menu\\": "core/menu/src",
+            "Botble\\MenuLeftHand\\": "core/menu-left-hand/src",
+            "Botble\\Note\\": "plugins/note/src",
+            "Botble\\Page\\": "core/page/src",
+            "Botble\\SeoHelper\\": "core/seo-helper/src",
+            "Botble\\Widget\\": "core/widget/src",
+            "Botble\\Setting\\": "core/setting/src",
+            "Botble\\Theme\\": "core/theme/src",
+            "Botble\\Shortcode\\": "core/shortcode/src",
+            "Botble\\Blog\\": "plugins/blog/src",
+            "Botble\\RequestLog\\": "plugins/request-log/src",
+            "Botble\\Analytics\\": "plugins/analytics/src",
+            "Botble\\Gallery\\": "plugins/gallery/src",
+            "Botble\\Language\\": "plugins/language/src",
+            "Botble\\Translation\\": "plugins/translation/src",
+            "Botble\\CustomField\\": "plugins/custom-field/src",
+            "Botble\\Contact\\": "plugins/contact/src",
+            "Botble\\Captcha\\": "plugins/captcha/src",
+            "Botble\\AuditLog\\": "plugins/audit-log/src",
+            "Botble\\LogViewer\\": "plugins/log-viewer/src",
+            "Botble\\Backup\\": "plugins/backup/src",
+            "Botble\\Block\\": "plugins/block/src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan optimize"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}

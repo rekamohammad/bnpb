@@ -1,0 +1,17 @@
+<?php
+
+namespace Botble\Menu\Repositories\Interfaces;
+
+use Botble\Support\Repositories\Interfaces\RepositoryInterface;
+
+interface MenuNodeInterface extends RepositoryInterface
+{
+    /**
+     * @param $menu_content_id
+     * @param $parent_id
+     * @param null array
+     * @return array|\Illuminate\Database\Eloquent\Collection|static[]
+     * @author Sang Nguyen
+     */
+    public function getByMenuContentId($menu_content_id, $parent_id, $select = ['*']);
+}

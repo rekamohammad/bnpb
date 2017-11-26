@@ -1,0 +1,9 @@
+{
+    "name": "Contact Form",
+    "provider": "Botble\\Contact\\Providers\\ContactServiceProvider",
+    "plugin": "Botble\\Contact\\Plugin",
+    "author": "Sang Nguyen",
+    "url": "http://sangnguyen.info",
+    "version": "1.0",
+    "description": "Contact Form"
+}

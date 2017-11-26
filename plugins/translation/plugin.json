@@ -1,0 +1,9 @@
+{
+    "name": "Translation",
+    "provider": "Botble\\Translation\\Providers\\TranslationServiceProvider",
+    "plugin": "Botble\\Translation\\Plugin",
+    "author": "Sang Nguyen",
+    "url": "http://sangnguyen.info",
+    "version": "1.0",
+    "description": "Translation"
+}
