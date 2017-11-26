@@ -93,8 +93,14 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
      * @return mixed
      * @author Sang Nguyen
      */
-    public function getRelated($slug, $limit = 3)
+    public function getRelated($slug, $limit = 3, $views = 0)
     {
+        $views = (int)$views + 1;
+        $updateviews = $this->model
+            ->where('posts.slug', '=', $slug)
+            ->update(['posts.views' => $views]);
+        $this->resetModel();
+
         $data = $this->model->where('posts.status', '=', 1)
             ->where('posts.slug', '!=', $slug)
             ->limit($limit)

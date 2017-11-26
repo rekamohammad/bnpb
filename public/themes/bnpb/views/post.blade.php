@@ -61,7 +61,7 @@
     </div>
     <div class="main-box-content">
         <div class="box-style box-style-4">
-            @foreach (get_related_posts($post->slug, 6) as $related_item)
+            @foreach (get_related_posts($post->slug, 6, $post->views) as $related_item)
                 <div class="media-news">
                     <a href="{{ route('public.single.detail', $related_item->slug) }}" title="{{ $related_item->name }}" class="media-news-img">
                         <img class="img-full img-bg" src="{{ get_object_image($related_item->image) }}" style="background-image: url('{{ get_object_image($related_item->image) }}');" alt="{{ $related_item->name }}">

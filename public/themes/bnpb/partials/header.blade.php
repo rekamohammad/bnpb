@@ -50,7 +50,7 @@
                                         </a>
                                     </h1>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 maintain-md">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="pull-right">
@@ -65,13 +65,13 @@
                                             <div class="pull-right">
                                                 <div class="hi-icon-wrap hi-icon-effect-3 hi-icon-effect-3a">
                                                     <a href="{{ setting('facebook') }}" title="Facebook" class="hi-icon fa fa-facebook"></a>
-                                                    <a href="{{ setting('twitter') }}" title="Twitter" class="hi-icon fa fa-google-plus"></a>
-                                                    <a href="{{ setting('instagram') }}" title="Twitter" class="hi-icon fa fa-instagram"></a>
-                                                    <a href="{{ setting('google_plus') }}" title="Google" class="hi-icon fa fa-youtube-play"></a>
+                                                    <a href="{{ setting('twitter') }}" title="Twitter" class="hi-icon fa fa-twitter"></a>
+                                                    <a href="{{ setting('instagram') }}" title="Instagram" class="hi-icon fa fa-instagram"></a>
+                                                    <a href="{{ setting('youtube') }}" title="Youtube" class="hi-icon fa fa-youtube-play"></a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 maintain-search">
                                             <div class="pull-right">
                                                 <form class="navbar-form navbar-right" role="search"
                                                       accept-charset="UTF-8"

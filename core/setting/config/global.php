@@ -134,14 +134,14 @@ return [
                 ],
             ],
             [
-                'label' => trans('settings::setting.general.google_plus'),
+                'label' => trans('settings::setting.general.youtube'),
                 'type' => 'text',
                 'attributes' => [
-                    'name' => 'google_plus',
-                    'value' => null,
+                    'name' => 'youtube',
+                    'value' => '#',
                     'options' => [
                         'class' => 'form-control',
-                        'placeholder' => 'https://plus.google.com/+user',
+                        'placeholder' => 'https://youtube.com',
                     ],
                 ],
             ],
@@ -150,7 +150,7 @@ return [
                 'type' => 'text',
                 'attributes' => [
                     'name' => 'facebook',
-                    'value' => null,
+                    'value' => '#',
                     'options' => [
                         'class' => 'form-control',
                         'placeholder' => 'https://facebook.com/username',

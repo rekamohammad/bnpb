@@ -38,6 +38,24 @@ body {
             opacity: 1;
         }
     }
+    
+    @media (min-width: 768px) and (max-width: 991px){
+        .header {
+            .maintain-md {
+                float: right;
+                .pull-right {
+                    clear: both;
+                }
+                .maintain-search {
+                    display: none;
+                }
+            }
+            .navbar-default .navbar-collapse a {
+                padding: 14px !important;
+            }
+        }
+    }
+
     .header-wrap {
         padding: 30px 0 15px;
         .js-btn-searchtop {
@@ -72,7 +90,7 @@ body {
             border-width: 0;
             a {
                 font-family: 'Roboto';
-                padding: 14px 20px;
+                padding: 14px 32px;
                 font-weight: normal;
                 text-transform: capitalize;
                 font-size: 16px;
@@ -135,7 +153,7 @@ body {
     .header .navbar-default .navbar-nav > li.active a,
     .header .navbar-default .navbar-nav > li:hover a,
     &.index .header .navbar-default .is_home a{
-        padding: 15px 20px;
+        padding: 15px 32px;
         margin-top: -1px;
         margin-bottom: -1px;
         background: $c-blue-light !important;

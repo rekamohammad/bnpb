@@ -152,7 +152,7 @@ theme_option()->setSection([
                 'options' => [
                     'class' => 'form-control',
                     'placeholder' => __('Change Home Tabbed Feed ID'),
-                    'data-counter' => 20,
+                    'data-counter' => 100,
                 ]
             ],
         ],
@@ -184,6 +184,143 @@ theme_option()->setSection([
                 ]
             ],
         ],
+    ],
+]);
+
+theme_option()->setSection([
+    'title' => __('Home Widget Links'),
+    'desc' => __('Update Home Widget Links'),
+    'id' => 'opt-text-subsection-links',
+    'subsection' => true,
+    'icon' => 'fa fa-share-alt',
+    'fields' => [
+        [
+            'id' => 'home-link-diorama',
+            'type' => 'text',
+            'label' => __('Home Link Diorama'),
+            'attributes' => [
+                'name' => 'home-link-diorama',
+                'value' => '#',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Home Link Diorama'),
+                    'data-counter' => 120,
+                ]
+            ],
+        ],
+        [
+            'id' => 'home-link-perpustakaan-online',
+            'type' => 'text',
+            'label' => __('Home Link Perpustakaan Online'),
+            'attributes' => [
+                'name' => 'home-link-perpustakaan-online',
+                'value' => '#',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Home Link Perpustakaan Online'),
+                    'data-counter' => 120,
+                ]
+            ],
+        ],
+        [
+            'id' => 'home-link-bnpb-tv',
+            'type' => 'text',
+            'label' => __('Home Link BNPB TV'),
+            'attributes' => [
+                'name' => 'home-link-bnpb-tv',
+                'value' => '#',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Home Link BNPB TV'),
+                    'data-counter' => 120,
+                ]
+            ],
+        ],
+        [
+            'id' => 'home-link-data-informasi-bencana',
+            'type' => 'text',
+            'label' => __('Home Link Data Informasi Bencana'),
+            'attributes' => [
+                'name' => 'home-link-data-informasi-bencana',
+                'value' => '#',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Home Link Data Informasi Bencana'),
+                    'data-counter' => 120,
+                ]
+            ],
+        ],
+        [
+            'id' => 'home-link-geospasial-bencana',
+            'type' => 'text',
+            'label' => __('Home Link Geospasial Bencana'),
+            'attributes' => [
+                'name' => 'home-link-geospasial-bencana',
+                'value' => '#',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Home Link Geospasial Bencana'),
+                    'data-counter' => 120,
+                ]
+            ],
+        ],
+        [
+            'id' => 'home-link-pantauan-bencana',
+            'type' => 'text',
+            'label' => __('Home Link Pantauan Bencana'),
+            'attributes' => [
+                'name' => 'home-link-pantauan-bencana',
+                'value' => '#',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Home Link Pantauan Bencana'),
+                    'data-counter' => 120,
+                ]
+            ],
+        ],
+        [
+            'id' => 'home-link-lpse',
+            'type' => 'text',
+            'label' => __('Home Link LPSE'),
+            'attributes' => [
+                'name' => 'home-link-lpse',
+                'value' => '#',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Home Link LPSE'),
+                    'data-counter' => 120,
+                ]
+            ],
+        ],
+        [
+            'id' => 'home-link-ppid',
+            'type' => 'text',
+            'label' => __('Home Link PPID'),
+            'attributes' => [
+                'name' => 'home-link-ppid',
+                'value' => '#',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Home Link PPID'),
+                    'data-counter' => 120,
+                ]
+            ],
+        ],
+        [
+            'id' => 'home-link-inarisk',
+            'type' => 'text',
+            'label' => __('Home Link Inarisk'),
+            'attributes' => [
+                'name' => 'home-link-inarisk',
+                'value' => '#',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Home Link Inarisk'),
+                    'data-counter' => 120,
+                ]
+            ],
+        ],
+
     ],
 ]);
 

@@ -258,6 +258,21 @@ body .status-label.status-info span:after {
   }
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  body .header .maintain-md {
+    float: right;
+  }
+  body .header .maintain-md .pull-right {
+    clear: both;
+  }
+  body .header .maintain-md .maintain-search {
+    display: none;
+  }
+  body .header .navbar-default .navbar-collapse a {
+    padding: 14px !important;
+  }
+}
+
 body .header-wrap {
   padding: 30px 0 15px;
 }
@@ -300,7 +315,7 @@ body .header .navbar-default .navbar-collapse {
 
 body .header .navbar-default .navbar-collapse a {
   font-family: 'Roboto';
-  padding: 14px 20px;
+  padding: 14px 32px;
   font-weight: normal;
   text-transform: capitalize;
   font-size: 16px;
@@ -371,7 +386,7 @@ body .hi-icon.fa-youtube-play:after {
 body .header .navbar-default .navbar-nav > li.active a,
 body .header .navbar-default .navbar-nav > li:hover a,
 body.index .header .navbar-default .is_home a {
-  padding: 15px 20px;
+  padding: 15px 32px;
   margin-top: -1px;
   margin-bottom: -1px;
   background: #6e83b8 !important;
@@ -501,6 +516,11 @@ body .footer .footer-end .footer-end-menu li {
 
 body {
   background: #fff;
+}
+
+body #kotakgambar img {
+  max-width: 100% !important;
+  margin-top: 15px;
 }
 
 body .main-content {
@@ -692,6 +712,15 @@ body .aside-box .aside-box-header h4 {
   font-weight: bold;
 }
 
+body .middle-widget .nav-tabs > li > a,
+body .middle-widget .nav-tabs > li.active > a {
+  padding: 10px 35px;
+}
+
+body .middle-widget .nav-tabs > li.active > a {
+  color: #016e36;
+}
+
 body .dotted-button {
   position: relative;
   margin-top: 5px;
@@ -787,7 +816,7 @@ body .main-index .widget-content .widget-title:before {
   height: 15px;
   z-index: 1;
   width: 90%;
-  top: 10px;
+  top: 15px;
   right: 0;
 }
 
@@ -795,9 +824,9 @@ body .main-index .widget-content .widget-title span {
   background: #fff;
   position: relative;
   padding-right: 20px;
-  line-height: 35px;
+  line-height: 45px;
   font-size: 16px;
-  height: 35px;
+  height: 45px;
   z-index: 2;
 }
 

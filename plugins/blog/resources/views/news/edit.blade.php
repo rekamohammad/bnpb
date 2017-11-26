@@ -21,7 +21,7 @@
                             <div class="form-body">
                                 <div class="form-group @if ($errors->has('name')) has-error @endif">
                                     <label for="name" class="control-label required">{{ trans('blog::posts.form.name') }}</label>
-                                    {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name', 'placeholder' => trans('blog::posts.form.name_placeholder'), 'data-counter' => 120]) !!}
+                                    {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'name', 'placeholder' => trans('blog::news.form.name_placeholder'), 'data-counter' => 120]) !!}
                                     {!! Form::error('name', $errors) !!}
                                 </div>
                                 <div class="form-group @if ($errors->has('slug')) has-error @endif">

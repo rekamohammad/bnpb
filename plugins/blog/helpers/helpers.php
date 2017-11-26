@@ -39,9 +39,9 @@ if (!function_exists('get_related_posts')) {
      * @return mixed
      * @author Sang Nguyen
      */
-    function get_related_posts($current_slug, $limit)
+    function get_related_posts($current_slug, $limit, $views = 0)
     {
-        return app(PostInterface::class)->getRelated($current_slug, $limit);
+        return app(PostInterface::class)->getRelated($current_slug, $limit, $views);
     }
 }
 

@@ -27,6 +27,7 @@ return [
             'phone' => 'Phone',
             'hotline' => '	Hotline',
             'google_plus' => 'Google Plus',
+            'youtube' => 'Youtube',
             'facebook' => 'Facebook',
             'twitter' => 'Twitter',
             'show_admin_bar' => 'Show admin bar (When admin logged in, still show admin bar in website) ?',

@@ -8,25 +8,27 @@
                 <div class="row">
                     <div class="col-md-3">
                         @php
-                            echo Theme::partial('post-widget', ['category_ids' => explode(',', theme_option('home-left-feed'))]);
+                            echo Theme::partial('post-popular');
                             echo Theme::partial('mountain-status', ['category_ids' => explode(',', theme_option('mountain-status'))]);
                         @endphp
                         <div class="dynamic-sidebar">
                             {!! dynamic_sidebar('home_left') !!}
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 middle-widget">
                         @php
                             echo Theme::partial('post-slide', ['category_ids' => explode(',', theme_option('home-slider-feed'))]);
                             echo Theme::partial('post-tab', ['category_ids' => explode(',', theme_option('home-tabbed-feed'))]);
                         @endphp
                         <div class="dynamic-sidebar no-title">
-                            {!! dynamic_sidebar('home_center') !!}
+                            @php
+                                echo Theme::partial('post-midpanel');
+                            @endphp
                         </div>
                     </div>
                     <div class="col-md-3">
                         @php
-                            echo Theme::partial('post-widget', ['category_ids' => explode(',', theme_option('home-right-feed'))]);
+                            echo Theme::partial('post-video', ['category_ids' => explode(',', theme_option('home-right-feed'))]);
                         @endphp
                         <div class="dynamic-sidebar">
                             {!! dynamic_sidebar('home_right') !!}

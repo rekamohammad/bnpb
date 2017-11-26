@@ -1,4 +1,10 @@
 body {
+    #kotakgambar {
+        img {
+            max-width: 100% !important;
+            margin-top: 15px;
+        }
+    }
 
     background: $c-white;
 
@@ -178,6 +184,15 @@ body {
         }
     }
 
+    .middle-widget .nav-tabs>li>a,
+    .middle-widget .nav-tabs>li.active>a {
+        padding: 10px 35px;
+    }
+
+    .middle-widget .nav-tabs>li.active>a {
+        color: $c-green;
+    }
+
     .dotted-button {
         position: relative;
         margin-top: 5px;
@@ -270,16 +285,16 @@ body {
                     height: 15px;
                     z-index: 1;
                     width: 90%;
-                    top: 10px;
+                    top: 15px;
                     right: 0;
                 }
                 span {
                     background: $c-white;
                     position: relative;
                     padding-right: 20px;
-                    line-height: 35px;
+                    line-height: 45px;
                     font-size: 16px;
-                    height: 35px;
+                    height: 45px;
                     z-index: 2;
                 }
             }
