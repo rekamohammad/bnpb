@@ -26,7 +26,7 @@
 		          							<button type="button" class="close" data-dismiss="modal">×</button>
 		          						</div>
 			        					<h2>{{ $news_item->name }}</h2>
-			        					<p>{{ $news_item->descrption }}</p>
+			        					<p>{{ $news_item->description }}</p>
 			        					<div class="related">
 			        						<h2>Foto Terkait :</h2>
 			        						<div class="row">
