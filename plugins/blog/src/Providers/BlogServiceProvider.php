@@ -145,6 +145,15 @@ class BlogServiceProvider extends ServiceProvider
                     'icon' => 'fa fa-newspaper-o',
                     'url' => route('news.list'),
                     'permissions' => ['news.list'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-diorama',
+                    'priority' => 3,
+                    'parent_id' => null,
+                    'name' => trans('blog::diorama.menu_name'),
+                    'icon' => 'fa fa-map-o',
+                    'url' => route('diorama.list'),
+                    'permissions' => ['diorama.list'],
                 ]);
         });
     }

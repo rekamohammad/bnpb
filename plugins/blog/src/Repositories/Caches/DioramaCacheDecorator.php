@@ -3,14 +3,14 @@
 namespace Botble\Blog\Repositories\Caches;
 
 use Botble\Support\Repositories\Caches\CacheAbstractDecorator;
-use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Blog\Repositories\Interfaces\NewsInterface;
 use Botble\Support\Services\Cache\CacheInterface;
 
-class PostCacheDecorator extends CacheAbstractDecorator implements PostInterface
+class DioramaCacheDecorator extends CacheAbstractDecorator implements NewsInterface
 {
 
     /**
-     * @var PostInterface
+     * @var NewsInterface
      */
     protected $repository;
 
@@ -21,11 +21,11 @@ class PostCacheDecorator extends CacheAbstractDecorator implements PostInterface
 
     /**
      * PostCacheDecorator constructor.
-     * @param PostInterface $repository
+     * @param NewsInterface $repository
      * @param CacheInterface $cache
      * @author Sang Nguyen
      */
-    public function __construct(PostInterface $repository, CacheInterface $cache)
+    public function __construct(NewsInterface $repository, CacheInterface $cache)
     {
         $this->repository = $repository;
         $this->cache = $cache;
@@ -168,11 +168,6 @@ class PostCacheDecorator extends CacheAbstractDecorator implements PostInterface
      * @author Sang Nguyen
      */
     public function getPopularPosts($limit, array $args = [])
-    {
-        return $this->getDataIfExistCache(__FUNCTION__, func_get_args());
-    }
-
-    public function getDioramaPosts($limit, array $args = [])
     {
         return $this->getDataIfExistCache(__FUNCTION__, func_get_args());
     }

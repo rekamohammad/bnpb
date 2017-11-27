@@ -2,7 +2,7 @@
 
 register_page_template([
     'default' => __('Default'),
-    'home' => __('Home'),
+    'diorama' => __('Diorama'),
     'no-sidebar' => __('No Sidebar')
 ]);
 
@@ -115,6 +115,20 @@ theme_option()->setSection([
     'icon' => 'fa fa-file-text-o',
     'fields' => [
         [
+            'id' => 'diorama-middle',
+            'type' => 'text',
+            'label' => __('Diorama Middle IDs'),
+            'attributes' => [
+                'name' => 'diorama-middle',
+                'value' => '1,2,3',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Diorama Middle IDs'),
+                    'data-counter' => 120,
+                ]
+            ],
+        ],
+        [
             'id' => 'mountain-status',
             'type' => 'text',
             'label' => __('Mountain Status Category ID'),
@@ -124,20 +138,6 @@ theme_option()->setSection([
                 'options' => [
                     'class' => 'form-control',
                     'placeholder' => __('Change Mountain Status Category ID'),
-                    'data-counter' => 20,
-                ]
-            ],
-        ],
-        [
-            'id' => 'home-left-feed',
-            'type' => 'text',
-            'label' => __('Home Left Feed ID'),
-            'attributes' => [
-                'name' => 'home-left-feed',
-                'value' => null,
-                'options' => [
-                    'class' => 'form-control',
-                    'placeholder' => __('Change Home Left Feed ID'),
                     'data-counter' => 20,
                 ]
             ],

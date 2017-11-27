@@ -59,6 +59,20 @@ if (!function_exists('get_posts_by_category')) {
     }
 }
 
+if (!function_exists('get_posts_by_ids')) {
+    /**
+     * @param $post_ids
+     * @param $paginate
+     * @param $limit
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_posts_by_ids($post_ids, $paginate = 12, $limit = 0)
+    {
+        return app(PostInterface::class)->getByIds($post_ids, $paginate, $limit);
+    }
+}
+
 if (!function_exists('get_posts_by_tag')) {
     /**
      * @param $slug
@@ -208,6 +222,19 @@ if (!function_exists('get_popular_posts')) {
     }
 }
 
+if (!function_exists('get_diorama_posts')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_diorama_posts($limit = 10, array $args = [])
+    {
+        return app(PostInterface::class)->getPopularPosts($limit, $args);
+    }
+}
+
 if (!function_exists('get_category_by_id')) {
     /**
      * @param integer $id
@@ -271,6 +298,22 @@ if (!function_exists('get_berita')) {
     {
         $repo = app(CategoryInterface::class);
         $categories = $repo->allBy(['status' => 1, 'slug' => 'berita'], [], ['id', 'name', 'parent_id']);
+        $sortHelper = app(SortItemsWithChildrenHelper::class);
+        $sortHelper
+            ->setChildrenProperty('child_cats')
+            ->setItems($categories);
+        return $sortHelper->sort();
+    }
+}
+
+if (!function_exists('get_diorama')) {
+    /**
+     * @return array
+     */
+    function get_diorama()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'diorama'], [], ['id', 'name', 'parent_id']);
         $sortHelper = app(SortItemsWithChildrenHelper::class);
         $sortHelper
             ->setChildrenProperty('child_cats')

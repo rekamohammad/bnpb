@@ -62,6 +62,14 @@
         $('.banner-slider-wrap').slick({
             dots: true
         });
+        $('#list-diorama').slick({
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: false,
+            centerMode: true,
+            focusOnSelect: true
+        });  
         $('#list-photo').slick({
             slidesToShow: 1,
             slidesToScroll: 1,

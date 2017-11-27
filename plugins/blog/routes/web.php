@@ -61,6 +61,63 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
             ]);
         });
 
+        Route::group(['prefix' => 'diorama'], function () {
+
+            Route::get('/', [
+                'as' => 'diorama.list',
+                'uses' => 'DioramaController@getList',
+            ]);
+
+            Route::get('/create', [
+                'as' => 'diorama.create',
+                'uses' => 'DioramaController@getCreate',
+            ]);
+
+            Route::post('/create', [
+                'as' => 'diorama.create',
+                'uses' => 'DioramaController@postCreate',
+            ]);
+
+            Route::get('/edit/{id}', [
+                'as' => 'diorama.edit',
+                'uses' => 'DioramaController@getEdit',
+            ]);
+
+            Route::post('/edit/{id}', [
+                'as' => 'diorama.edit',
+                'uses' => 'DioramaController@postEdit',
+            ]);
+
+            Route::get('/delete/{id}', [
+                'as' => 'diorama.delete',
+                'uses' => 'DioramaController@getDelete',
+            ]);
+
+            Route::post('/delete-many', [
+                'as' => 'diorama.delete.many',
+                'uses' => 'DioramaController@postDeleteMany',
+                'permission' => 'diorama.delete',
+            ]);
+
+            Route::post('/change-status', [
+                'as' => 'diorama.change.status',
+                'uses' => 'DioramaController@postChangeStatus',
+                'permission' => 'diorama.edit',
+            ]);
+
+            Route::post('/create-slug', [
+                'as' => 'diorama.create.slug',
+                'uses' => 'DioramaController@postCreateSlug',
+                'permission' => 'diorama.create',
+            ]);
+
+            Route::get('/widgets/recent-posts', [
+                'as' => 'diorama.widget.recent-posts',
+                'uses' => 'DioramaController@getWidgetRecentPosts',
+                'permission' => false,
+            ]);
+        });
+
         Route::group(['prefix' => 'posts'], function () {
 
             Route::get('/', [

@@ -61,6 +61,27 @@ class Plugin implements PluginInterface
             ],
 
             [
+                'name' => 'Diorama',
+                'flag' => 'diorama.list',
+                'is_feature' => true,
+            ],
+            [
+                'name' => 'Create',
+                'flag' => 'diorama.create',
+                'parent_flag' => 'diorama.list',
+            ],
+            [
+                'name' => 'Edit',
+                'flag' => 'diorama.edit',
+                'parent_flag' => 'diorama.list',
+            ],
+            [
+                'name' => 'Delete',
+                'flag' => 'diorama.delete',
+                'parent_flag' => 'diorama.list',
+            ],
+
+            [
                 'name' => 'Categories',
                 'flag' => 'categories.list',
                 'is_feature' => true,

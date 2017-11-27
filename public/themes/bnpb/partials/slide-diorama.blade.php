@@ -15,13 +15,13 @@
                            style="display: block">
                             <img class="img-full img-bg" src="{{ get_object_image($feature_item->image, $loop->first ? 'featured' : 'medium') }}" alt="{{ $feature_item->name }}"
                                  style="background-image: url('{{ get_object_image($feature_item->image) }}');">
-                            <span class="slide-item-link"
+                            <!-- <span class="slide-item-link"
                                   title="{{ $feature_item->name }}">
                                 <span class="post-date">
 				                    {{ date('d F Y | H:i', strtotime($feature_item->created_at)) }}WIB
 				                </span>
                                 <span><h3>{{ $feature_item->name }}</h3></span>
-                            </span>
+                            </span> -->
                         </a>
 	                </div>
     			@endforeach

@@ -73,13 +73,15 @@
                     </div>
                 </div>
 
-                @include('blog::categories.partials.categories-multi', [
-                    'name' => 'categories[]',
-                    'title' => trans('blog::posts.form.categories'),
-                    'value' => $selected_categories,
-                    'categories' => $categories,
-                    'object' => $post
-                ])
+                <div class="hide">
+                    @include('blog::categories.partials.categories-multi', [
+                        'name' => 'categories[]',
+                        'title' => trans('blog::posts.form.categories'),
+                        'value' => $selected_categories,
+                        'categories' => $categories,
+                        'object' => $post
+                    ])
+                </div>
 
                 <div class="widget meta-boxes">
                     <div class="widget-title">

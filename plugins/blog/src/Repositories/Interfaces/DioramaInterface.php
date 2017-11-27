@@ -4,7 +4,7 @@ namespace Botble\Blog\Repositories\Interfaces;
 
 use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 
-interface PostInterface extends RepositoryInterface
+interface DioramaInterface extends RepositoryInterface
 {
 
     /**
@@ -108,5 +108,4 @@ interface PostInterface extends RepositoryInterface
      * @author Sang Nguyen
      */
     public function getPopularPosts($limit, array $args = []);
-    public function getDioramaPosts($limit, array $args = []);
 }
