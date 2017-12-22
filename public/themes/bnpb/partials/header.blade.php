@@ -18,7 +18,15 @@
 
     {!! Theme::header() !!}
     <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
-
+    <style>
+      @media (max-width: 767px) {
+	body .middle-widget .nav-tabs>li {width: 100%;}
+	body .footer .panel.panel-default {width: 100%;}
+	body .footer .panel.panel-default .footer-grids {margin-top: 38px;}
+	body .footer > .container > .row > .col-md-2.col-sm-6{display:none;}
+	body .footer > .container > .row > .col-md-2.col-sm-6:last-child{display:block;}
+      }
+    </style>
     @php
         $_current = explode('.',Route::currentRouteName());
     @endphp
@@ -68,8 +76,8 @@
                                             <div class="hi-icon-wrap hi-icon-effect-3 hi-icon-effect-3a">
                                                 <a href="{{ setting('facebook') }}" title="Facebook" class="hi-icon fa fa-facebook"></a>
                                                 <a href="{{ setting('twitter') }}" title="Twitter" class="hi-icon fa fa-twitter"></a>
-                                                <a href="{{ setting('instagram') }}" title="Instagram" class="hi-icon fa fa-instagram"></a>
-                                                <a href="{{ setting('youtube') }}" title="Youtube" class="hi-icon fa fa-youtube-play"></a>
+                                                <a href="https://www.instagram.com/bnpb_indonesia/" title="Instagram" class="hi-icon fa fa-instagram"></a>
+                                                <a href="https://www.youtube.com/user/BNPBIndonesia/" title="Youtube" class="hi-icon fa fa-youtube-play"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -141,7 +149,7 @@
             @else
                 <section class="header-hotnews">
                     <div class="container">
-                        <div class="hotnews-content">
+                       <!--  <div class="hotnews-content">
                             <h2 class="hotnews-tt"><i class="fa fa-bullhorn"></i> {{ __('Flash News') }}</h2>
                             <div class="hotnews-dv">
                                 <div class="hotnews-slideshow">
@@ -153,7 +161,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> !-->
                     </div>
                 </section>
             @endif  

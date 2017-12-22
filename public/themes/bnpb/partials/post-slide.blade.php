@@ -10,7 +10,7 @@
 	        @if ($_news[$catIds])
     			@foreach ($_news[$catIds] as $feature_item)
 				    <div class="slide-item">
-                        <a href="{{ route('public.single.detail', $feature_item->slug) }}"
+                        <a href="#"
                            title="{{ $feature_item->name }}"
                            style="display: block">
                             <img class="img-full img-bg" src="{{ get_object_image($feature_item->image, $loop->first ? 'featured' : 'medium') }}" alt="{{ $feature_item->name }}"

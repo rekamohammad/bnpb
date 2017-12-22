@@ -228,7 +228,7 @@
         </div>
     </div>
     </main>
-@else
+    @else
     <main class="main" id="main">
     <div class="container">
     <div class="main-content">
@@ -259,7 +259,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-10">
+           {{--  <div class="col-md-3">
+                <div class="dynamic-sidebar">
+                    @php
+                        echo Theme::partial('post-popular');
+                        echo Theme::partial('mountain-status', ['category_ids' => explode(',', theme_option('mountain-status'))]);
+                    @endphp
+                        {!! dynamic_sidebar('home_left') !!}
+                </div>
+            </div> --}}
+            <div class="col-md-9 middle-widget">
                 <div class="row">
                     <div class="col-md-12">
                         {!! Theme::breadcrumb()->render() !!}

@@ -119,12 +119,12 @@
                         @foreach ($posts as $post)
                             <div class="media-news block-has-border">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                 <!--   <div class="col-md-4">
                                         <a href="{{ route('public.single.detail', $post->slug) }}" title="{{ $post->name }}">
                                             <img class="img-full img-bg" src="{{ get_object_image($post->image, 'medium') }}" style="background-image: url('{{ get_object_image($post->image) }}');" alt="{{ $post->name }}">
                                         </a>
-                                    </div>
-                                    <div class="col-md-8">
+                                    </div> !-->
+                                    <div class="col-md-12">
                                         <a href="{{ route('public.single.detail', $post->slug) }}"
                                            title="{{ $post->name }}">
                                             <span class="post-date">
@@ -149,11 +149,24 @@
         </section>
         @if ($posts->count() > 0)
             <nav class="pagination-wrap">
-                {!! $posts->links() !!}
+		@php
+		$path = $_SERVER['REQUEST_URI'];
+		$folders = explode('/', $path);
+		$getSplit =  explode('?',$folders[2]);
+		@endphp 	
+                {!! $posts->setPath($getSplit[0]) !!}
             </nav>
         @endif
     </div>
-    <div class="col-md-4">
+    {{-- <div class="col-md-4">
         {!! Theme::partial('sidebar') !!}
+    </div> --}}
+    <div class="col-md-4" style="margin-top: -70px;">
+        @php
+            echo Theme::partial('post-video', ['category_ids' => explode(',', theme_option('home-right-feed'))]);
+        @endphp
+        <div class="dynamic-sidebar">
+            {!! dynamic_sidebar('home_right') !!}
+        </div>
     </div>
 @endif
