@@ -3,9 +3,9 @@
 namespace Botble\Blog\Repositories\Eloquent;
 
 use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Blog\Repositories\Interfaces\NewsInterface;
 
-class PostRepository extends RepositoriesAbstract implements PostInterface
+class PublikasiRepository extends RepositoriesAbstract implements NewsInterface
 {
 
     /**
@@ -26,6 +26,8 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         if (empty($slug)) {
             $slug = time();
         }
+
+        
 
         $this->resetModel();
         return $slug;
@@ -93,14 +95,8 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
      * @return mixed
      * @author Sang Nguyen
      */
-    public function getRelated($slug, $limit = 3, $views = 0)
+    public function getRelated($slug, $limit = 3)
     {
-        $views = (int)$views + 1;
-        $updateviews = $this->model
-            ->where('posts.slug', '=', $slug)
-            ->update(['posts.views' => $views]);
-        $this->resetModel();
-
         $data = $this->model->where('posts.status', '=', 1)
             ->where('posts.slug', '!=', $slug)
             ->limit($limit)
@@ -126,27 +122,6 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->join('post_category', 'post_category.post_id', '=', 'posts.id')
             ->join('categories', 'post_category.category_id', '=', 'categories.id')
             ->whereIn('post_category.category_id', $category_id)
-            ->select('posts.*')
-            ->distinct()
-            ->orderBy('posts.created_at', 'desc');
-        $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME);
-        if ($paginate != 0) {
-            return $data->paginate($paginate);
-        }
-        $data = $data->limit($limit)->get();
-        $this->resetModel();
-        return $data;
-    }
-
-    public function getByIds($post_ids, $paginate = 12, $limit = 0)
-    {
-        if (!is_array($post_ids)) {
-            $post_ids = [$post_ids];
-        }
-        $data = $this->model->where('posts.status', '=', 1)
-            // ->join('post_category', 'post_category.post_id', '=', 'posts.id')
-            // ->join('categories', 'post_category.post_ids', '=', 'categories.id')
-            ->whereIn('posts.id', $post_ids)
             ->select('posts.*')
             ->distinct()
             ->orderBy('posts.created_at', 'desc');
@@ -267,13 +242,13 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
      */
     public function getAllPosts($active = true)
     {
-        $data = $this->model->select('posts.*');
-        if ($active) {
-            $data = $data->where(['posts.status' => 1]);
-        }
+        // $data = $this->model->select('posts.*');
+        // if ($active) {
+        //     $data = $data->where(['posts.status' => 1]);
+        // }
 
-        return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)
-            ->get();
+        // return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)
+        //     ->get();
     }
 
     /**
@@ -284,54 +259,12 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
      */
     public function getPopularPosts($limit, array $args = [])
     {
-        $data = $this->model->orderBy('posts.views', 'DESC')
-            ->select('posts.*')
-            ->limit($limit);
-        if (!empty(array_get($args, 'where'))) {
-            $data = $data->where($args['where']);
-        }
-        return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
+        // $data = $this->model->orderBy('posts.views', 'DESC')
+        //     ->select('posts.*')
+        //     ->limit($limit);
+        // if (!empty(array_get($args, 'where'))) {
+        //     $data = $data->where($args['where']);
+        // }
+        // return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
     }
-    
-    public function getDioramaPosts($limit, array $args = [])
-    {
-        $category_id = get_diorama()[0]['attributes']['id'];
-        $data = $this->model->orderBy('posts.updated_at', 'DESC')
-            ->select('posts.*')
-            ->where('posts.category', '=', $id)
-            ->limit($limit);
-        return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
-    }
-
-    public function getPublikasiPosts($limit, array $args = [])
-    {
-        $category_id = get_publikasi()[0]['attributes']['id'];
-        $data = $this->model->orderBy('posts.updated_at', 'DESC')
-            ->select('posts.*')
-            ->where('posts.category', '=', $id)
-            ->limit($limit);
-        return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
-    }
-
-    // public function getDioramaPosts($limit, array $args = [], $paginate = 0 )
-    // {
-    //     $category_id = get_diorama()[0]['attributes']['id'];
-    //     if (!is_array($category_id)) {
-    //         $category_id = [$category_id];
-    //     }
-    //     $data = $this->model->where('posts.status', '=', 1)
-    //         ->join('post_category', 'post_category.post_id', '=', 'posts.id')
-    //         ->join('categories', 'post_category.category_id', '=', 'categories.id')
-    //         ->whereIn('post_category.category_id', $category_id)
-    //         ->select('posts.*')
-    //         ->distinct()
-    //         ->orderBy('posts.created_at', 'desc');
-    //     $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME);
-    //     if ($paginate != 0) {
-    //         return $data->paginate($paginate);
-    //     }
-    //     $data = $data->limit($limit)->get();
-    //     $this->resetModel();
-    //     return $data;
-    // }
 }

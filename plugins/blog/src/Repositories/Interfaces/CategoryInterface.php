@@ -49,6 +49,18 @@ interface CategoryInterface extends RepositoryInterface
     public function getCategoryById($id);
 
     /**
+     * @param $id
+     * @return mixed
+     */
+    public function getCategoryByParentId($id);
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getPostCategoryByPostId($id);
+
+    /**
      * @param array $select
      * @param array $orderBy
      * @return Collection

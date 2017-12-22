@@ -118,6 +118,63 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
             ]);
         });
 
+        Route::group(['prefix' => 'publikasi'], function () {
+
+            Route::get('/', [
+                'as' => 'publikasi.list',
+                'uses' => 'PublikasiController@getList',
+            ]);
+
+            Route::get('/create', [
+                'as' => 'publikasi.create',
+                'uses' => 'PublikasiController@getCreate',
+            ]);
+
+            Route::post('/create', [
+                'as' => 'publikasi.create',
+                'uses' => 'PublikasiController@postCreate',
+            ]);
+
+            Route::get('/edit/{id}', [
+                'as' => 'publikasi.edit',
+                'uses' => 'PublikasiController@getEdit',
+            ]);
+
+            Route::post('/edit/{id}', [
+                'as' => 'publikasi.edit',
+                'uses' => 'PublikasiController@postEdit',
+            ]);
+
+            Route::get('/delete/{id}', [
+                'as' => 'publikasi.delete',
+                'uses' => 'PublikasiController@getDelete',
+            ]);
+
+            Route::post('/delete-many', [
+                'as' => 'publikasi.delete.many',
+                'uses' => 'PublikasiController@postDeleteMany',
+                'permission' => 'publikasi.delete',
+            ]);
+
+            Route::post('/change-status', [
+                'as' => 'publikasi.change.status',
+                'uses' => 'PublikasiController@postChangeStatus',
+                'permission' => 'publikasi.edit',
+            ]);
+
+            Route::post('/create-slug', [
+                'as' => 'publikasi.create.slug',
+                'uses' => 'PublikasiController@postCreateSlug',
+                'permission' => 'publikasi.create',
+            ]);
+
+            Route::get('/widgets/recent-posts', [
+                'as' => 'publikasi.widget.recent-posts',
+                'uses' => 'PublikasiController@getWidgetRecentPosts',
+                'permission' => false,
+            ]);
+        });
+
         Route::group(['prefix' => 'posts'], function () {
 
             Route::get('/', [

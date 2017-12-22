@@ -154,6 +154,15 @@ class BlogServiceProvider extends ServiceProvider
                     'icon' => 'fa fa-map-o',
                     'url' => route('diorama.list'),
                     'permissions' => ['diorama.list'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-publikasi',
+                    'priority' => 4,
+                    'parent_id' => null,
+                    'name' => trans('blog::publikasi.menu_name'),
+                    'icon' => 'fa fa-list-alt',
+                    'url' => route('publikasi.list'),
+                    'permissions' => ['publikasi.list'],
                 ]);
         });
     }

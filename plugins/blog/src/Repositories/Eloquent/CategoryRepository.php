@@ -113,6 +113,37 @@ class CategoryRepository extends RepositoriesAbstract implements CategoryInterfa
     }
 
     /**
+     * @param $id
+     * @return mixed
+     */
+    public function getCategoryByParentId($id)
+    {
+        $data = $this->model->where(['categories.parent_id' => $id, 'categories.status' => 1]);
+
+        $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, CATEGORY_MODULE_SCREEN_NAME)->get();
+
+        $this->resetModel();
+        return $data;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getPostCategoryByPostId($id)
+    {
+        $data = $this->model->select('categories.id', 'categories.name')
+                            ->join('post_category', 'post_category.category_id', '=', 'categories.id')
+                            ->where(['post_category.post_id' => $id])
+                            ->orderBy('post_category.id', 'desc');
+
+        $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, CATEGORY_MODULE_SCREEN_NAME)->get();
+
+        $this->resetModel();
+        return $data;
+    }
+
+    /**
      * @param array $select
      * @param array $orderBy
      * @return Collection

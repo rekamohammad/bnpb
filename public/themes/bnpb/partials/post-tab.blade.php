@@ -11,11 +11,11 @@
 	    	@php
 	    		$_cats[$catIds] = get_category_by_id($catIds);
 		    @endphp
-		    @if ($catIds == 'Berita Terbaru')
+		    @if ($catIds == 'Berita Terpopuler')
 		    	@php
 		    		$_cats[$catIds] = get_category_by_id(17);
 			    @endphp
-        		<li class="{{$_tab}}"><a data-toggle="tab" href="#tab01">Berita Terbaru</a></li>
+        		<li class="{{$_tab}}"><a data-toggle="tab" href="#tab01">Berita Terpopuler</a></li>
 		    @elseif ($catIds == 'Siaran Pers')
 		    	@php
 		    		$_cats[$catIds] = get_category_by_id(23);
@@ -32,13 +32,13 @@
 
     <div class="tab-content green-section">
     	@foreach ($category_ids as $catIds)
-    		@if ($catIds == 'Berita Terbaru')
+    		@if ($catIds == 'Berita Terpopuler')
         		<div id="tab01" class="tab-pane fade in {{$_pane}}">
 			        @php
-			            $_news[$catIds] = get_posts_by_category(17,5,5);
+						$_news = get_popular_posts(5);
 			        @endphp
-			        @if (count($_news[$catIds]) > 0)
-			            @foreach ($_news[$catIds] as $news_item)
+			        @if (count($_news) > 0)
+			            @foreach ($_news as $news_item)
 			            <a href="{{ route('public.single.detail', $news_item->slug) }}"
 			               title="{{ $news_item->name }}" class="block-has-border">
 			                <span class="post-date">
@@ -52,7 +52,7 @@
 			            @endforeach
 			            <a href="{{ route('public.single.detail', $_cats[$catIds]->slug) }}" class="block-button">
 			                <span class="post-date">
-			                    Berita Terbaru Lainnya
+			                    Berita Terpopuler Lainnya
 			                </span>
 			            </a>
 			        @endif

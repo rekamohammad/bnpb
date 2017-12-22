@@ -235,6 +235,19 @@ if (!function_exists('get_diorama_posts')) {
     }
 }
 
+if (!function_exists('get_publikasi_posts')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_publikasi_posts($limit = 10, array $args = [])
+    {
+        return app(PostInterface::class)->getPopularPosts($limit, $args);
+    }
+}
+
 if (!function_exists('get_category_by_id')) {
     /**
      * @param integer $id
@@ -244,6 +257,30 @@ if (!function_exists('get_category_by_id')) {
     function get_category_by_id($id)
     {
         return app(CategoryInterface::class)->getCategoryById($id);
+    }
+}
+
+if (!function_exists('get_category_by_parent_id')) {
+    /**
+     * @param integer $id
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_category_by_parent_id($id)
+    {
+        return app(CategoryInterface::class)->getCategoryByParentId($id);
+    }
+}
+
+if (!function_exists('get_post_category_by_post_id')) {
+    /**
+     * @param integer $id
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_post_category_by_post_id($id)
+    {
+        return app(CategoryInterface::class)->getPostCategoryByPostId($id);
     }
 }
 
@@ -322,6 +359,105 @@ if (!function_exists('get_diorama')) {
     }
 }
 
+if (!function_exists('get_publikasi')) {
+    /**
+     * @return array
+     */
+    function get_publikasi()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'publikasi'], [], ['id', 'name', 'parent_id']);
+        $sortHelper = app(SortItemsWithChildrenHelper::class);
+        $sortHelper
+            ->setChildrenProperty('child_cats')
+            ->setItems($categories);
+        return $sortHelper->sort();
+    }
+}
+
+if (!function_exists('get_publikasi_poster')) {
+    /**
+     * @return array
+     */
+    function get_publikasi_poster()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'poster'], [], ['id', 'name', 'parent_id']);
+        return $categories;
+    }
+}
+
+if (!function_exists('get_publikasi_leaflet')) {
+    /**
+     * @return array
+     */
+    function get_publikasi_leaflet()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'leaflet'], [], ['id', 'name', 'parent_id']);
+        return $categories;
+    }
+}
+
+if (!function_exists('get_publikasi_buku')) {
+    /**
+     * @return array
+     */
+    function get_publikasi_buku()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'buku'], [], ['id', 'name', 'parent_id']);
+        return $categories;
+}
+
+if (!function_exists('get_publikasi_infografis')) {
+    /**
+     * @return array
+     */
+    function get_publikasi_infografis()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['slug' => 'infografis'], [], ['id', 'name', 'parent_id']);
+        return $categories;
+    }
+}
+
+if (!function_exists('get_publikasi_foto')) {
+    /**
+     * @return array
+     */
+    function get_publikasi_foto()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'foto'], [], ['id', 'name', 'parent_id']);
+        return $categories;
+    }
+}
+
+if (!function_exists('get_publikasi_buletin_bencana')) {
+    /**
+     * @return array
+     */
+    function get_publikasi_buletin_bencana()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'buletin-bencana'], [], ['id', 'name', 'parent_id']);
+        return $categories;
+    }
+}
+
+if (!function_exists('get_publikasi_jurnal')) {
+    /**
+     * @return array
+     */
+    function get_publikasi_jurnal()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'jurnal'], [], ['id', 'name', 'parent_id']);
+        return $categories;
+    }
+}
+
 if (!function_exists('register_post_format')) {
     /**
      * @param array $formats
@@ -344,4 +480,5 @@ if (!function_exists('get_post_formats')) {
     {
         return PostFormat::getPostFormats($convert_to_list);
     }
+}
 }

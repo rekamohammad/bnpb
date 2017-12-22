@@ -82,6 +82,27 @@ class Plugin implements PluginInterface
             ],
 
             [
+                'name' => 'Publikasi',
+                'flag' => 'publikasi.list',
+                'is_feature' => true,
+            ],
+            [
+                'name' => 'Create',
+                'flag' => 'publikasi.create',
+                'parent_flag' => 'publikasi.list',
+            ],
+            [
+                'name' => 'Edit',
+                'flag' => 'publikasi.edit',
+                'parent_flag' => 'publikasi.list',
+            ],
+            [
+                'name' => 'Delete',
+                'flag' => 'publikasi.delete',
+                'parent_flag' => 'publikasi.list',
+            ],
+
+            [
                 'name' => 'Categories',
                 'flag' => 'categories.list',
                 'is_feature' => true,
