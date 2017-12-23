@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-3">
                     @php
-                        echo Theme::partial('post-newest');
+                        echo Theme::partial('post-popular');
                         echo Theme::partial('mountain-status', ['category_ids' => explode(',', theme_option('mountain-status'))]);
                     @endphp
                     <div class="dynamic-sidebar">
