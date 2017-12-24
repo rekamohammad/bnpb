@@ -78,7 +78,7 @@
 
                 <div class="widget meta-boxes">
                     <div class="widget-title">
-                        <h4><span class="required">{{ trans('bases::forms.image') }}</span></h4>
+                        <h4><span>{{ trans('bases::forms.image') }}</span></h4>
                     </div>
                     <div class="widget-body">
                         {!! Form::mediaImage('image', old('image')) !!}

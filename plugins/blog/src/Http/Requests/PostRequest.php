@@ -20,7 +20,6 @@ class PostRequest extends Request
             'description' => 'required|max:300',
             'content' => 'required',
             'categories' => 'required',
-            'image' => 'required',
             'slug' => 'required',
         ];
     }

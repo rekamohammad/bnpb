@@ -11,6 +11,8 @@ return [
         'name_placeholder' => 'Post\'s name (Maximum 120 characters)',
         'description' => 'Description',
         'description_placeholder' => 'Short description for post (Maximum 400 characters)',
+        'created_at'=>'Created At',
+        'date_placeholder' => 'Created At',
         'categories' => 'Categories',
         'tags' => 'Tags',
         'tags_placeholder' => 'Tags',

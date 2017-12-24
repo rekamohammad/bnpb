@@ -4,6 +4,7 @@ namespace Botble\Blog\Http\Controllers;
 
 use Botble\Base\Http\Controllers\BaseController;
 use Botble\Blog\Http\Requests\PostRequest;
+use Botble\Blog\Http\Requests\PostRequestEdit;
 use Assets;
 use Botble\Blog\Models\Post;
 use Botble\Blog\Repositories\Interfaces\CategoryInterface;
@@ -149,7 +150,7 @@ class PostController extends BaseController
      * @return \Illuminate\Http\RedirectResponse
      * @author Sang Nguyen
      */
-    public function postEdit($id, PostRequest $request, StoreTagService $tagService, StoreCategoryService $categoryService)
+    public function postEdit($id, PostRequestEdit $request, StoreTagService $tagService, StoreCategoryService $categoryService)
     {
         $post = $this->postRepository->findById($id);
         if (empty($post)) {

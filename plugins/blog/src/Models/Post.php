@@ -68,6 +68,7 @@ class Post extends Eloquent
         'format_type',
         'status',
         'user_id',
+        'created_at',
     ];
 
     /**

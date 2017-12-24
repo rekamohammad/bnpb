@@ -33,6 +33,11 @@
                                     {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 4, 'id' => 'description', 'placeholder' => trans('blog::posts.form.description_placeholder'), 'data-counter' => 300]) !!}
                                     {!! Form::error('description', $errors) !!}
                                 </div>
+                                <div class="form-group @if ($errors->has('created_at')) has-error @endif">
+                                    <label for="created_at" class="control-label required">{{ trans('blog::posts.form.created_at') }}</label>
+                                    {!! Form::text('created_at', null, ['class' => 'form-control', 'id' => 'created_at', 'placeholder' => trans('blog::posts.form.date_placeholder'), 'data-counter' => 20]) !!}
+                                    {!! Form::error('created_at', $errors) !!}
+                                </div>
                                 <div class="form-group @if ($errors->has('featured')) has-error @endif">
                                     {!! Form::onOff('featured', $post->featured) !!}
                                     <label for="featured">{{ trans('bases::forms.featured') }}</label>
@@ -83,7 +88,7 @@
 
                 <div class="widget meta-boxes">
                     <div class="widget-title">
-                        <h4><span class="required">{{ trans('bases::forms.image') }}</span></h4>
+                        <h4><span>{{ trans('bases::forms.image') }}</span></h4>
                     </div>
                     <div class="widget-body">
                         {!! Form::mediaImage('image', $post->image) !!}
