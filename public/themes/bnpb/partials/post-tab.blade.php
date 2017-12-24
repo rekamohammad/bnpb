@@ -35,7 +35,7 @@
     		@if ($catIds == 'Berita Terbaru')
         		<div id="tab01" class="tab-pane fade in {{$_pane}}">
 			        @php
-			            $_news[$catIds] = get_posts_by_category(17,5,5);
+			            $_news[$catIds] = get_posts_by_category(17,10,5);
 			        @endphp
 			        @if (count($_news[$catIds]) > 0)
 			            @foreach ($_news[$catIds] as $news_item)
@@ -77,7 +77,7 @@
 			            @endforeach
 			            <a href="{{ route('public.single.detail', $_cats[$catIds]->slug) }}" class="block-button">
 			                <span class="post-date">
-			                    Berita Terbaru Lainnya
+							Siaran Pers Lainnya
 			                </span>
 			            </a>
 			        @endif
@@ -85,7 +85,7 @@
     		@elseif ($_cats[$catIds])
 			    <div id="tab{{$catIds}}" class="tab-pane fade in {{$_pane}}">
 			        @php
-			            $_news[$catIds] = get_posts_by_category($catIds,5,5);
+			            $_news[$catIds] = get_posts_by_category($catIds,10,5);
 			        @endphp
 			        @if (count($_news[$catIds]) > 0)
 			            @foreach ($_news[$catIds] as $news_item)
@@ -102,7 +102,7 @@
 			            @endforeach
 			            <a href="{{ route('public.single.detail', $_cats[$catIds]->slug) }}" class="block-button">
 			                <span class="post-date">
-			                    Berita Terbaru Lainnya
+			                    Pengumuman Lainnya
 			                </span>
 			            </a>
 			        @endif
