@@ -97,13 +97,13 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     {
         $views = (int)$views + 1;
         $updateviews = $this->model
-            ->where('posts.slug', '=', $slug)
+            ->where('posts.category','=', $slug)
             ->update(['posts.views' => $views]);
         $this->resetModel();
 
         $data = $this->model->where('posts.status', '=', 1)
-            ->where('posts.slug', '!=', $slug)
-            ->limit($limit)
+            ->where('posts.category', '=', $slug)
+            ->limit($limit)->inRandomOrder()
             ->orderBy('posts.created_at', 'desc');
         $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
         $this->resetModel();
@@ -296,16 +296,6 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     public function getDioramaPosts($limit, array $args = [])
     {
         $category_id = get_diorama()[0]['attributes']['id'];
-        $data = $this->model->orderBy('posts.updated_at', 'DESC')
-            ->select('posts.*')
-            ->where('posts.category', '=', $id)
-            ->limit($limit);
-        return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
-    }
-
-    public function getPublikasiPosts($limit, array $args = [])
-    {
-        $category_id = get_publikasi()[0]['attributes']['id'];
         $data = $this->model->orderBy('posts.updated_at', 'DESC')
             ->select('posts.*')
             ->where('posts.category', '=', $id)
