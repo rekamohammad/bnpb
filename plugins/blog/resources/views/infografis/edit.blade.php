@@ -36,8 +36,8 @@
                                     <div id="edit-slug-box">
                                         <label class="control-label required" for="current-slug">Permalink:</label>
                                         <span id="sample-permalink">
-                                            <a class="permalink" target="_blank" href="https://bnpb.dev/infografis/detail/{{ substr($post->slug,18) }}">
-                                                <span class="default-slug">https://bnpb.dev/infografis/detail/<span id="editable-post-name">{{ substr($post->slug,18) }}</span>.html</span>
+                                            <a class="permalink" target="_blank" href="{{ url('/infografis/detail/'.substr($post->slug,18)) }}">
+                                                <span class="default-slug">{{ url('infografis/detail/') }}/<span id="editable-post-name">{{ substr($post->slug,18) }}</span>.html</span>
                                             </a>
                                         </span>
                                         ‎<span id="edit-slug-buttons">
@@ -47,7 +47,7 @@
                                         </span>
                                     </div>
                                     <input id="current-slug" name="slug" value="{{ substr($post->slug,18) }}" type="hidden">
-                                    <div data-url="https://bnpb.dev/admin/infografis/create-slug" data-view="https://bnpb.dev/infografis/detail/{{ substr($post->slug,18) }}" id="object_id" data-id="{{ $post->id }}"></div>
+                                    <div data-url="{{ url('/admin/infografis/create-slug/') }}" data-view="{{ url('/infografis/detail/'.substr($post->slug,18)) }}" id="object_id" data-id="{{ $post->id }}"></div>
                                 </div>
                                 <div class="form-group @if ($errors->has('image')) has-error @endif">
                                     <label class="control-label required">{{ trans('blog::infografis.form.thumbnail') }}</label>
