@@ -4,8 +4,6 @@ namespace Botble\Blog\Repositories\Eloquent;
 
 use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
-use DB;
-use Carbon\Carbon;
 
 class PostRepository extends RepositoriesAbstract implements PostInterface
 {
