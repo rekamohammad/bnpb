@@ -3,15 +3,9 @@
 @endphp
 <div class="widget-content green-section">
 	<div class="tab-pane fade in active">
-		@if (Theme::agent()->isMobile())
-			@php
-				$_news = get_popular_posts(10);
-			@endphp
-		@else
-			@php
-				$_news = get_popular_posts(5);
-			@endphp
-		@endif
+		@php
+			$_news = get_popular_posts(5);
+		@endphp
 		<div class="widget-title">
 			<span>Berita Populer</span>
 		</div>
