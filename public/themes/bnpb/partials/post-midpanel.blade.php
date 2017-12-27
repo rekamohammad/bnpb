@@ -1,6 +1,6 @@
 <div class="panel-category">
 	<div class="col-xs-12 col-sm-4 col-md-4 padd-panel">
-		<a href="{!! __(theme_option('home-link-diorama')) !!}">
+		<a href="{!! __(theme_option('home-link-diorama')) !!}" target="{!! __(theme_option('home-link-diorama-target')) !!}">
 			<div class="col-panel-title green">
 				<label>DIORAMA</label>
 			</div>
@@ -12,7 +12,7 @@
 		</a>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-4 padd-panel">
-		<a href="{!! __(theme_option('home-link-perpustakaan-online')) !!}">
+		<a href="{!! __(theme_option('home-link-perpustakaan-online')) !!}" target="{!! __(theme_option('home-link-perpustakaan-online-target')) !!}">
 			<div class="col-panel-title green">
 				<label>PERPUSTAKAAN ONLINE</label>
 			</div>
@@ -24,7 +24,7 @@
 		</a>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-4 padd-panel">
-		<a href="{!! __(theme_option('home-link-bnpb-tv')) !!}">
+		<a href="{!! __(theme_option('home-link-bnpb-tv')) !!}" target="{!! __(theme_option('home-link-bnpb-tv-target')) !!}">
 			<div class="col-panel-title green">
 				<label>BNPB TV</label>
 			</div>
@@ -39,7 +39,7 @@
 	<div class="clearfix"></div>
 
 	<div class="col-xs-12 col-sm-4 col-md-4 padd-panel">
-		<a href="{!! __(theme_option('home-link-data-informasi-bencana')) !!}">
+		<a href="{!! __(theme_option('home-link-data-informasi-bencana')) !!}" target="{!! __(theme_option('home-link-data-informasi-bencana-target')) !!}">
 			<div class="col-panel-title blue">
 				<label>DATA INFORMASI BENCANA</label>
 			</div>
@@ -51,7 +51,7 @@
 		</a>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-4 padd-panel">
-		<a href="{!! __(theme_option('home-link-geospasial-bencana')) !!}">
+		<a href="{!! __(theme_option('home-link-geospasial-bencana')) !!}" target="{!! __(theme_option('home-link-geospasial-bencana-target')) !!}">
 			<div class="col-panel-title red">
 				<label>GEOSPASIAL BENCANA</label>
 			</div>
@@ -63,7 +63,7 @@
 		</a>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-4 padd-panel">
-		<a href="{!! __(theme_option('home-link-pantauan-bencana')) !!}">
+		<a href="{!! __(theme_option('home-link-pantauan-bencana')) !!}" target="{!! __(theme_option('home-link-pantauan-bencana-target')) !!}">
 			<div class="col-panel-title yellow">
 				<label>PANTAUAN BENCANA</label>
 			</div>
@@ -78,7 +78,7 @@
 	<div class="clearfix"></div>
 
 	<div class="col-xs-12 col-sm-4 col-md-4 padd-panel">
-		<a href="{!! __(theme_option('home-link-lpse')) !!}">
+		<a href="{!! __(theme_option('home-link-lpse')) !!}" target="{!! __(theme_option('home-link-lpse-target')) !!}">
 			<div class="col-panel-title green">
 				<label>LPSE</label>
 			</div>
@@ -90,7 +90,7 @@
 		</a>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-4 padd-panel">
-		<a href="{!! __(theme_option('home-link-ppid')) !!}">
+		<a href="{!! __(theme_option('home-link-ppid')) !!}" target="{!! __(theme_option('home-link-ppid-target')) !!}">
 			<div class="col-panel-title green">
 				<label>PPID</label>
 			</div>
@@ -102,7 +102,7 @@
 		</a>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-4 padd-panel">
-		<a href="{!! __(theme_option('home-link-inarisk')) !!}">
+		<a href="{!! __(theme_option('home-link-inarisk')) !!}" target="{!! __(theme_option('home-link-inarisk-target')) !!}">
 			<div class="col-panel-title green">
 				<label>INARISK</label>
 			</div>

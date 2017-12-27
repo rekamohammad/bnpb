@@ -15,6 +15,7 @@ use Illuminate\View\Compilers\BladeCompiler;
 use Symfony\Component\HttpFoundation\Cookie;
 use Botble\Theme\Contracts\Theme as ThemeContract;
 use WidgetGroup;
+use Jenssegers\Agent\Agent;
 
 class Theme implements ThemeContract
 {
@@ -127,6 +128,12 @@ class Theme implements ThemeContract
     protected $breadcrumb;
 
     /**
+     * Agent.
+     *
+     */
+    protected $agent;
+
+    /**
      * Theme constructor.
      * @param Repository $config
      * @param Dispatcher $events
@@ -140,7 +147,8 @@ class Theme implements ThemeContract
                                 Factory $view,
                                 Asset $asset,
                                 Filesystem $files,
-                                Breadcrumb $breadcrumb
+                                Breadcrumb $breadcrumb,
+                                Agent $agent
     )
     {
 
@@ -149,6 +157,7 @@ class Theme implements ThemeContract
         $this->view = $view;
         $this->asset = $asset;
         $this->files = $files;
+        $this->agent = $agent;
 
         $this->breadcrumb = $breadcrumb;
 
@@ -176,6 +185,15 @@ class Theme implements ThemeContract
     public function breadcrumb()
     {
         return $this->breadcrumb;
+    }
+
+    /**
+     * Return Agent instance.
+     *
+     */
+    public function agent()
+    {
+        return $this->agent;
     }
 
     /**

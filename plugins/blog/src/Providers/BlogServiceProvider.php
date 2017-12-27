@@ -163,6 +163,15 @@ class BlogServiceProvider extends ServiceProvider
                     'icon' => 'fa fa-list-alt',
                     'url' => route('publikasi.list'),
                     'permissions' => ['publikasi.list'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-publikasi-infografis',
+                    'priority' => 2,
+                    'parent_id' => 'cms-plugins-publikasi',
+                    'name' => trans('blog::infografis.menu_name'),
+                    'icon' => null,
+                    'url' => route('infografis.list'),
+                    'permissions' => ['infografis.list'],
                 ]);
         });
     }

@@ -103,6 +103,27 @@ class Plugin implements PluginInterface
             ],
 
             [
+                'name' => 'Infografis',
+                'flag' => 'infografis.list',
+                'is_feature' => true,
+            ],
+            [
+                'name' => 'Create',
+                'flag' => 'infografis.create',
+                'parent_flag' => 'infografis.list',
+            ],
+            [
+                'name' => 'Edit',
+                'flag' => 'infografis.edit',
+                'parent_flag' => 'infografis.list',
+            ],
+            [
+                'name' => 'Delete',
+                'flag' => 'infografis.delete',
+                'parent_flag' => 'infografis.list',
+            ],
+
+            [
                 'name' => 'Categories',
                 'flag' => 'categories.list',
                 'is_feature' => true,

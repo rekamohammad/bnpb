@@ -175,6 +175,63 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
             ]);
         });
 
+        Route::group(['prefix' => 'infografis'], function () {
+
+            Route::get('/', [
+                'as' => 'infografis.list',
+                'uses' => 'InfografisController@getList',
+            ]);
+
+            Route::get('/create', [
+                'as' => 'infografis.create',
+                'uses' => 'InfografisController@getCreate',
+            ]);
+
+            Route::post('/create', [
+                'as' => 'infografis.create',
+                'uses' => 'InfografisController@postCreate',
+            ]);
+
+            Route::get('/edit/{id}', [
+                'as' => 'infografis.edit',
+                'uses' => 'InfografisController@getEdit',
+            ]);
+
+            Route::post('/edit/{id}', [
+                'as' => 'infografis.edit',
+                'uses' => 'InfografisController@postEdit',
+            ]);
+
+            Route::get('/delete/{id}', [
+                'as' => 'infografis.delete',
+                'uses' => 'InfografisController@getDelete',
+            ]);
+
+            Route::post('/delete-many', [
+                'as' => 'infografis.delete.many',
+                'uses' => 'InfografisController@postDeleteMany',
+                'permission' => 'infografis.delete',
+            ]);
+
+            Route::post('/change-status', [
+                'as' => 'infografis.change.status',
+                'uses' => 'InfografisController@postChangeStatus',
+                'permission' => 'infografis.edit',
+            ]);
+
+            Route::post('/create-slug', [
+                'as' => 'infografis.create.slug',
+                'uses' => 'InfografisController@postCreateSlug',
+                'permission' => 'infografis.create',
+            ]);
+
+            Route::get('/widgets/recent-posts', [
+                'as' => 'infografis.widget.recent-posts',
+                'uses' => 'InfografisController@getWidgetRecentPosts',
+                'permission' => false,
+            ]);
+        });
+
         Route::group(['prefix' => 'posts'], function () {
 
             Route::get('/', [

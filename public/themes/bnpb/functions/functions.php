@@ -198,6 +198,7 @@ theme_option()->setSection([
             'id' => 'home-link-diorama',
             'type' => 'text',
             'label' => __('Home Link Diorama'),
+            'column' => 'col-md-10',
             'attributes' => [
                 'name' => 'home-link-diorama',
                 'value' => '#',
@@ -209,9 +210,24 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-diorama-target',
+            'type' => 'select',
+            'label' => 'Target Link',
+            'column' => 'col-md-2',
+            'attributes' => [
+                'name' => 'home-link-diorama-target',
+                'list' => ['_self' => 'Self', '_blank' => 'Blank'],
+                'value' => '_self',
+                'options' => [
+                    'class' => 'form-control',
+                ],
+            ],
+        ],
+        [
             'id' => 'home-link-perpustakaan-online',
             'type' => 'text',
             'label' => __('Home Link Perpustakaan Online'),
+            'column' => 'col-md-10',
             'attributes' => [
                 'name' => 'home-link-perpustakaan-online',
                 'value' => '#',
@@ -223,9 +239,24 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-perpustakaan-online-target',
+            'type' => 'select',
+            'label' => 'Target Link',
+            'column' => 'col-md-2',
+            'attributes' => [
+                'name' => 'home-link-perpustakaan-online-target',
+                'list' => ['_self' => 'Self', '_blank' => 'Blank'],
+                'value' => '_self',
+                'options' => [
+                    'class' => 'form-control',
+                ],
+            ],
+        ],
+        [
             'id' => 'home-link-bnpb-tv',
             'type' => 'text',
             'label' => __('Home Link BNPB TV'),
+            'column' => 'col-md-10',
             'attributes' => [
                 'name' => 'home-link-bnpb-tv',
                 'value' => '#',
@@ -237,9 +268,24 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-bnpb-tv-target',
+            'type' => 'select',
+            'label' => 'Target Link',
+            'column' => 'col-md-2',
+            'attributes' => [
+                'name' => 'home-link-bnpb-tv-target',
+                'list' => ['_self' => 'Self', '_blank' => 'Blank'],
+                'value' => '_self',
+                'options' => [
+                    'class' => 'form-control',
+                ],
+            ],
+        ],
+        [
             'id' => 'home-link-data-informasi-bencana',
             'type' => 'text',
             'label' => __('Home Link Data Informasi Bencana'),
+            'column' => 'col-md-10',
             'attributes' => [
                 'name' => 'home-link-data-informasi-bencana',
                 'value' => '#',
@@ -251,9 +297,24 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-data-informasi-bencana-target',
+            'type' => 'select',
+            'label' => 'Target Link',
+            'column' => 'col-md-2',
+            'attributes' => [
+                'name' => 'home-link-data-informasi-bencana-target',
+                'list' => ['_self' => 'Self', '_blank' => 'Blank'],
+                'value' => '_self',
+                'options' => [
+                    'class' => 'form-control',
+                ],
+            ],
+        ],
+        [
             'id' => 'home-link-geospasial-bencana',
             'type' => 'text',
             'label' => __('Home Link Geospasial Bencana'),
+            'column' => 'col-md-10',
             'attributes' => [
                 'name' => 'home-link-geospasial-bencana',
                 'value' => '#',
@@ -265,9 +326,24 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-geospasial-bencana-target',
+            'type' => 'select',
+            'label' => 'Target Link',
+            'column' => 'col-md-2',
+            'attributes' => [
+                'name' => 'home-link-geospasial-bencana-target',
+                'list' => ['_self' => 'Self', '_blank' => 'Blank'],
+                'value' => '_self',
+                'options' => [
+                    'class' => 'form-control',
+                ],
+            ],
+        ],
+        [
             'id' => 'home-link-pantauan-bencana',
             'type' => 'text',
             'label' => __('Home Link Pantauan Bencana'),
+            'column' => 'col-md-10',
             'attributes' => [
                 'name' => 'home-link-pantauan-bencana',
                 'value' => '#',
@@ -279,9 +355,24 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-pantauan-bencana-target',
+            'type' => 'select',
+            'label' => 'Target Link',
+            'column' => 'col-md-2',
+            'attributes' => [
+                'name' => 'home-link-pantauan-bencana-target',
+                'list' => ['_self' => 'Self', '_blank' => 'Blank'],
+                'value' => '_self',
+                'options' => [
+                    'class' => 'form-control',
+                ],
+            ],
+        ],
+        [
             'id' => 'home-link-lpse',
             'type' => 'text',
             'label' => __('Home Link LPSE'),
+            'column' => 'col-md-10',
             'attributes' => [
                 'name' => 'home-link-lpse',
                 'value' => '#',
@@ -293,9 +384,24 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-lpse-target',
+            'type' => 'select',
+            'label' => 'Target Link',
+            'column' => 'col-md-2',
+            'attributes' => [
+                'name' => 'home-link-lpse-target',
+                'list' => ['_self' => 'Self', '_blank' => 'Blank'],
+                'value' => '_self',
+                'options' => [
+                    'class' => 'form-control',
+                ],
+            ],
+        ],
+        [
             'id' => 'home-link-ppid',
             'type' => 'text',
             'label' => __('Home Link PPID'),
+            'column' => 'col-md-10',
             'attributes' => [
                 'name' => 'home-link-ppid',
                 'value' => '#',
@@ -307,9 +413,24 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-ppid-target',
+            'type' => 'select',
+            'label' => 'Target Link',
+            'column' => 'col-md-2',
+            'attributes' => [
+                'name' => 'home-link-ppid-target',
+                'list' => ['_self' => 'Self', '_blank' => 'Blank'],
+                'value' => '_self',
+                'options' => [
+                    'class' => 'form-control',
+                ],
+            ],
+        ],
+        [
             'id' => 'home-link-inarisk',
             'type' => 'text',
             'label' => __('Home Link Inarisk'),
+            'column' => 'col-md-10',
             'attributes' => [
                 'name' => 'home-link-inarisk',
                 'value' => '#',
@@ -318,6 +439,20 @@ theme_option()->setSection([
                     'placeholder' => __('Change Home Link Inarisk'),
                     'data-counter' => 120,
                 ]
+            ],
+        ],
+        [
+            'id' => 'home-link-inarisk-target',
+            'type' => 'select',
+            'label' => 'Target Link',
+            'column' => 'col-md-2',
+            'attributes' => [
+                'name' => 'home-link-inarisk-target',
+                'list' => ['_self' => 'Self', '_blank' => 'Blank'],
+                'value' => '_self',
+                'options' => [
+                    'class' => 'form-control',
+                ],
             ],
         ],
 

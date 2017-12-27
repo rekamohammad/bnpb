@@ -32,6 +32,23 @@
                     </div>
                 </div>
                 @foreach(ThemeOption::constructSections() as $section)
+                    @if ($section['id'] == 'opt-text-subsection-links')
+                    <div class="tab-pane @if ($loop->first) active @endif" id="tab_{{ $section['id'] }}">
+                        <div class="row">
+                            @foreach (ThemeOption::constructFields($section['id']) as $field)
+                                <div class="{{ $field['column'] }}">
+                                    <div class="form-group @if ($errors->has($field['attributes']['name'])) has-error @endif">
+                                        {!! Form::label($field['attributes']['name'], $field['label'], ['class' => 'control-label']) !!}
+                                        {!! ThemeOption::renderField($field) !!}
+                                        @if (array_key_exists('helper', $field))
+                                            <span class="help-block">{!! $field['helper'] !!}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    @else
                     <div class="tab-pane @if ($loop->first) active @endif" id="tab_{{ $section['id'] }}">
                         @foreach (ThemeOption::constructFields($section['id']) as $field)
                             <div class="form-group @if ($errors->has($field['attributes']['name'])) has-error @endif">
@@ -43,7 +60,9 @@
                             </div>
                         @endforeach
                     </div>
+                    @endif
                 @endforeach
+                <hr>
                 <div class="theme-option-sticky sticky-bottom">
                     <div class="info_bar">
                         <div class="theme-option-action_bar">

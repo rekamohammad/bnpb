@@ -1570,3 +1570,19 @@ height: 240px!important;
     margin:0px;
 }
 /* INFOGRAFIS */
+
+.fixed {
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    height:50px;
+    margin-bottom:0px;
+    z-index: 999;
+}
+
+@media screen and (max-width:768px) {
+    body .header .navbar-default .navbar-nav>li.dropdown:hover>.dropdown-menu li:hover>ul.dropdown-menu {
+        left: 0% !important;
+    }
+}

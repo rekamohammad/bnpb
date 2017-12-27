@@ -248,6 +248,19 @@ if (!function_exists('get_publikasi_posts')) {
     }
 }
 
+if (!function_exists('get_infografis_posts')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_infografis_posts($limit = 10, array $args = [])
+    {
+        return app(PostInterface::class)->getPopularPosts($limit, $args);
+    }
+}
+
 if (!function_exists('get_category_by_id')) {
     /**
      * @param integer $id
@@ -375,11 +388,27 @@ if (!function_exists('get_publikasi')) {
     }
 }
 
-if (!function_exists('get_publikasi_poster')) {
+if (!function_exists('get_infografis')) {
     /**
      * @return array
      */
-    function get_publikasi_poster()
+    function get_infografis()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'publikasi'], [], ['id', 'name', 'parent_id']);
+        $sortHelper = app(SortItemsWithChildrenHelper::class);
+        $sortHelper
+            ->setChildrenProperty('child_cats')
+            ->setItems($categories);
+        return $sortHelper->sort();
+    }
+}
+
+if (!function_exists('get_infografis_poster')) {
+    /**
+     * @return array
+     */
+    function get_infografis_poster()
     {
         $repo = app(CategoryInterface::class);
         $categories = $repo->allBy(['status' => 1, 'slug' => 'poster'], [], ['id', 'name', 'parent_id']);
@@ -387,11 +416,11 @@ if (!function_exists('get_publikasi_poster')) {
     }
 }
 
-if (!function_exists('get_publikasi_leaflet')) {
+if (!function_exists('get_infografis_leaflet')) {
     /**
      * @return array
      */
-    function get_publikasi_leaflet()
+    function get_infografis_leaflet()
     {
         $repo = app(CategoryInterface::class);
         $categories = $repo->allBy(['status' => 1, 'slug' => 'leaflet'], [], ['id', 'name', 'parent_id']);
@@ -399,22 +428,22 @@ if (!function_exists('get_publikasi_leaflet')) {
     }
 }
 
-if (!function_exists('get_publikasi_buku')) {
+if (!function_exists('get_infografis_buku')) {
     /**
      * @return array
      */
-    function get_publikasi_buku()
+    function get_infografis_buku()
     {
         $repo = app(CategoryInterface::class);
         $categories = $repo->allBy(['status' => 1, 'slug' => 'buku'], [], ['id', 'name', 'parent_id']);
         return $categories;
 }
 
-if (!function_exists('get_publikasi_infografis')) {
+if (!function_exists('get_infografis_infografis')) {
     /**
      * @return array
      */
-    function get_publikasi_infografis()
+    function get_infografis_infografis()
     {
         $repo = app(CategoryInterface::class);
         $categories = $repo->allBy(['slug' => 'infografis'], [], ['id', 'name', 'parent_id']);
@@ -422,11 +451,11 @@ if (!function_exists('get_publikasi_infografis')) {
     }
 }
 
-if (!function_exists('get_publikasi_foto')) {
+if (!function_exists('get_infografis_foto')) {
     /**
      * @return array
      */
-    function get_publikasi_foto()
+    function get_infografis_foto()
     {
         $repo = app(CategoryInterface::class);
         $categories = $repo->allBy(['status' => 1, 'slug' => 'foto'], [], ['id', 'name', 'parent_id']);
@@ -434,11 +463,11 @@ if (!function_exists('get_publikasi_foto')) {
     }
 }
 
-if (!function_exists('get_publikasi_buletin_bencana')) {
+if (!function_exists('get_infografis_buletin_bencana')) {
     /**
      * @return array
      */
-    function get_publikasi_buletin_bencana()
+    function get_infografis_buletin_bencana()
     {
         $repo = app(CategoryInterface::class);
         $categories = $repo->allBy(['status' => 1, 'slug' => 'buletin-bencana'], [], ['id', 'name', 'parent_id']);
@@ -446,11 +475,11 @@ if (!function_exists('get_publikasi_buletin_bencana')) {
     }
 }
 
-if (!function_exists('get_publikasi_jurnal')) {
+if (!function_exists('get_infografis_jurnal')) {
     /**
      * @return array
      */
-    function get_publikasi_jurnal()
+    function get_infografis_jurnal()
     {
         $repo = app(CategoryInterface::class);
         $categories = $repo->allBy(['status' => 1, 'slug' => 'jurnal'], [], ['id', 'name', 'parent_id']);
