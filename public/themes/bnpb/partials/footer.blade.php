@@ -1,32 +1,9 @@
 <footer class="footer" id="footer">
     <div class="container">
         <div class="row">
-        @if (Theme::agent()->isMobile())
-            <div class="col-md-12 about-footer">
-                <address>
-                    <p>Graha BNPB - Jl. Pramuka Kav.38 Jakarta <br>Timur 13120</p>
-                    <span><a href="#">Telp.021-29827793</a> <br> Fax.021-21281200 <br> Email: <a href="#">contact@bnpb.go.id</a></span>
-                    <h5>Pusdalop bnpb</h5>
-                    <span>Telp. +62 21 29827444 , 29827666 <br><i class="wa"></i>  +62 812 1237 575 <br><a>Email:pusdalops@bnpb.go.id</a></span>
-                </address>
-            </div><br></br>
-        @else
             {!! dynamic_sidebar('footer_sidebar') !!}
-        @endif
         </div>
     </div>
-    @if (Theme::agent()->isMobile())
-    <div class="footer-end fixed">
-        <center>
-        <div class="hi-icon-wrap hi-icon-effect-3 hi-icon-effect-3a">
-            <a href="https://www.facebook.com/infobnpb" title="Facebook" class="hi-icon fa fa-facebook fa-lg"></a>
-            <a href="https://twitter.com/BNPB_Indonesia" title="Twitter" class="hi-icon fa fa-twitter fa-lg"></a>
-            <a href="https://www.instagram.com/bnpb_indonesia/" title="Instagram" class="hi-icon fa fa-instagram fa-lg"></a>
-            <a href="https://www.youtube.com/user/BNPBIndonesia/" title="Youtube" class="hi-icon fa fa-youtube-play fa-lg"></a>
-        </div>
-        </center>
-    </div>
-    @else
     <div class="footer-end">
         <div class="container">
             <div class="row">
@@ -45,11 +22,6 @@
             </div>
         </div>
     </div>
-    @endif
-    
-                
-                
-           
 </footer>
 
 @if (app()->environment() != 'production')
