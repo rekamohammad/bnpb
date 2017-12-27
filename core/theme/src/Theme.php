@@ -147,8 +147,8 @@ class Theme implements ThemeContract
                                 Factory $view,
                                 Asset $asset,
                                 Filesystem $files,
-                                Breadcrumb $breadcrumb,
-                                Agent $agent
+                                Breadcrumb $breadcrumb
+                                //Agent $agent
     )
     {
 
@@ -157,7 +157,7 @@ class Theme implements ThemeContract
         $this->view = $view;
         $this->asset = $asset;
         $this->files = $files;
-        $this->agent = $agent;
+        //$this->agent = $agent;
 
         $this->breadcrumb = $breadcrumb;
 
@@ -191,10 +191,12 @@ class Theme implements ThemeContract
      * Return Agent instance.
      *
      */
-    public function agent()
+    /*
+     public function agent()
     {
         return $this->agent;
     }
+    */
 
     /**
      * Get current theme name.
