@@ -15,7 +15,7 @@ use Illuminate\View\Compilers\BladeCompiler;
 use Symfony\Component\HttpFoundation\Cookie;
 use Botble\Theme\Contracts\Theme as ThemeContract;
 use WidgetGroup;
-use Jenssegers\Agent\Agent;
+//use Jenssegers\Agent\Agent;
 
 class Theme implements ThemeContract
 {
