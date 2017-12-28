@@ -17,7 +17,7 @@ use Botble\Blog\Repositories\Caches\NewsCacheDecorator;
 use Botble\Blog\Repositories\Eloquent\NewsRepository;
 use Botble\Blog\Repositories\Interfaces\NewsInterface;
 use Botble\Support\Services\Cache\Cache;
-use Event;
+use Event; 
 use Illuminate\Support\ServiceProvider;
 use Botble\Blog\Models\Category;
 use Botble\Blog\Repositories\Caches\CategoryCacheDecorator;

@@ -48,6 +48,6 @@ class TagPost extends Eloquent
 	
     public function pp()
     {
-        return $this->hasMany(Post::class, 'id','post_id');
+        return $this->hasMany(Post::class, 'id','post_id'); 
     }
 }

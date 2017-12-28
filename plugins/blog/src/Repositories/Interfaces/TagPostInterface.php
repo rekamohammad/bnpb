@@ -7,7 +7,5 @@ use Botble\Support\Repositories\Interfaces\RepositoryInterface;
 interface TagPostInterface extends RepositoryInterface
 {
 
-    
-    public function getRelatedTags($idTag, $limit);
-	
+    public function getRelatedTags($idTag, $limit);	
 }
