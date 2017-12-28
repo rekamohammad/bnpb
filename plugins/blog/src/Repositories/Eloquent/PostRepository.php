@@ -287,10 +287,12 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
 		$month = date("m");
 		//$months = strtotime(date("Y-m-d", strtotime($month)) . " -3 month");
 		//$months = date("Y-m-d",$months);
+		$Year = date("Y");
 		
-        $data = $this->model->orderBy('posts.created_at', 'DESC')->orderBy('posts.views','DESC')->whereMonth('posts.created_at','<=',$month)->where('posts.category','17')
+		
+        $data = $this->model->where('posts.category','17')
             ->select('posts.*')
-            ->limit($limit);
+            ->limit($limit)->orderBy('posts.views','DESC')->orderBy('posts.created_at','DESC');
         if (!empty(array_get($args, 'where'))) {
             $data = $data->where($args['where']);
         }
