@@ -284,8 +284,11 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
      */
     public function getPopularPosts($limit, array $args = [])
     {
+		$month = date("m");
+		//$months = strtotime(date("Y-m-d", strtotime($month)) . " -3 month");
+		//$months = date("Y-m-d",$months);
 		
-        $data = $this->model->orderBy('posts.created_at', 'DESC')->orderBy('posts.views','DESC')->where('posts.category','17')
+        $data = $this->model->orderBy('posts.created_at', 'DESC')->orderBy('posts.views','DESC')->whereMonth('posts.created_at','<=',$month)->where('posts.category','17')
             ->select('posts.*')
             ->limit($limit);
         if (!empty(array_get($args, 'where'))) {
