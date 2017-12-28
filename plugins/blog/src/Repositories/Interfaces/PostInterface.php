@@ -68,7 +68,7 @@ interface PostInterface extends RepositoryInterface
      * @author Sang Nguyen
      */
     public function getByTag($tag, $paginate = 12);
-
+	
     /**
      * @param $slug
      * @param int $limit

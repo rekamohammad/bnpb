@@ -97,4 +97,9 @@ class Post extends Eloquent
     {
         return $this->belongsToMany(Category::class, 'post_category')->withTimestamps();
     }
+	
+	public function post_tag()
+    {
+        return $this->hasMany(TagPost::class,'post_id')->withTimestamps();
+    }
 }

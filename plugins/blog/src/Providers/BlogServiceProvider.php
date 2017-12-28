@@ -8,6 +8,10 @@ use Botble\Blog\Models\Post;
 use Botble\Blog\Repositories\Caches\PostCacheDecorator;
 use Botble\Blog\Repositories\Eloquent\PostRepository;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Blog\Models\TagPost;
+use Botble\Blog\Repositories\Caches\TagPostCacheDecorator;
+use Botble\Blog\Repositories\Interfaces\TagPostInterface;
+use Botble\Blog\Repositories\Eloquent\TagPostRepository;
 use Botble\Blog\Models\News;
 use Botble\Blog\Repositories\Caches\NewsCacheDecorator;
 use Botble\Blog\Repositories\Eloquent\NewsRepository;
@@ -58,6 +62,11 @@ class BlogServiceProvider extends ServiceProvider
             $this->app->singleton(TagInterface::class, function () {
                 return new TagCacheDecorator(new TagRepository(new Tag()), new Cache($this->app['cache'], __CLASS__));
             });
+			
+			$this->app->singleton(TagPostInterface::class, function () {
+                return new TagCacheDecorator(new TagPostRepository(new TagPost()), new Cache($this->app['cache'], __CLASS__));
+            });
+			
         } else {
             $this->app->singleton(PostInterface::class, function () {
                 return new PostRepository(new Post());
@@ -73,6 +82,9 @@ class BlogServiceProvider extends ServiceProvider
 
             $this->app->singleton(TagInterface::class, function () {
                 return new TagRepository(new Tag());
+            });
+			$this->app->singleton(TagPostInterface::class, function () {
+                return new TagPostRepository(new TagPost());
             });
         }
 

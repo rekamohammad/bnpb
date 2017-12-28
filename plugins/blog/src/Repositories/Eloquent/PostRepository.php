@@ -188,7 +188,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         $this->resetModel();
         return $data;
     }
-
+	
     /**
      * @param $tag
      * @param int $paginate
@@ -290,7 +290,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
 		$Year = date("Y");
 		
 		
-        $data = $this->model->where('posts.category','17')
+        $data = $this->model->where('posts.category','=','17')
             ->select('posts.*')
             ->limit($limit)->orderBy('posts.views','DESC')->orderBy('posts.created_at','DESC');
         if (!empty(array_get($args, 'where'))) {

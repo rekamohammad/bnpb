@@ -7,6 +7,7 @@ use Botble\Base\Supports\Helper;
 use Botble\Blog\Repositories\Interfaces\CategoryInterface;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
 use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Botble\Blog\Repositories\Interfaces\TagPostInterface;
 use Botble\Page\Repositories\Interfaces\PageInterface;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -23,7 +24,7 @@ class PublicController extends Controller
      * @return \Response
      * @author Sang Nguyen
      */
-    public function getView($slug, $p1 = null, $p2 = null, $p3 = null, PostInterface $postRepository, CategoryInterface $categoryRepository, PageInterface $pageRepository)
+    public function getView($slug, $p1 = null, $p2 = null, $p3 = null, TagPostInterface $TagPostRepository, PostInterface $postRepository, CategoryInterface $categoryRepository, PageInterface $pageRepository)
     {
         if (!is_null($slug) && !is_null($p1) && !is_null($p2) && !is_null($p3)){
             $p3 = explode('.', $p3);

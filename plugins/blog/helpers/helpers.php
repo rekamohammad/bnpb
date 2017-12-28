@@ -4,6 +4,7 @@ use Botble\Base\Supports\SortItemsWithChildrenHelper;
 use Botble\Blog\Repositories\Interfaces\CategoryInterface;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
 use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Botble\Blog\Repositories\Interfaces\TagPostInterface;
 use Botble\Blog\Supports\PostFormat;
 
 if (!function_exists('get_featured_posts')) {
@@ -136,6 +137,18 @@ if (!function_exists('get_recent_posts')) {
     }
 }
 
+if (!function_exists('get_related_tags')) {
+    /**
+     * @param integer $limit
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_related_tags($idTag, $limit = 10)
+    {
+        return app(TagPostInterface::class)->getRelatedTags($idTag, $limit);
+    }
+}
+
 
 if (!function_exists('get_featured_categories')) {
     /**
@@ -208,6 +221,8 @@ if (!function_exists('get_popular_tags')) {
         return app(TagInterface::class)->getPopularTags($limit);
     }
 }
+
+
 
 if (!function_exists('get_popular_posts')) {
     /**

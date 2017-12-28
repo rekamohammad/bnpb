@@ -35,7 +35,15 @@ interface TagInterface extends RepositoryInterface
      * @author Sang Nguyen
      */
     public function getPopularTags($limit);
-
+	
+	
+	/**
+     * @param $limit
+     * @return mixed
+     * @author Ramadhona
+     */
+    public function getRelatedTags($idTag, $limit);
+	
     /**
      * @param bool $active
      * @return mixed

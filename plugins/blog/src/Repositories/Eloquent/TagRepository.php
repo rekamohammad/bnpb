@@ -75,7 +75,7 @@ class TagRepository extends RepositoriesAbstract implements TagInterface
         $this->resetModel();
         return $data;
     }
-
+	 
     /**
      * @param bool $active
      * @return mixed
@@ -93,4 +93,21 @@ class TagRepository extends RepositoriesAbstract implements TagInterface
         $this->resetModel();
         return $data;
     }
+	
+	
+	/**
+     * @param $limit
+     * @return id
+     * @author Ramadhona
+     */
+	 public function getRelatedTags($idTag,$limit)
+	 {
+		 
+		 $data = $this->model->where('tags.tag_id','=',$idTag)
+            ->select('post_tag.*')
+            ->limit($limit); 
+		$data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
+        $this->resetModel();
+        return $data;
+	 }
 }
