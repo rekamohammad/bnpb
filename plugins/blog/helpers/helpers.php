@@ -388,89 +388,74 @@ if (!function_exists('get_publikasi')) {
     }
 }
 
-if (!function_exists('get_infografis')) {
+if (!function_exists('get_infografis_poster_leaflet')) {
     /**
      * @return array
      */
-    function get_infografis()
+    function get_infografis_poster_leaflet()
     {
         $repo = app(CategoryInterface::class);
-        $categories = $repo->allBy(['status' => 1, 'slug' => 'publikasi'], [], ['id', 'name', 'parent_id']);
-        $sortHelper = app(SortItemsWithChildrenHelper::class);
-        $sortHelper
-            ->setChildrenProperty('child_cats')
-            ->setItems($categories);
-        return $sortHelper->sort();
-    }
-}
-
-if (!function_exists('get_infografis_poster')) {
-    /**
-     * @return array
-     */
-    function get_infografis_poster()
-    {
-        $repo = app(CategoryInterface::class);
-        $categories = $repo->allBy(['status' => 1, 'slug' => 'poster'], [], ['id', 'name', 'parent_id']);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'poster-dan-leaflet'], [], ['id', 'name', 'parent_id']);
         return $categories;
     }
 }
 
-if (!function_exists('get_infografis_leaflet')) {
+if (!function_exists('get_infografis_buku_bnpb')) {
     /**
      * @return array
      */
-    function get_infografis_leaflet()
+    function get_infografis_buku_bnpb()
     {
         $repo = app(CategoryInterface::class);
-        $categories = $repo->allBy(['status' => 1, 'slug' => 'leaflet'], [], ['id', 'name', 'parent_id']);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'buku-data-bencana'], [], ['id', 'name', 'parent_id']);
         return $categories;
     }
 }
 
-if (!function_exists('get_infografis_buku')) {
+if (!function_exists('get_infografis_siaga_bencana')) {
     /**
      * @return array
      */
-    function get_infografis_buku()
+    function get_infografis_siaga_bencana()
     {
         $repo = app(CategoryInterface::class);
-        $categories = $repo->allBy(['status' => 1, 'slug' => 'buku'], [], ['id', 'name', 'parent_id']);
-        return $categories;
-}
-
-if (!function_exists('get_infografis_infografis')) {
-    /**
-     * @return array
-     */
-    function get_infografis_infografis()
-    {
-        $repo = app(CategoryInterface::class);
-        $categories = $repo->allBy(['slug' => 'infografis'], [], ['id', 'name', 'parent_id']);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'siaga-bencana'], [], ['id', 'name', 'parent_id']);
         return $categories;
     }
 }
 
-if (!function_exists('get_infografis_foto')) {
+if (!function_exists('get_infografis_rekapitulasi_bencana')) {
     /**
      * @return array
      */
-    function get_infografis_foto()
+    function get_infografis_rekapitulasi_bencana()
     {
         $repo = app(CategoryInterface::class);
-        $categories = $repo->allBy(['status' => 1, 'slug' => 'foto'], [], ['id', 'name', 'parent_id']);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'rekapitulasi-bencana'], [], ['id', 'name', 'parent_id']);
         return $categories;
     }
 }
 
-if (!function_exists('get_infografis_buletin_bencana')) {
+if (!function_exists('get_infografis_kejadian_bencana')) {
     /**
      * @return array
      */
-    function get_infografis_buletin_bencana()
+    function get_infografis_kejadian_bencana()
     {
         $repo = app(CategoryInterface::class);
-        $categories = $repo->allBy(['status' => 1, 'slug' => 'buletin-bencana'], [], ['id', 'name', 'parent_id']);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'kejadian-bencana'], [], ['id', 'name', 'parent_id']);
+        return $categories;
+    }
+}
+
+if (!function_exists('get_infografis_kajian_bencana')) {
+    /**
+     * @return array
+     */
+    function get_infografis_kajian_bencana()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'kajian-bencana'], [], ['id', 'name', 'parent_id']);
         return $categories;
     }
 }
@@ -482,7 +467,19 @@ if (!function_exists('get_infografis_jurnal')) {
     function get_infografis_jurnal()
     {
         $repo = app(CategoryInterface::class);
-        $categories = $repo->allBy(['status' => 1, 'slug' => 'jurnal'], [], ['id', 'name', 'parent_id']);
+        $categories = $repo->allBy(['slug' => 'jurnal'], [], ['id', 'name', 'parent_id']);
+        return $categories;
+    }
+}
+
+if (!function_exists('get_infografis_atlas')) {
+    /**
+     * @return array
+     */
+    function get_infografis_atlas()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'atlas'], [], ['id', 'name', 'parent_id']);
         return $categories;
     }
 }
@@ -509,5 +506,4 @@ if (!function_exists('get_post_formats')) {
     {
         return PostFormat::getPostFormats($convert_to_list);
     }
-}
 }

@@ -53,7 +53,7 @@ class InfografisDataTable extends DataTableAbstract
         /**
          * @var \Eloquent $model
          */
-        $news_id = get_infografis()[0]['attributes']['id']; 
+        $news_id = get_publikasi()[0]['attributes']['id']; 
         $query = $model
         ->select(['posts.id', 'posts.name', 'posts.created_at', 'posts.status', 'posts.category'])
         ->join('post_category', 'post_category.post_id', '=', 'posts.id')
