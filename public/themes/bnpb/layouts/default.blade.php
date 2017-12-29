@@ -139,12 +139,22 @@
     <div class="container">
         <div class="main-index">
             <div class="row">
-                @if (Request::segment(2) == 'poster-dan-leaflet')
+                @if (Request::segment(2) == 'poster')
                     <div class="col-md-12">
-                        <h3 class="block-title"><span><a href="{{ url('/publikasi/poster-dan-leaflet') }}" title="Publikasi BNPB">Publikasi Poster dan Leaflet</a></span></h3>
+                        <h3 class="block-title"><span><a href="{{ url('/publikasi/poster') }}" title="Publikasi BNPB">Publikasi Poster</a></span></h3>
                     </div>
                     @php
-                        $infografis_id = get_infografis_poster_leaflet()[0]['attributes']['id'];
+                        $infografis_id = get_infografis_poster()[0]['attributes']['id'];
+                        if($infografis_id) { 
+                            echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
+                        }
+                    @endphp
+                @elseif (Request::segment(2) == 'leaflet')
+                    <div class="col-md-12">
+                        <h3 class="block-title"><span><a href="{{ url('/publikasi/leaflet') }}" title="Publikasi BNPB">Publikasi Leaflet</a></span></h3>
+                    </div>
+                    @php
+                        $infografis_id = get_infografis_leaflet()[0]['attributes']['id'];
                         if($infografis_id) { 
                             echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
                         }
@@ -159,6 +169,7 @@
                             echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
                         }
                     @endphp
+                    
                 @elseif (Request::segment(2) == 'siaga-bencana')
                     <div class="row">
                         <div class="col-md-8">

@@ -403,14 +403,26 @@ if (!function_exists('get_publikasi')) {
     }
 }
 
-if (!function_exists('get_infografis_poster_leaflet')) {
+if (!function_exists('get_infografis_poster')) {
     /**
      * @return array
      */
-    function get_infografis_poster_leaflet()
+    function get_infografis_poster()
     {
         $repo = app(CategoryInterface::class);
-        $categories = $repo->allBy(['status' => 1, 'slug' => 'poster-dan-leaflet'], [], ['id', 'name', 'parent_id']);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'poster'], [], ['id', 'name', 'parent_id']);
+        return $categories;
+    }
+}
+
+if (!function_exists('get_infografis_leaflet')) {
+    /**
+     * @return array
+     */
+    function get_infografis_leaflet()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'leaflet'], [], ['id', 'name', 'parent_id']);
         return $categories;
     }
 }
@@ -482,7 +494,7 @@ if (!function_exists('get_infografis_jurnal')) {
     function get_infografis_jurnal()
     {
         $repo = app(CategoryInterface::class);
-        $categories = $repo->allBy(['slug' => 'jurnal'], [], ['id', 'name', 'parent_id']);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'jurnal'], [], ['id', 'name', 'parent_id']);
         return $categories;
     }
 }
