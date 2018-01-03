@@ -14,6 +14,7 @@ return [
         'description' => 'Description',
         'description_placeholder' => 'Short description for Infografis (Maximum 400 characters)',
         'categories' => 'Categories',
+        'created_at'=>'Created At',
         'tags' => 'Tags',
         'tags_placeholder' => 'Tags',
         'thumbnail' => 'Thumbnail',

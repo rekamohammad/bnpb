@@ -18,6 +18,7 @@
 
     {!! Theme::header() !!}
     <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/css/lightgallery.css" rel="stylesheet">
     <style>
       @media (max-width: 767px) {
 	body .middle-widget .nav-tabs>li {width: 100%;}
