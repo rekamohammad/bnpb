@@ -2,42 +2,86 @@
 {!! Theme::partial('header') !!}
 
 @if (Route::currentRouteName() == 'public.index')
+    @php
+        $detect = new App\MobileDetect\Mobile_Detect;
+    @endphp
+    @if ($detect->isMobile())
     <main class="main" id="main">
-    <div class="container">
-        <div class="main-index">
-            <div class="row">
-                <div class="col-md-3">
-                    @php
-                        echo Theme::partial('post-popular');
-                        echo Theme::partial('mountain-status', ['category_ids' => explode(',', theme_option('mountain-status'))]);
-                    @endphp
-                    <div class="dynamic-sidebar">
-                        {!! dynamic_sidebar('home_left') !!}
-                    </div>
-                </div>
-                <div class="col-md-6 middle-widget">
-                    @php
-                        echo Theme::partial('post-slide', ['category_ids' => explode(',', theme_option('home-slider-feed'))]);
-                        echo Theme::partial('post-tab', ['category_ids' => explode(',', theme_option('home-tabbed-feed'))]);
-                    @endphp
-                    <div class="dynamic-sidebar no-title">
+        <div class="container">
+            <div class="main-index">
+                <div class="row">
+                    <div class="col-md-12">
                         @php
-                            echo Theme::partial('post-midpanel');
+                            echo Theme::partial('post-newest');
                         @endphp
+                        <a href="{{ url('/berita') }}" class="block-button">
+                            <span class="post-date">
+                            Berita Terbaru Lainnya
+                            </span>
+                        </a><br>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    @php
-                        echo Theme::partial('post-video', ['category_ids' => explode(',', theme_option('home-right-feed'))]);
-                    @endphp
-                    <div class="dynamic-sidebar">
-                        {!! dynamic_sidebar('home_right') !!}
+                    <div class="col-md-12">
+                        @php
+                            echo Theme::partial('post-announcement');
+                        @endphp
+                        <a href="{{ url('/pengumuman') }}" class="block-button">
+                            <span class="post-date">
+                            Pengumuman Terbaru Lainnya
+                            </span>
+                        </a><br>
+                    </div>
+                    <div class="col-md-12">
+                        @php
+                            echo Theme::partial('post-popular');
+                        @endphp
+                        <a href="{{ url('/berita') }}" class="block-button">
+                            <span class="post-date">
+                            Berita Terpopuler Lainnya
+                            </span>
+                        </a><br>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </main>
+    @else
+    <main class="main" id="main">
+        <div class="container">
+            <div class="main-index">
+                <div class="row">
+                    <div class="col-md-3">
+                        @php
+                            echo Theme::partial('post-popular');
+                            echo Theme::partial('mountain-status', ['category_ids' => explode(',', theme_option('mountain-status'))]);
+                        @endphp
+                        <div class="dynamic-sidebar">
+                            {!! dynamic_sidebar('home_left') !!}
+                        </div>
+                    </div>
+                    <div class="col-md-6 middle-widget">
+                        @php
+                            echo Theme::partial('post-slide', ['category_ids' => explode(',', theme_option('home-slider-feed'))]);
+                            echo Theme::partial('post-tab', ['category_ids' => explode(',', theme_option('home-tabbed-feed'))]);
+                        @endphp
+                        <div class="dynamic-sidebar no-title">
+                            @php
+                                echo Theme::partial('post-midpanel');
+                            @endphp
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        @php
+                            echo Theme::partial('post-video', ['category_ids' => explode(',', theme_option('home-right-feed'))]);
+                        @endphp
+                        <div class="dynamic-sidebar">
+                            {!! dynamic_sidebar('home_right') !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    @endif
 @elseif (Request::segment(1) == 'diorama' || Request::segment(1) == 'diorama.html')
     <main class="main" id="main">
     <div id="main-diorama" class="container-fluid">
