@@ -166,6 +166,7 @@ class InfografisController extends BaseController
         $post->image = $request->image;
         $post->content = $request->content;
         $post->description = $request->name;
+        $post->created_at = $request->created_at;
         $post->user_id = acl_get_current_user_id();
         $post->featured = $request->input('featured', false);
         $post->save();
