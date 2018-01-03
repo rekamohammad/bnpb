@@ -1615,3 +1615,40 @@ height: 240px!important;
     background: #3B5999 !important;
     color: #fff !important;
 }
+
+.nav-sidebar { 
+    width: 100%;
+    padding: 8px 0; 
+    border: 1px solid #ddd;
+    background-color: #3b5999;
+}
+.nav-sidebar a {
+    color: white;
+    -webkit-transition: all 0.08s linear;
+    -moz-transition: all 0.08s linear;
+    -o-transition: all 0.08s linear;
+    transition: all 0.08s linear;
+    -webkit-border-radius: 4px 0 0 4px; 
+    -moz-border-radius: 4px 0 0 4px; 
+    border-radius: 4px 0 0 4px; 
+}
+.nav-sidebar .active a { 
+    cursor: default;
+    background-color: #6e83b8; 
+    color: white; 
+    text-shadow: 1px 1px 1px #666; 
+}
+.nav-sidebar .active a:hover {
+    background-color: #6e83b8;   
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #6e83b8;
+}
+.nav-sidebar .text-overflow a,
+.nav-sidebar .text-overflow .media-body {
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis; 
+}

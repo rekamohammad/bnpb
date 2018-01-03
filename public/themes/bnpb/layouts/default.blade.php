@@ -298,31 +298,16 @@
     <div class="container">
     <div class="main-content">
         <div class="row">
-            <div class="col-md-2">
-                <div class="calender">
-                    <div class="row">
-                        <div class="col-md-12 col-xs-6">
-                            <div class="col-calender" style="">
-                                <span class="pull-left"></span>
-                                <span class="pull-right"></span>
-                                <div class="clearfix"></div>
-                                <center>    
-                                    <h3>{{ date('d') }}</h3>
-                                    <p>{{ date('Y-m') }}</p>
-                                </center>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-xs-6">
-                            <div class="col-share">
-                                <h3>Share With :</h3>
-                                <div class="col-sosmed">
-                                    <div class="sharethis-inline-share-buttons"></div>
-                                    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=59c69294c28d0800122e1b44&product=inline-share-buttons"></script>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-3">
+                <nav class="nav-sidebar">
+                     {!!
+                        Menu::generateMenu([
+                            'slug' => 'left-menu',
+                            'options' => ['class' => 'nav'],
+                            'view' => 'main-menu'
+                        ])
+                    !!}
+                </nav>  
             </div>
            {{--  <div class="col-md-3">
                 <div class="dynamic-sidebar">
