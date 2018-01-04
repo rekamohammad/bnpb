@@ -237,6 +237,32 @@ if (!function_exists('get_popular_posts')) {
     }
 }
 
+if (!function_exists('get_info_bencana_post')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_info_bencana_post()
+    {
+        return app(PostInterface::class)->getInfoBencanaPost();
+    }
+}
+
+if (!function_exists('get_siaga_bencana_post')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_siaga_bencana_post()
+    {
+        return app(PostInterface::class)->getSiagaBencanaPost();
+    }
+}
+
 if (!function_exists('get_diorama_posts')) {
     /**
      * @param integer $limit

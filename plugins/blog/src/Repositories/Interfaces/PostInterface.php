@@ -109,4 +109,6 @@ interface PostInterface extends RepositoryInterface
      */
     public function getPopularPosts($limit, array $args = []);
     public function getDioramaPosts($limit, array $args = []);
+    public function getInfoBencanaPost();
+    public function getSiagaBencanaPost();
 }

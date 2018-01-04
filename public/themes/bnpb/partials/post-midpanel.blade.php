@@ -6,7 +6,7 @@
 			</div>
 			<div class="col-panel">
 				<div class="col-panel-icon">
-					<img src="/uploads/banner/panel-diorama.jpg" class="img-responsive">
+					<img src="{!! __(theme_option('home-link-diorama-icon')) !!}" class="img-responsive">
 				</div>
 			</div>
 		</a>
@@ -18,7 +18,7 @@
 			</div>
 			<div class="col-panel">
 				<div class="col-panel-icon">
-					<img src="/uploads/banner/panel-perpus.jpg" class="img-responsive">
+					<img src="{!! __(theme_option('home-link-perpustakaan-online-icon')) !!}" class="img-responsive">
 				</div>
 			</div>
 		</a>
@@ -30,7 +30,7 @@
 			</div>
 			<div class="col-panel">
 				<div class="col-panel-icon">
-					<img src="/uploads/banner/panel-tv.jpg" class="img-responsive">
+					<img src="{!! __(theme_option('home-link-bnpb-tv-icon')) !!}" class="img-responsive">
 				</div>
 			</div>
 		</a>
@@ -45,7 +45,7 @@
 			</div>
 			<div class="col-panel">
 				<div class="col-panel-icon">
-					<img src="/uploads/banner/panel-informasi.jpg" class="img-responsive">
+					<img src="{!! __(theme_option('home-link-data-informasi-bencana-icon')) !!}" class="img-responsive">
 				</div>
 			</div>
 		</a>
@@ -57,7 +57,7 @@
 			</div>
 			<div class="col-panel">
 				<div class="col-panel-icon">
-					<img src="/uploads/banner/panel-geo.jpg" class="img-responsive">
+					<img src="{!! __(theme_option('home-link-geospasial-bencana-icon')) !!}" class="img-responsive">
 				</div>
 			</div>
 		</a>
@@ -69,7 +69,7 @@
 			</div>
 			<div class="col-panel">
 				<div class="col-panel-icon">
-					<img src="/uploads/banner/panel-searchgrafik.jpg" class="img-responsive">
+					<img src="{!! __(theme_option('home-link-pantauan-bencana-icon')) !!}" class="img-responsive">
 				</div>
 			</div>
 		</a>
@@ -84,7 +84,7 @@
 			</div>
 			<div class="col-panel">
 				<div class="col-panel-icon">
-					<img src="/uploads/banner/panel-lpse.png" class="img-responsive">
+					<img src="{!! __(theme_option('home-link-lpse-icon')) !!}" class="img-responsive">
 				</div>
 			</div>
 		</a>
@@ -96,7 +96,7 @@
 			</div>
 			<div class="col-panel">
 				<div class="col-panel-icon">
-					<img src="/uploads/banner/panel-ppid.jpg" class="img-responsive">
+					<img src="{!! __(theme_option('home-link-ppid-icon')) !!}" class="img-responsive">
 				</div>
 			</div>
 		</a>
@@ -108,7 +108,7 @@
 			</div>
 			<div class="col-panel">
 				<div class="col-panel-icon">
-					<img src="/uploads/banner/panel-inarisk.png" class="img-responsive">
+					<img src="{!! __(theme_option('home-link-inarisk-icon')) !!}" class="img-responsive">
 				</div>
 			</div>
 		</a>
