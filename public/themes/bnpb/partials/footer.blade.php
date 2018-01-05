@@ -126,7 +126,7 @@
                 console.log('jalan');
             });
         }
-        $('#aniimated-thumbnials').lightGallery({
+        $('.popup-info').lightGallery({
             thumbnail:true
         }); 
     });

@@ -198,7 +198,7 @@ theme_option()->setSection([
             'id' => 'home-link-diorama',
             'type' => 'text',
             'label' => __('Home Link Diorama'),
-            'column' => 'col-md-10',
+            'column' => 'col-md-7',
             'attributes' => [
                 'name' => 'home-link-diorama',
                 'value' => '#',
@@ -224,10 +224,20 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-diorama-icon',
+            'type' => 'mediaImage',
+            'label' => 'Icon',
+            'column' => 'col-md-3',
+            'attributes' => [
+                'name' => 'home-link-diorama-icon',
+                'value' => null,
+            ],
+        ],
+        [
             'id' => 'home-link-perpustakaan-online',
             'type' => 'text',
             'label' => __('Home Link Perpustakaan Online'),
-            'column' => 'col-md-10',
+            'column' => 'col-md-7',
             'attributes' => [
                 'name' => 'home-link-perpustakaan-online',
                 'value' => '#',
@@ -253,10 +263,20 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-perpustakaan-online-icon',
+            'type' => 'mediaImage',
+            'label' => 'Icon',
+            'column' => 'col-md-3',
+            'attributes' => [
+                'name' => 'home-link-perpustakaan-online-icon',
+                'value' => null,
+            ],
+        ],
+        [
             'id' => 'home-link-bnpb-tv',
             'type' => 'text',
             'label' => __('Home Link BNPB TV'),
-            'column' => 'col-md-10',
+            'column' => 'col-md-7',
             'attributes' => [
                 'name' => 'home-link-bnpb-tv',
                 'value' => '#',
@@ -282,10 +302,20 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-bnpb-tv-icon',
+            'type' => 'mediaImage',
+            'label' => 'Icon',
+            'column' => 'col-md-3',
+            'attributes' => [
+                'name' => 'home-link-bnpb-tv-icon',
+                'value' => null,
+            ],
+        ],
+        [
             'id' => 'home-link-data-informasi-bencana',
             'type' => 'text',
             'label' => __('Home Link Data Informasi Bencana'),
-            'column' => 'col-md-10',
+            'column' => 'col-md-7',
             'attributes' => [
                 'name' => 'home-link-data-informasi-bencana',
                 'value' => '#',
@@ -311,10 +341,20 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-data-informasi-bencana-icon',
+            'type' => 'mediaImage',
+            'label' => 'Icon',
+            'column' => 'col-md-3',
+            'attributes' => [
+                'name' => 'home-link-data-informasi-bencana-icon',
+                'value' => null,
+            ],
+        ],
+        [
             'id' => 'home-link-geospasial-bencana',
             'type' => 'text',
             'label' => __('Home Link Geospasial Bencana'),
-            'column' => 'col-md-10',
+            'column' => 'col-md-7',
             'attributes' => [
                 'name' => 'home-link-geospasial-bencana',
                 'value' => '#',
@@ -340,10 +380,20 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-geospasial-bencana-icon',
+            'type' => 'mediaImage',
+            'label' => 'Icon',
+            'column' => 'col-md-3',
+            'attributes' => [
+                'name' => 'home-link-geospasial-bencana-icon',
+                'value' => null,
+            ],
+        ],
+        [
             'id' => 'home-link-pantauan-bencana',
             'type' => 'text',
             'label' => __('Home Link Pantauan Bencana'),
-            'column' => 'col-md-10',
+            'column' => 'col-md-7',
             'attributes' => [
                 'name' => 'home-link-pantauan-bencana',
                 'value' => '#',
@@ -369,10 +419,20 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-pantauan-bencana-icon',
+            'type' => 'mediaImage',
+            'label' => 'Icon',
+            'column' => 'col-md-3',
+            'attributes' => [
+                'name' => 'home-link-pantauan-bencana-icon',
+                'value' => null,
+            ],
+        ],
+        [
             'id' => 'home-link-lpse',
             'type' => 'text',
             'label' => __('Home Link LPSE'),
-            'column' => 'col-md-10',
+            'column' => 'col-md-7',
             'attributes' => [
                 'name' => 'home-link-lpse',
                 'value' => '#',
@@ -398,10 +458,20 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-lpse-icon',
+            'type' => 'mediaImage',
+            'label' => 'Icon',
+            'column' => 'col-md-3',
+            'attributes' => [
+                'name' => 'home-link-lpse-icon',
+                'value' => null,
+            ],
+        ],
+        [
             'id' => 'home-link-ppid',
             'type' => 'text',
             'label' => __('Home Link PPID'),
-            'column' => 'col-md-10',
+            'column' => 'col-md-7',
             'attributes' => [
                 'name' => 'home-link-ppid',
                 'value' => '#',
@@ -427,10 +497,20 @@ theme_option()->setSection([
             ],
         ],
         [
+            'id' => 'home-link-ppid-icon',
+            'type' => 'mediaImage',
+            'label' => 'Icon',
+            'column' => 'col-md-3',
+            'attributes' => [
+                'name' => 'home-link-ppid-icon',
+                'value' => null,
+            ],
+        ],
+        [
             'id' => 'home-link-inarisk',
             'type' => 'text',
             'label' => __('Home Link Inarisk'),
-            'column' => 'col-md-10',
+            'column' => 'col-md-7',
             'attributes' => [
                 'name' => 'home-link-inarisk',
                 'value' => '#',
@@ -455,7 +535,16 @@ theme_option()->setSection([
                 ],
             ],
         ],
-
+        [
+            'id' => 'home-link-inarisk-icon',
+            'type' => 'mediaImage',
+            'label' => 'Icon',
+            'column' => 'col-md-3',
+            'attributes' => [
+                'name' => 'home-link-inarisk-icon',
+                'value' => null,
+            ],
+        ],
     ],
 ]);
 

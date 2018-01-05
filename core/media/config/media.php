@@ -4,6 +4,8 @@ return [
     'mode' => env('RV_MEDIA_MODE', 'advanced'), // Use "simple" or "advanced"
     'sizes' => [
         'thumb' => '150x150',
+        'thumbPotrait' => '262x285',
+        'thumbLandscape' => '262x185',
         'featured' => '560x380',
         'medium' => '540x360',
     ],
