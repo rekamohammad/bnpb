@@ -106,6 +106,7 @@ class InfografisController extends BaseController
         $post->user_id = acl_get_current_user_id();
         $post->featured = $request->input('featured', false);
         $post->category = $request->categories[0];
+        $post->options = $request->options[0];
         $post->save();
 
         do_action(BASE_ACTION_AFTER_CREATE_CONTENT, POST_MODULE_SCREEN_NAME, $request, $post);
@@ -171,6 +172,7 @@ class InfografisController extends BaseController
         $post->user_id = acl_get_current_user_id();
         $post->featured = $request->input('featured', false);
         $post->category = $request->categories[0];
+        $post->options = $request->options[0];
         $post->save();
 
         do_action(BASE_ACTION_AFTER_UPDATE_CONTENT, POST_MODULE_SCREEN_NAME, $request, $post);

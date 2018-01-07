@@ -301,13 +301,13 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
 
     public function getInfoBencanaPost()
     {
-        $data = $this->model->where('posts.category','=','70')->select('posts.*')->orderBy('posts.created_at', 'DESC');
+        $data = $this->model->where('posts.category','=','70')->where('posts.options','=','1')->select('posts.*')->orderBy('posts.created_at', 'DESC');
         return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->first();
     }
 
     public function getSiagaBencanaPost()
     {
-        $data = $this->model->where('posts.category','=','72')->select('posts.*')->orderBy('posts.created_at', 'DESC');
+        $data = $this->model->where('posts.category','=','72')->where('posts.options','=','1')->select('posts.*')->orderBy('posts.created_at', 'DESC');
         return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->first();
     }
     
