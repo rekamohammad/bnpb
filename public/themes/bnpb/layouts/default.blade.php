@@ -374,6 +374,20 @@
     </div>
     </div>
     </main>
+	
+@elseif (Request::segment(1) == 'galleries')
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12">
+					{!! Theme::content() !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+	
 @else
     <main class="main" id="main">
     <div class="container">
