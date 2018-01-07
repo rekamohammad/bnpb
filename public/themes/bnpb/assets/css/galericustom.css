@@ -1,0 +1,31 @@
+.thumbnail{
+	    list-style: none;
+    display: inline-block;
+    width: 32.333333333%;
+    margin: 0;
+    overflow: hidden;
+    height: 44%;
+}
+
+.thumbnail li{
+	
+	margin-bottom: 10px;
+	position:relative;
+	
+}
+
+.thumbnail li p{
+	position: absolute;
+    bottom: 0;
+    color: #fff;
+    background: #0000007a;
+    width: 100%;
+    text-align: center;
+    padding: 13px;
+    text-transform: uppercase;
+}
+
+.thumbnail li a img{
+	height:100%;
+	width:100%;
+}
