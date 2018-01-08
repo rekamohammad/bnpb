@@ -21,7 +21,8 @@
 					    </div>
 		            @endforeach
 					@if ($_cats[$catIds])
-		            <a href="{{ route('public.single.detail', $_cats[$catIds]->slug) }}" class="dotted-button">
+		             <!-- <a href="{{ route('public.single.detail', $_cats[$catIds]->slug) }}" class="dotted-button"> !-->
+					 <a href="http://bnpbindonesia.tv/" class="dotted-button">
 		                <span class="post-date">
 		                    Berita Video Lainnya
 		                </span>

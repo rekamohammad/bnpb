@@ -168,7 +168,7 @@
             <div class="col-md-3">
                 @php
                     echo Theme::partial('post-video', ['category_ids' => explode(',', theme_option('home-right-feed'))]);
-                    $infografis_id = get_infografis_infografis()[0]['attributes']['id'];
+                    $infografis_id = get_infografis_rekapitulasi_bencana()[0]['attributes']['id'];
                     if($infografis_id) { 
                         echo Theme::partial('post-infografis', ['category_ids' => [$infografis_id]]);
                     }
@@ -375,6 +375,20 @@
     </div>
     </div>
     </main>
+	
+@elseif (Request::segment(1) == 'galleries')
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12">
+					{!! Theme::content() !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+	
 @else
     <main class="main" id="main">
     <div class="container">
