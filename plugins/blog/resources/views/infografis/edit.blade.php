@@ -32,6 +32,13 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <div id="section_options" class="form-group @if ($errors->has('options')) has-error @endif">
+                                    <label for="options" class="control-label required">{{ trans('blog::infografis.form.options') }}</label>
+                                    <select id="options" name="options[]" class="form-control" required>
+                                        <option value="1"> Set To Homepage </option>
+			                            <option value="0"> Don't Set To Homepage </option>
+                                    </select>
+                                </div>
                                 <div class="form-group @if ($errors->has('created_at')) has-error @endif">
                                     <label for="created_at" class="control-label required">{{ trans('blog::infografis.form.created_at') }}</label>
                                     {!! Form::text('created_at', null, ['class' => 'form-control', 'id' => 'created_at', 'placeholder' => trans('blog::publikasi.form.date_placeholder'), 'data-counter' => 20]) !!}
@@ -87,7 +94,24 @@
             </div>
         </div>
     <script>
-        $('#categories').val('{{ $currentCategory[0]->id }}')
+        $('#categories').val('{{ $currentCategory[0]->id }}');
+        $('#options').val('{{ $post->options }}');
+        // Check Event On Load
+        if ('{{ $currentCategory[0]->id }}' == 72 || '{{ $currentCategory[0]->id }}' == 70) {
+            $('#section_options').show();
+        } else {
+            $('#section_options').hide();
+        }
+
+        // Check Event On Change
+        $('#categories').on('change', function() {
+			var categories_val = $('#categories').val();
+            if (categories_val == 72 || categories_val == 70) {
+                $('#section_options').show();
+            } else {
+                $('#section_options').hide();
+            }
+		});
     </script>
     {!! Form::close() !!}
 @stop

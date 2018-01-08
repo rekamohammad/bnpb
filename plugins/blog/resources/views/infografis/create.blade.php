@@ -27,6 +27,13 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <div id="section_options" class="form-group @if ($errors->has('options')) has-error @endif">
+                                    <label for="options" class="control-label required">{{ trans('blog::infografis.form.options') }}</label>
+                                    <select id="options" name="options[]" class="form-control" required>
+                                        <option value="1"> Set To Homepage </option>
+			                            <option value="0"> Don't Set To Homepage </option>
+                                    </select>
+                                </div>
                                 <div class="form-group @if ($errors->has('slug')) has-error @endif">
                                     {!! Form::permalink('slug', old('slug'), null, route('infografis.create.slug'), route('public.single.detail', config('cms.slug.pattern')), url('/infografis/detail/')) !!}
                                     {!! Form::error('slug', $errors) !!}
@@ -73,7 +80,16 @@
             </div>
         </div>
         <script>
-            jQuery('.multi-choices-widget .mt-checkbox input').prop('checked', true);  
+            jQuery('.multi-choices-widget .mt-checkbox input').prop('checked', true); 
+            $('#section_options').hide();
+            $('#categories').on('change', function() {
+                var categories_val = $('#categories').val();
+                if (categories_val == 72 || categories_val == 70) {
+                    $('#section_options').show();
+                } else {
+                    $('#section_options').hide();
+                }
+            });
         </script>
     {!! Form::close() !!}
 @stop

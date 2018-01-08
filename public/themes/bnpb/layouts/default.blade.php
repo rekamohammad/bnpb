@@ -168,7 +168,7 @@
             <div class="col-md-3">
                 @php
                     echo Theme::partial('post-video', ['category_ids' => explode(',', theme_option('home-right-feed'))]);
-                    $infografis_id = get_infografis_infografis()[0]['attributes']['id'];
+                    $infografis_id = get_infografis_rekapitulasi_bencana()[0]['attributes']['id'];
                     if($infografis_id) { 
                         echo Theme::partial('post-infografis', ['category_ids' => [$infografis_id]]);
                     }
@@ -183,38 +183,7 @@
     <div class="container">
         <div class="main-index">
             <div class="row">
-                @if (Request::segment(2) == 'poster')
-                    <div class="col-md-12">
-                        <h3 class="block-title"><span><a href="{{ url('/publikasi/poster') }}" title="Publikasi BNPB">Publikasi Poster</a></span></h3>
-                    </div>
-                    @php
-                        $infografis_id = get_infografis_poster()[0]['attributes']['id'];
-                        if($infografis_id) { 
-                            echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
-                        }
-                    @endphp
-                @elseif (Request::segment(2) == 'leaflet')
-                    <div class="col-md-12">
-                        <h3 class="block-title"><span><a href="{{ url('/publikasi/leaflet') }}" title="Publikasi BNPB">Publikasi Leaflet</a></span></h3>
-                    </div>
-                    @php
-                        $infografis_id = get_infografis_leaflet()[0]['attributes']['id'];
-                        if($infografis_id) { 
-                            echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
-                        }
-                    @endphp
-                @elseif (Request::segment(2) == 'buku-data-bencana')
-                    <div class="col-md-12">
-                        <h3 class="block-title"><span><a href="{{ url('/publikasi/buku-data-bencana') }}" title="Publikasi BNPB">Publikasi Buku BNPB</a></span></h3>
-                    </div>
-                    @php
-                        $infografis_id = get_infografis_buku_bnpb()[0]['attributes']['id'];
-                        if($infografis_id) { 
-                            echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
-                        }
-                    @endphp
-                    
-                @elseif (Request::segment(2) == 'siaga-bencana')
+                @if (Request::segment(2) == 'siaga-bencana')
                     <div class="row">
                         <div class="col-md-8">
                             <a href="{{ url('/publikasi/siaga-bencana') }}" target="_self"> <button class="button-tab active"> Siaga Bencana </button> </a>
@@ -227,7 +196,7 @@
                         <h3 class="block-title"><span><a href="{{ url('/publikasi/siaga-bencana') }}" title="Publikasi BNPB">Publikasi Siaga Bencana</a></span></h3>
                     </div>
                     @php
-                        $infografis_id = get_infografis_siaga_bencana()[0]['attributes']['id'];
+                        $infografis_id = get_infografis(Request::segment(2))[0]['attributes']['id'];
                         if($infografis_id) { 
                             echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
                         }
@@ -245,7 +214,7 @@
                         <h3 class="block-title"><span><a href="{{ url('/publikasi/rekapitulasi-bencana') }}" title="Publikasi BNPB">Publikasi Rekapitulasi Bencana</a></span></h3>
                     </div>
                     @php
-                        $infografis_id = get_infografis_rekapitulasi_bencana()[0]['attributes']['id'];
+                        $infografis_id = get_infografis(Request::segment(2))[0]['attributes']['id'];
                         if($infografis_id) { 
                             echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
                         }
@@ -263,53 +232,22 @@
                         <h3 class="block-title"><span><a href="{{ url('/publikasi/kejadian-bencana') }}" title="Publikasi BNPB">Publikasi Kejadian Bencana</a></span></h3>
                     </div>
                     @php
-                        $infografis_id = get_infografis_kejadian_bencana()[0]['attributes']['id'];
-                        if($infografis_id) { 
-                            echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
-                        }
-                    @endphp
-                @elseif (Request::segment(2) == 'kajian-bencana')
-                    <div class="col-md-12">
-                        <h3 class="block-title"><span><a href="{{ url('/publikasi/kajian-bencana') }}" title="Publikasi BNPB">Publikasi Kajian Bencana</a></span></h3>
-                    </div>
-                    @php
-                        $infografis_id = get_infografis_kajian_bencana()[0]['attributes']['id'];
-                        if($infografis_id) { 
-                            echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
-                        }
-                    @endphp
-                @elseif (Request::segment(2) == 'jurnal')
-                    <div class="col-md-12">
-                        <h3 class="block-title"><span><a href="{{ url('/publikasi/jurnal') }}" title="Publikasi BNPB">Publikasi Jurnal</a></span></h3>
-                    </div>
-                    @php
-                        $infografis_id = get_infografis_jurnal()[0]['attributes']['id'];
-                        if($infografis_id) { 
-                            echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
-                        }
-                    @endphp
-                @elseif (Request::segment(2) == 'atlas')
-                    <div class="col-md-12">
-                        <h3 class="block-title"><span><a href="{{ url('/publikasi/atlas') }}" title="Publikasi BNPB">Publikasi Atlas</a></span></h3>
-                    </div>
-                    @php
-                        $infografis_id = get_infografis_atlas()[0]['attributes']['id'];
+                        $infografis_id = get_infografis(Request::segment(2))[0]['attributes']['id'];
                         if($infografis_id) { 
                             echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
                         }
                     @endphp
                 @else
                     <div class="col-md-12">
-                        <h3 class="block-title"><span><a href="{{ url('/publikasi/semua-publikasi') }}" title="Publikasi BNPB">Semua Publikasi BNPB</a></span></h3>
+                        <h3 class="block-title"><span><a href="{{ url('/publikasi/'.Request::segment(2)) }}" title="Publikasi BNPB">Publikasi @php echo str_replace("-", " ", trim(Request::segment(2)," ")) @endphp</a></span></h3>
                     </div>
                     @php
-                        $infografis_id = get_publikasi()[0]['attributes']['id'];
+                        $infografis_id = get_infografis(Request::segment(2))[0]['attributes']['id'];
                         if($infografis_id) { 
                             echo Theme::partial('post-publikasi', ['category_ids' => [$infografis_id]]);
                         }
                     @endphp
                 @endif
-                
             </div>
         </div>
     </div>
@@ -374,6 +312,20 @@
     </div>
     </div>
     </main>
+	
+@elseif (Request::segment(1) == 'galleries')
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12">
+					{!! Theme::content() !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+	
 @else
     <main class="main" id="main">
     <div class="container">

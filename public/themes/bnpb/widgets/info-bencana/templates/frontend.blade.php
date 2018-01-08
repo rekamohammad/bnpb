@@ -19,7 +19,7 @@
         <div>
             <center>
                 <strong>
-                    <a href="{{ url('/publikasi/rekapitulasi-bencana') }}">Info Bencana Lainnya &gt;&gt;</a>
+                    <a href="{{ url('/publikasi/rekapitulasi-bencana') }}">Selengkapnya &gt;&gt;</a>
                 </strong>
             </center>
         </div>

@@ -19,7 +19,7 @@
         <div>
             <center>
                 <strong>
-                    <a href="{{ url('/publikasi/siaga-bencana') }}">Siaga Bencana Lainnya &gt;&gt;</a>
+                    <a href="{{ url('/publikasi/siaga-bencana') }}">Selengkapnya &gt;&gt;</a>
                 </strong>
             </center>
         </div>

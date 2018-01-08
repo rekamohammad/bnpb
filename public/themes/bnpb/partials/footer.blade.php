@@ -83,11 +83,22 @@
 
 <!-- <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58b80e5cfacf57001271be31&product=sticky-share-buttons"></script> -->
 <link media="all" type="text/css" rel="stylesheet" href="/themes/bnpb/assets/css/fancybox.css">
-<script src="/themes/bnpb/assets/js/fancybox.min.js"></script>
-<script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/js/lightgallery-all.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/css/lightgallery.css">
 
+<script type="text/javascript" src="/themes/bnpb/assets/js/lightgallery.js"></script>
+<script src="/themes/bnpb/assets/js/fancybox.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/js/lightgallery-all.js"></script>
+<script type="text/javascript" src="/themes/bnpb/assets/js/jquery.gdocsviewer.min.js"></script>
+@if (Request::segment(1) == 'gpr')
+<script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
+@endif
 <script>
+@if (Request::segment(1) == 'galleries')
+	     for($i=1; $i<$('.thumbnail').length; $i++){
+			$('#lightgallery-'+$i).lightGallery();
+		}
+	
+@endif						
     $(document).ready(function () {
         $('.banner-slider-wrap').slick({
             dots: true
@@ -128,7 +139,12 @@
         }
         $('.popup-info').lightGallery({
             thumbnail:true
-        }); 
+        });
+        $('.view-pdf').lightGallery({
+            selector: 'this',
+            iframeMaxWidth: '82%',
+        });
+        $('a.embed').gdocsViewer();
     });
 </script>
 @if(!empty(theme_option('facebook-app-id')))

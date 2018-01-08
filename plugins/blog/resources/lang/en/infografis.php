@@ -11,6 +11,8 @@ return [
         'name_placeholder' => 'Infografis name (Maximum 120 characters)',
         'categories' => 'Category',
         'categories_placeholder' => 'Category Infografis',
+        'options' => 'Set To Homepage ?',
+        'options_placeholder' => 'Set To Homepage ?',
         'description' => 'Description',
         'description_placeholder' => 'Short description for Infografis (Maximum 400 characters)',
         'categories' => 'Categories',
