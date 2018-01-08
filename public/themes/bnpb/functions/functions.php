@@ -25,6 +25,14 @@ function add_pdf_file_shortcode ($shortcode) {
 }
 shortcode()->setAdminConfig('pdf-file', Theme::partial('pdf-file-admin-config'));
 
+add_shortcode('pdf-view', 'PDF View', 'PDF View', 'add_pdf_view_shortcode');
+function add_pdf_view_shortcode ($shortcode) {
+    return Theme::partial('pdf-view', ['url' => $shortcode->content]);
+}
+shortcode()->setAdminConfig('pdf-view', Theme::partial('pdf-file-admin-config'));
+
+
+
 add_shortcode('audio', 'Audio File', 'Audio File', 'add_audio_shortcode');
 function add_audio_shortcode ($shortcode) {
     return Theme::partial('audio', ['url' => $shortcode->content]);

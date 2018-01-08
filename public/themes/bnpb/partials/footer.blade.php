@@ -142,7 +142,7 @@
         });
         $('.view-pdf').lightGallery({
             selector: 'this',
-            iframeMaxWidth: '85%',
+            iframeMaxWidth: '82%',
         });
         $('a.embed').gdocsViewer();
     });
