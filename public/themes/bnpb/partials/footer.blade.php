@@ -82,8 +82,10 @@
 <![endif]-->
 
 <!-- <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58b80e5cfacf57001271be31&product=sticky-share-buttons"></script> -->
-<script type="text/javascript" src="/themes/bnpb/assets/js/lightgallery.js"></script>
 <link media="all" type="text/css" rel="stylesheet" href="/themes/bnpb/assets/css/fancybox.css">
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/css/lightgallery.css">
+
+<script type="text/javascript" src="/themes/bnpb/assets/js/lightgallery.js"></script>
 <script src="/themes/bnpb/assets/js/fancybox.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/js/lightgallery-all.js"></script>
 <script type="text/javascript" src="/themes/bnpb/assets/js/jquery.gdocsviewer.min.js"></script>
