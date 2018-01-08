@@ -178,6 +178,7 @@
     </div>
     </div>
     </main>
+    <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
 @elseif (Request::segment(1) == 'publikasi')
     <main class="main" id="main">
     <div class="container">
