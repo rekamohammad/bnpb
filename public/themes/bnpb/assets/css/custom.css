@@ -1109,8 +1109,8 @@ body .main-index .block-has-border.media-news {
 body .main-index .dynamic-sidebar .panel-default {
     border-width: 0;
     border-top: 3px solid #016e36;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
     box-shadow: none;
     border-radius: 0
 }
