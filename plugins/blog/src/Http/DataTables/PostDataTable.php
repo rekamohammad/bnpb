@@ -52,7 +52,8 @@ class PostDataTable extends DataTableAbstract
         /**
          * @var \Eloquent $model
          */
-        $query = $model->select(['posts.id', 'posts.name', 'posts.created_at', 'posts.status']);
+        $query = $model->orderBy('posts.created_at', 'desc')
+                ->select(['posts.id', 'posts.name', 'posts.created_at', 'posts.status']);
         return $this->applyScopes(apply_filters(BASE_FILTER_DATATABLES_QUERY, $query, $model, POST_MODULE_SCREEN_NAME));
     }
 

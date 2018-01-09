@@ -177,28 +177,23 @@
                     {{ $category->name }}
                 </h2>
             </div>
-          {{--   <div class="col-md-12 maintain-search">
+            <div class="col-md-12 maintain-search">
                 <div class="pull-right">
                     <form class="navbar-form navbar-right" role="search"
                           accept-charset="UTF-8"
                           action="{{ route('public.search') }}"
                           method="GET">
                         <div class="tn-searchtop">
-                            <button type="button" class="btn btn-default js-btn-searchtop">
-                                <i class="fa fa-times"></i>
-                            </button>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="{{ __('Search...') }}" name="q">
                             </div>
-                            <button type="submit" class="btn btn-default">
+                            <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
-                        <button id="tn-searchtop" class="js-btn-searchtop" type="button"><i class="fa fa-search"></i>
-                        </button>
                     </form>
                 </div>
-            </div> --}}
+            </div>
             <div class="main-box-content">
 
                 <div class="box-style box-style-3">
