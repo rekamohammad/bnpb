@@ -21,5 +21,6 @@
                 <a href="{{ url('/publikasi/siaga-bencana') }}">Selengkapnya &gt;&gt;</a>
             </strong>
         </div>
+        <br>
     </div> 
 </div>
