@@ -1,4 +1,4 @@
-RewriteEngine on
+RewriteEngine ON
 
 RewriteCond %{REQUEST_URI} !^public
 
