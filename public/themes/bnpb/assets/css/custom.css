@@ -605,6 +605,15 @@ body .diorama-container .btn span {
     box-shadow: 0 2px 0 #fff
 }
 
+.main-diorama{
+    width: 100%;
+    height: 400px;
+}
+
+.caption-slide {
+    height: 100%;
+}
+
 body #main-diorama .banner-slider-wrap {
     margin-bottom: 15px
 }
@@ -616,7 +625,24 @@ body #main-diorama .diorama-dark {
 }
 
 body #main-diorama .slick-slide {
-    height: auto
+    height: 100%
+}
+
+body #main-diorama .slick-list {
+    height: 100%
+}
+
+body #main-diorama .slide {
+    position: relative;
+}
+
+body #main-diorama .slide-caption {
+    position: absolute;
+    bottom: 20px;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    font-size: 16px; padding: 5px; 
+    left: 10px;
 }
 
 body #main-diorama .diorama-dark .slick-slide {
@@ -698,6 +724,14 @@ body .diorama-section .modal-text .sosmed-share ul li .fa-twitter {
     color: #65bbf2
 }
 
+.list-diorama {
+    max-height: 190px;
+}
+
+.list-post-diorama {
+    max-height: 90px;
+}
+
 @media (min-width:768px) {
     body .modal-dialog {
         width: 900px;
@@ -706,6 +740,23 @@ body .diorama-section .modal-text .sosmed-share ul li .fa-twitter {
 }
 
 @media (max-width:768px) {
+    .main-diorama{
+        width: 100%;
+        max-height: 220px;
+    }
+
+    .list-diorama {
+        max-height: 120px;
+    }
+
+    .list-post-diorama {
+        max-height: 40px;
+    }
+
+    .caption-slide {
+        height: auto;
+    }
+
     body .diorama-section .modal-text {
         margin-left: 0;
         padding-right: 30px;
@@ -1651,4 +1702,7 @@ height: 240px!important;
     overflow: hidden;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis; 
+}
+.modal-margin {
+    margin-bottom: 20px;
 }

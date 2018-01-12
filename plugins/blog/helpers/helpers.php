@@ -3,6 +3,8 @@
 use Botble\Base\Supports\SortItemsWithChildrenHelper;
 use Botble\Blog\Repositories\Interfaces\CategoryInterface;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
+use Botble\Blog\Repositories\Interfaces\AlbumInterface;
+use Botble\Blog\Repositories\Interfaces\DioramaInterface;
 use Botble\Blog\Repositories\Interfaces\TagInterface;
 use Botble\Blog\Repositories\Interfaces\TagPostInterface;
 use Botble\Blog\Supports\PostFormat;
@@ -263,6 +265,45 @@ if (!function_exists('get_siaga_bencana_post')) {
     }
 }
 
+if (!function_exists('get_diorama_slide')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_diorama_slide()
+    {
+        return app(DioramaInterface::class)->getDioramaSlide();
+    }
+}
+
+if (!function_exists('get_diorama_by_album')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_diorama_by_album($albumId)
+    {
+        return app(DioramaInterface::class)->getDioramaByAlbum($albumId);
+    }
+}
+
+if (!function_exists('get_list_album')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_list_album()
+    {
+        return app(AlbumInterface::class)->getListAlbum();
+    }
+}
+
 if (!function_exists('get_diorama_posts')) {
     /**
      * @param integer $limit
@@ -397,11 +438,39 @@ if (!function_exists('get_berita')) {
     }
 }
 
+if (!function_exists('get_album')) {
+    /**
+     * @return array
+     */
+    function get_album()
+    {
+        $repo = app(AlbumInterface::class);
+        $categories = $repo->allBy(['status' => 1], [], ['id', 'name', 'slug', 'image']);
+        return $categories;
+    }
+}
+
 if (!function_exists('get_diorama')) {
     /**
      * @return array
      */
     function get_diorama()
+    {
+        $repo = app(CategoryInterface::class);
+        $categories = $repo->allBy(['status' => 1, 'slug' => 'diorama'], [], ['id', 'name', 'parent_id']);
+        $sortHelper = app(SortItemsWithChildrenHelper::class);
+        $sortHelper
+            ->setChildrenProperty('child_cats')
+            ->setItems($categories);
+        return $sortHelper->sort();
+    }
+}
+
+if (!function_exists('get_diorama_newest')) {
+    /**
+     * @return array
+     */
+    function get_diorama_newest()
     {
         $repo = app(CategoryInterface::class);
         $categories = $repo->allBy(['status' => 1, 'slug' => 'diorama'], [], ['id', 'name', 'parent_id']);

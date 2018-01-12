@@ -61,6 +61,51 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
             ]);
         });
 
+        Route::group(['prefix' => 'album'], function () {
+
+            Route::get('/', [
+                'as' => 'album.list',
+                'uses' => 'AlbumController@getList',
+            ]);
+
+            Route::get('/create', [
+                'as' => 'album.create',
+                'uses' => 'AlbumController@getCreate',
+            ]);
+
+            Route::post('/create', [
+                'as' => 'album.create',
+                'uses' => 'AlbumController@postCreate',
+            ]);
+
+            Route::get('/edit/{id}', [
+                'as' => 'album.edit',
+                'uses' => 'AlbumController@getEdit',
+            ]);
+
+            Route::post('/edit/{id}', [
+                'as' => 'album.edit',
+                'uses' => 'AlbumController@postEdit',
+            ]);
+
+            Route::get('/delete/{id}', [
+                'as' => 'album.delete',
+                'uses' => 'AlbumController@getDelete',
+            ]);
+
+            Route::post('/delete-many', [
+                'as' => 'album.delete.many',
+                'uses' => 'AlbumController@postDeleteMany',
+                'permission' => 'album.delete',
+            ]);
+
+            Route::post('/change-status', [
+                'as' => 'album.change.status',
+                'uses' => 'AlbumController@postChangeStatus',
+                'permission' => 'album.edit',
+            ]);
+        });
+
         Route::group(['prefix' => 'diorama'], function () {
 
             Route::get('/', [

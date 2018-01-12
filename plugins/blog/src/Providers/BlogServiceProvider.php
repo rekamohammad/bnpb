@@ -4,6 +4,14 @@ namespace Botble\Blog\Providers;
 
 use Botble\Base\Events\SessionStarted;
 use Botble\Base\Supports\Helper;
+use Botble\Blog\Models\Album;
+use Botble\Blog\Repositories\Caches\AlbumCacheDecorator;
+use Botble\Blog\Repositories\Eloquent\AlbumRepository;
+use Botble\Blog\Repositories\Interfaces\AlbumInterface;
+use Botble\Blog\Models\Diorama;
+use Botble\Blog\Repositories\Caches\DioramaCacheDecorator;
+use Botble\Blog\Repositories\Eloquent\DioramaRepository;
+use Botble\Blog\Repositories\Interfaces\DioramaInterface;
 use Botble\Blog\Models\Post;
 use Botble\Blog\Repositories\Caches\PostCacheDecorator;
 use Botble\Blog\Repositories\Eloquent\PostRepository;
@@ -47,6 +55,14 @@ class BlogServiceProvider extends ServiceProvider
     public function register()
     {
         if (setting('enable_cache', false)) {
+            $this->app->singleton(AlbumInterface::class, function () {
+                return new AlbumCacheDecorator(new AlbumRepository(new Album()), new Cache($this->app['cache'], __CLASS__));
+            });
+
+            $this->app->singleton(DioramaInterface::class, function () {
+                return new DioramaCacheDecorator(new DioramaRepository(new Diorama()), new Cache($this->app['cache'], __CLASS__));
+            });
+
             $this->app->singleton(PostInterface::class, function () {
                 return new PostCacheDecorator(new PostRepository(new Post()), new Cache($this->app['cache'], __CLASS__));
             });
@@ -68,6 +84,14 @@ class BlogServiceProvider extends ServiceProvider
             });
 			
         } else {
+            $this->app->singleton(AlbumInterface::class, function () {
+                return new AlbumRepository(new Album());
+            });
+
+            $this->app->singleton(DioramaInterface::class, function () {
+                return new DioramaRepository(new Diorama());
+            });
+
             $this->app->singleton(PostInterface::class, function () {
                 return new PostRepository(new Post());
             });
@@ -166,6 +190,24 @@ class BlogServiceProvider extends ServiceProvider
                     'icon' => 'fa fa-map-o',
                     'url' => route('diorama.list'),
                     'permissions' => ['diorama.list'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-diorama-posts',
+                    'priority' => 2,
+                    'parent_id' => 'cms-plugins-diorama',
+                    'name' => trans('blog::diorama.all_posts'),
+                    'icon' => null,
+                    'url' => route('diorama.list'),
+                    'permissions' => ['diorama.list'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-diorama-album',
+                    'priority' => 2,
+                    'parent_id' => 'cms-plugins-diorama',
+                    'name' => trans('blog::diorama.album_posts'),
+                    'icon' => null,
+                    'url' => route('album.list'),
+                    'permissions' => ['album.list'],
                 ])
                 ->registerItem([
                     'id' => 'cms-plugins-publikasi',

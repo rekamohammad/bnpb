@@ -80,9 +80,7 @@
                                                 <a href="{{ setting('twitter') }}" title="Twitter" class="hi-icon fa fa-twitter"></a>
                                                 <a href="https://www.instagram.com/bnpb_indonesia/" title="Instagram" class="hi-icon fa fa-instagram"></a>
                                                 <a href="https://www.youtube.com/user/BNPBIndonesia/" title="Youtube" class="hi-icon fa fa-youtube-play"></a>
-                                                <a href="https://mail.bnpb.go.id/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.bnpb.go.id%2fowa%2f
-" title="Webmail" class="hi-icon fa fa-envelope"></a>
-                                                <a>
+                                                <a href="https://mail.bnpb.go.id/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.bnpb.go.id%2fowa%2f" title="Webmail" class="hi-icon fa fa-envelope"></a>
                                             </div>
                                         </div>
                                     </div>

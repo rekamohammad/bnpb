@@ -4,7 +4,7 @@ namespace Botble\Blog\Http\Requests;
 
 use Botble\Support\Http\Requests\Request;
 
-class DioramaRequest extends Request
+class AlbumRequest extends Request
 {
 
     /**
@@ -17,10 +17,7 @@ class DioramaRequest extends Request
     {
         return [
             'name' => 'required|max:120',
-            'description' => 'required|max:300',
-            'content' => 'required',
             'image' => 'required',
-            'slug' => 'required',
         ];
     }
 }

@@ -3,9 +3,9 @@
 namespace Botble\Blog\Repositories\Eloquent;
 
 use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
-use Botble\Blog\Repositories\Interfaces\NewsInterface;
+use Botble\Blog\Repositories\Interfaces\DioramaInterface;
 
-class DioramaRepository extends RepositoriesAbstract implements NewsInterface
+class DioramaRepository extends RepositoriesAbstract implements DioramaInterface
 {
 
     /**
@@ -264,5 +264,17 @@ class DioramaRepository extends RepositoriesAbstract implements NewsInterface
         //     $data = $data->where($args['where']);
         // }
         // return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
+    }
+
+    public function getDioramaSlide()
+    {
+        $data = $this->model->where('posts.category','=','52')->where('posts.featured','=','1')->where('posts.format_type','=','images')->select('posts.*')->limit(5)->orderBy('posts.created_at', 'DESC');
+        return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
+    }
+
+    public function getDioramaByAlbum($albumId)
+    {
+        $data = $this->model->where('posts.category','=','52')->where('posts.options','=', $albumId)->select('posts.*')->orderBy('posts.created_at', 'DESC');
+        return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
     }
 }

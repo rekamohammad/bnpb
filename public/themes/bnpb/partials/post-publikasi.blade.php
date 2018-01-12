@@ -27,7 +27,7 @@
 				$folders = explode('/', $path);
 				$getSplit =  explode('?',$folders[2]);
 			@endphp 	
-                {!! $_infografis->setPath($getSplit[0]) !!}
+            {!! $_infografis->setPath($getSplit[0]) !!}
             </nav>
         @endif
 	@else
