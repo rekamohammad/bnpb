@@ -271,7 +271,7 @@
         }
     @endphp
     @endif
-@elseif (Request::segment(1) == 'undang-undang.html' || Request::segment(1) == 'peraturan-presiden.html' || Request::segment(1) == 'keputusan-presiden.html' || Request::segment(1) == 'keputusan-menteri.html' ||  Request::segment(1) == 'pembentukan-bpbd.html' || Request::segment(1) == 'peraturan-pemerintah.html')
+@elseif (Request::segment(1) == 'undang-undang.html' || Request::segment(1) == 'peraturan-presiden.html' || Request::segment(1) == 'keputusan-presiden.html' || Request::segment(1) == 'keputusan-menteri.html' ||  Request::segment(1) == 'pembentukan-bpbd.html' || Request::segment(1) == 'peraturan-pemerintah.html' || Request::segment(1) == 'peraturan-kepala-bnpb.html')
     <main class="main" id="main">
     <div class="container">
     <div class="main-content">

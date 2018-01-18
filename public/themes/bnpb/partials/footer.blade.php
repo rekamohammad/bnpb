@@ -83,12 +83,14 @@
 
 <!-- <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58b80e5cfacf57001271be31&product=sticky-share-buttons"></script> -->
 <link media="all" type="text/css" rel="stylesheet" href="/themes/bnpb/assets/css/fancybox.css">
+<link href="http://vjs.zencdn.net/6.6.0/video-js.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/css/lightgallery.css">
-
 <script type="text/javascript" src="/themes/bnpb/assets/js/lightgallery.js"></script>
 <script src="/themes/bnpb/assets/js/fancybox.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/js/lightgallery-all.js"></script>
 <script type="text/javascript" src="/themes/bnpb/assets/js/jquery.gdocsviewer.min.js"></script>
+<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+<script src="http://vjs.zencdn.net/6.6.0/video.js"></script>
 @if (Request::segment(1) == 'gpr')
 <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
 @endif
@@ -183,23 +185,7 @@
         $('.slider-nav').resize();
         $('.slider-single').slick('refresh');
         $('.slider-nav').slick('refresh');
-    })
-
-    $('#list-photo').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: true,
-        asNavFor: '#list-thumb'
     });
-    $('#list-thumb').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: '#list-photo',
-        dots: true,
-        centerMode: true,
-        focusOnSelect: true
-    });   
 @endif
     $(document).ready(function () {
         $('.banner-slider-wrap').slick({
@@ -217,7 +203,8 @@
             });
         }
         $('.popup-info').lightGallery({
-            thumbnail:true
+            thumbnail:true,
+            videojs: true
         });
         $('.view-pdf').lightGallery({
             selector: 'this',

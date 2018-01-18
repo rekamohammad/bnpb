@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 RewriteEngine ON
+=======
+RewriteEngine ON reka
+>>>>>>> ebdf3bf456f6b1365a1bd4fd8162996b7578d6c5
 
 RewriteCond %{REQUEST_URI} !^public
 
