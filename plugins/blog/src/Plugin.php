@@ -61,6 +61,27 @@ class Plugin implements PluginInterface
             ],
 
             [
+                'name' => 'Album',
+                'flag' => 'album.list',
+                'is_feature' => true,
+            ],
+            [
+                'name' => 'Create',
+                'flag' => 'album.create',
+                'parent_flag' => 'album.list',
+            ],
+            [
+                'name' => 'Edit',
+                'flag' => 'album.edit',
+                'parent_flag' => 'album.list',
+            ],
+            [
+                'name' => 'Delete',
+                'flag' => 'album.delete',
+                'parent_flag' => 'album.list',
+            ],
+
+            [
                 'name' => 'Diorama',
                 'flag' => 'diorama.list',
                 'is_feature' => true,

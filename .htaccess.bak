@@ -1,4 +1,4 @@
-RewriteEngine on
+RewriteEngine ON reka
 
 RewriteCond %{REQUEST_URI} !^public
 

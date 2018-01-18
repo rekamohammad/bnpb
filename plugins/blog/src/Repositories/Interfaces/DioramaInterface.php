@@ -108,4 +108,8 @@ interface DioramaInterface extends RepositoryInterface
      * @author Sang Nguyen
      */
     public function getPopularPosts($limit, array $args = []);
+
+    public function getDioramaSlide();
+
+    public function getDioramaByAlbum($albumId);
 }

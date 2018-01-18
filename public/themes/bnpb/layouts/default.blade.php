@@ -82,22 +82,18 @@
         </div>
     </main>
     @endif
-@elseif (Request::segment(1) == 'diorama' || Request::segment(1) == 'diorama.html')
+@elseif (Request::segment(1) == 'diorama')
     <main class="main" id="main">
-    <div id="main-diorama" class="container-fluid">
-        <div class="row">
-            <!-- <div class="col-md-12 middle-widget"> -->
-                @php
-                    $news_id = get_diorama()[0]['attributes']['id'];
-                    if($news_id){
-                        echo Theme::partial('slide-diorama', ['category_ids' => [$news_id]]);
-                        echo Theme::partial('post-diorama-middle', ['post_ids' => explode(',', theme_option('diorama-middle'))]);
-                        echo Theme::partial('post-diorama', ['category_ids' => [$news_id]]);
-                    }
-                @endphp
-            <!-- </div> -->
+        <div class="container">
+            @php
+                $news_id = get_diorama()[0]['attributes']['id'];
+                if($news_id){
+                    echo Theme::partial('slide-diorama', ['category_ids' => [$news_id]]);
+                    echo Theme::partial('post-diorama-middle', ['category_ids' => [$news_id]]);
+                    echo Theme::partial('post-diorama', ['category_ids' => [$news_id]]);
+                }
+            @endphp
         </div>
-    </div>
     </main>
 @elseif (Request::segment(1) == 'berita')
     <main class="main" id="main">
@@ -168,7 +164,7 @@
             <div class="col-md-3">
                 @php
                     echo Theme::partial('post-video', ['category_ids' => explode(',', theme_option('home-right-feed'))]);
-                    $infografis_id = get_infografis_rekapitulasi_bencana()[0]['attributes']['id'];
+                    $infografis_id = get_infografis('rekapitulasi-bencana')[0]['attributes']['id'];
                     if($infografis_id) { 
                         echo Theme::partial('post-infografis', ['category_ids' => [$infografis_id]]);
                     }

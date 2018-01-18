@@ -5,9 +5,11 @@ namespace Botble\Blog\Http\Controllers;
 use Botble\Base\Http\Controllers\BaseController;
 use Botble\Blog\Http\Requests\DioramaRequest;
 use Assets;
+use Botble\Blog\Models\Post;
 use Botble\Blog\Models\Diorama;
+use Botble\Blog\Repositories\Interfaces\AlbumInterface;
 use Botble\Blog\Repositories\Interfaces\CategoryInterface;
-// use Botble\Blog\Repositories\Interfaces\DioramaInterface;
+use Botble\Blog\Repositories\Interfaces\DioramaInterface;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
 use Botble\Blog\Http\DataTables\DioramaDataTable;
 use Botble\Blog\Repositories\Interfaces\TagInterface;
@@ -61,6 +63,7 @@ class DioramaController extends BaseController
      */
     public function getList(DioramaDataTable $dataTable)
     {
+        //return get_diorama_slide();
         page_title()->setTitle(trans('blog::diorama.list'));
 
         return $dataTable->renderTable(['title' => trans('blog::diorama.list'), 'icon' => 'fa fa-edit']);
@@ -78,9 +81,9 @@ class DioramaController extends BaseController
         Assets::addStylesheets(['bootstrap-tagsinput']);
         Assets::addAppModule(['tags', 'slug']);
 
-        $categories = get_diorama();
+        $albums = get_list_album();
 
-        return view('blog::diorama.create', compact('categories'));
+        return view('blog::diorama.create', compact('albums'));
 
     }
 
@@ -96,10 +99,25 @@ class DioramaController extends BaseController
         /**
          * @var Post $post
          */
-        $post = $this->postRepository->createOrUpdate(array_merge($request->input(), [
-            'user_id' => acl_get_current_user_id(),
-            'featured' => $request->input('featured', false),
-        ]));
+        $post = New Post;
+        $post->name = $request->name;
+        $post->slug = 'diorama/detail/'.$request->slug;
+        $post->image = $request->image;
+        if ($request->diorama_type == 'images') {
+            $post->content = $request->content[0];
+        } elseif ($request->diorama_type == 'video') {
+            $post->content = $request->content[1];
+        } else {
+            $post->content = $request->content[2];
+        }
+        $post->description = $request->description;
+        $post->created_at = $request->created_at;
+        $post->user_id = acl_get_current_user_id();
+        $post->featured = $request->input('featured', false);
+        $post->format_type = $request->diorama_type;
+        $post->category = $request->categories[0];
+        $post->options  = $request->options[0];
+        $post->save();
 
         do_action(BASE_ACTION_AFTER_CREATE_CONTENT, POST_MODULE_SCREEN_NAME, $request, $post);
 
@@ -137,10 +155,9 @@ class DioramaController extends BaseController
         $tags = $post->tags->pluck('name')->all();
         $tags = implode(',', $tags);
 
-        $categories = get_diorama();
-        $selected_categories = [$categories[0]['attributes']['id']];
+        $albums = get_list_album();
 
-        return view('blog::diorama.edit', compact('post', 'tags', 'categories', 'selected_categories'));
+        return view('blog::diorama.edit', compact('post', 'tags', 'albums'));
     }
 
     /**
@@ -158,10 +175,24 @@ class DioramaController extends BaseController
             abort(404);
         }
 
-        $post->fill($request->all());
+        $post->name = $request->name;
+        $post->slug = 'diorama/detail/'.$request->slug;
+        $post->image = $request->image;
+        if ($request->diorama_type == 'images') {
+            $post->content = $request->content[0];
+        } elseif ($request->diorama_type == 'video') {
+            $post->content = $request->content[1];
+        } else {
+            $post->content = $request->content[2];
+        }
+        $post->description = $request->description;
+        $post->created_at = $request->created_at;
+        $post->user_id = acl_get_current_user_id();
         $post->featured = $request->input('featured', false);
-
-        $this->postRepository->createOrUpdate($post);
+        $post->format_type = $request->diorama_type;
+        $post->category = $request->categories[0];
+        $post->options  = $request->options[0];
+        $post->save();
 
         do_action(BASE_ACTION_AFTER_UPDATE_CONTENT, POST_MODULE_SCREEN_NAME, $request, $post);
 

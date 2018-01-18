@@ -14,8 +14,9 @@ return [
         'categories' => 'Categories',
         'tags' => 'Tags',
         'tags_placeholder' => 'Tags',
+        'thumbnail' => 'Thumbnail',
         'content' => 'Content',
-        'featured' => 'Is featured?',
+        'slide' => 'Is Set To Slide ?',
         'note' => 'Note content',
         'format_type' => 'Format',
     ],
@@ -30,4 +31,6 @@ return [
     'no_new_post_now' => 'There is no new Diorama now!',
     'menu_name' => 'Diorama',
     'all_posts' => 'All Diorama',
+    'album_posts' => 'Setting Album',
+    'choose_album' => 'Choose Album',
 ];

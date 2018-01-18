@@ -25,8 +25,73 @@
                                     {!! Form::error('name', $errors) !!}
                                 </div>
                                 <div class="form-group @if ($errors->has('slug')) has-error @endif">
-                                    {!! Form::permalink('slug', $post->slug, $post->id, route('diorama.create.slug'), route('public.single.detail', config('cms.slug.pattern')), url('/')) !!}
-                                    {!! Form::error('slug', $errors) !!}
+                                    <div id="edit-slug-box">
+                                        <label class="control-label required" for="current-slug">Permalink:</label>
+                                        <span id="sample-permalink">
+                                            <a class="permalink" target="_blank" href="{{ url('/diorama/detail/'.substr($post->slug, 14)) }}">
+                                                <span class="default-slug">{{ url('diorama/detail/') }}/<span id="editable-post-name">{{ substr($post->slug, 14) }}</span>.html</span>
+                                            </a>
+                                        </span>
+                                        ‎<span id="edit-slug-buttons">
+                                            <button type="button" class="btn btn-default" id="change_slug">Edit</button>
+                                            <button type="button" class="save btn btn-default" id="btn-ok">OK</button>
+                                            <button type="button" class="cancel button-link">Cancel</button>
+                                        </span>
+                                    </div>
+                                    <input id="current-slug" name="slug" value="{{ substr($post->slug, 14) }}" type="hidden">
+                                    <div data-url="{{ url('/admin/diorama/create-slug/') }}" data-view="{{ url('/diorama/detail/'.substr($post->slug, 17)) }}" id="object_id" data-id="{{ $post->id }}"></div>
+                                </div>
+                                <div class="form-group @if ($errors->has('options')) has-error @endif">
+                                    <label for="options" class="control-label required">{{ trans('blog::diorama.choose_album') }}</label>
+                                    <select id="options" name="options[]" class="form-control" required>
+                                        @foreach ($albums as $album)
+			                                <option value="{{ $album->id }}"> {{ $album->name }} </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group @if ($errors->has('image')) has-error @endif">
+                                    <label class="control-label required">{{ trans('blog::diorama.form.thumbnail') }}</label>
+                                    {!! Form::mediaImage('image', $post->image) !!}
+                                    {!! Form::error('image', $errors) !!}
+                                </div>
+                                <div class="form-group @if ($errors->has('content')) has-error @endif">
+                                    <label for="content" class="control-label required"> Diorama Content</label>
+                                    <div class="tabbable-custom tabbable-tabdrop">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a href="#tab_images" data-toggle="tab"> Image </a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab_video_url" data-toggle="tab"> Video Url</a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab_youtube_url" data-toggle="tab"> Youtube </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab_images">
+                                                {!! Form::mediaImage('content[]', old('content[]')) !!}
+                                                {!! Form::error('content[]', $errors) !!}
+                                            </div>
+                                            @php
+                                                if (filter_var($post->content, FILTER_VALIDATE_URL) === FALSE) {
+                                                    $value = "";
+                                                } else {
+                                                    $value = $post->content;
+                                                }
+                                            @endphp
+                                            <div class="tab-pane" id="tab_video_url">
+                                                <input class="form-control" id="content_video" placeholder="Masukan URL Video " name="content[]" value="{{ $value }}" type="text">
+                                                {!! Form::error('content[]', $errors) !!}
+                                            </div>
+                                            <div class="tab-pane" id="tab_youtube_url">
+                                                <input class="form-control" id="content_youtube" placeholder="Masukan URL Youtube Video " name="content[]" value="{{ $value }}" type="text">
+                                                {!! Form::error('content[]', $errors) !!}
+                                            </div>
+                                            <input class="form-control" id="categories" name="categories[]" value="52" type="hidden">
+                                            <input class="form-control" id="diorama_type" name="diorama_type" value="" type="hidden">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group @if ($errors->has('description')) has-error @endif">
                                     <label for="description" class="control-label required">{{ trans('blog::diorama.form.description') }}</label>
@@ -35,13 +100,8 @@
                                 </div>
                                 <div class="form-group @if ($errors->has('featured')) has-error @endif">
                                     {!! Form::onOff('featured', $post->featured) !!}
-                                    <label for="featured">{{ trans('bases::forms.featured') }}</label>
+                                    <label for="featured">{{ trans('blog::diorama.form.slide') }}</label>
                                     {!! Form::error('featured', $errors) !!}
-                                </div>
-                                <div class="form-group @if ($errors->has('content')) has-error @endif">
-                                    <label class="control-label required">{{ trans('blog::diorama.form.content') }}</label>
-                                    {!! render_editor('content', $post->content, true) !!}
-                                    {!! Form::error('content', $errors) !!}
                                 </div>
                             </div>
                         </div>
@@ -51,7 +111,6 @@
                         {!! apply_filters(BASE_FILTER_REGISTER_CONTENT_TAB_INSIDE, null, POST_MODULE_SCREEN_NAME, $post) !!}
                     </div>
                 </div>
-                @php do_action(BASE_ACTION_META_BOXES, POST_MODULE_SCREEN_NAME, 'advanced', $post) @endphp
             </div>
             <div class="col-md-3 right-sidebar">
                 @include('bases::elements.form-actions')
@@ -59,53 +118,20 @@
 
                 @include('bases::elements.forms.status', ['selected' => $post->status])
 
-                <div class="widget meta-boxes">
-                    <div class="widget-title">
-                        <h4><span class="required">{{ trans('blog::diorama.form.format_type') }}</span></h4>
-                    </div>
-                    <div class="widget-body">
-                        <div class="form-group @if ($errors->has('format_type')) has-error @endif">
-                            <div class="multi-choices-widget list-item-checkbox">
-                                {!! Form::customRadio('format_type', get_post_formats(true), $post->format_type, 0) !!}
-                                {!! Form::error('format_type', $errors) !!}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hide">
-                    @include('blog::categories.partials.categories-multi', [
-                        'name' => 'categories[]',
-                        'title' => trans('blog::diorama.form.categories'),
-                        'value' => $selected_categories,
-                        'categories' => $categories,
-                        'object' => $post
-                    ])
-                </div>
-
-                <div class="widget meta-boxes">
-                    <div class="widget-title">
-                        <h4><span class="required">{{ trans('bases::forms.image') }}</span></h4>
-                    </div>
-                    <div class="widget-body">
-                        {!! Form::mediaImage('image', $post->image) !!}
-                        {!! Form::error('image', $errors) !!}
-                    </div>
-                </div>
-                <div class="widget meta-boxes">
-                    <div class="widget-title">
-                        <h4><span>{{ trans('blog::diorama.form.tags') }}</span></h4>
-                    </div>
-                    <div class="widget-body">
-                        <div class="form-group @if ($errors->has('tag')) has-error @endif">
-                            {!! Form::text('tag', $tags, ['class' => 'form-control', 'id' => 'tags', 'data-role' => 'tagsinput', 'placeholder' => trans('blog::diorama.form.tags_placeholder')]) !!}
-                            {!! Form::error('tag', $errors) !!}
-                        </div>
-                        <div data-tag-route="{{ route('tags.all') }}"></div>
-                    </div>
-                </div>
                 @php do_action(BASE_ACTION_META_BOXES, POST_MODULE_SCREEN_NAME, 'side', $post) @endphp
             </div>
         </div>
     {!! Form::close() !!}
+    <script>
+        $('#options').val('{{ $post->options }}');
+        $('#tab_images').on('click', function() {
+			$('#diorama_type').val('images');
+		});
+        $('#tab_video_url').on('click', function() {
+			$('#diorama_type').val('video');
+		});
+        $('#tab_youtube_url').on('click', function() {
+			$('#diorama_type').val('youtube');
+		});
+    </script>
 @stop
