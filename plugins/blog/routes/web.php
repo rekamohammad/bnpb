@@ -435,6 +435,158 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
                 'permission' => 'tags.create',
             ]);
         });
+		
+		Route::group(['prefix' => 'nasional'], function () {
+			Route::get('/', [
+                'as' => 'nasional.list',
+                'uses' => 'NasionalController@getList',
+			]);
+			Route::get('/create', [
+                'as' => 'nasional.create',
+                'uses' => 'NasionalController@getCreate',
+            ]);	
+			Route::post('/create', [
+                'as' => 'nasional.create',
+                'uses' => 'NasionalController@postCreate',
+           	
+            ]);
+			Route::get('/edit/{id}', [
+                'as' => 'nasional.edit',
+                'uses' => 'NasionalController@getEdit',
+            ]);
+			Route::post('/edit/{id}', [
+                'as' => 'nasional.edit',
+                'uses' => 'NasionalController@postEdit',
+            ]);
+			Route::get('/delete/{id}', [
+                'as' => 'nasional.delete',
+                'uses' => 'NasionalController@getDelete',
+            ]);
+			Route::post('/delete-many', [
+                'as' => 'nasional.delete.many',
+                'uses' => 'NasionalController@postDeleteMany',
+                'permission' => 'nasional.delete',
+            ]);
+			Route::post('/change-status', [
+                'as' => 'nasional.change.status',
+                'uses' => 'NasionalController@postChangeStatus',
+                'permission' => 'nasional.change',
+            ]);
+		});
+		
+		Route::group(['prefix' => 'Internasional'], function () {
+			Route::get('/', [
+                'as' => 'internasional.list',
+                'uses' => 'InternasionalController@getList',
+            ]);
+			Route::get('/create', [
+                'as' => 'internasional.create',
+                'uses' => 'InternasionalController@getCreate',
+            ]);	
+			Route::post('/create', [
+                'as' => 'internasional.create',
+                'uses' => 'InternasionalController@postCreate',
+           	
+            ]);
+			Route::get('/edit/{id}', [
+                'as' => 'internasional.edit',
+                'uses' => 'InternasionalController@getEdit',
+            ]);
+			Route::post('/edit/{id}', [
+                'as' => 'internasional.edit',
+                'uses' => 'InternasionalController@postEdit',
+            ]);
+			Route::get('/delete/{id}', [
+                'as' => 'internasional.delete',
+                'uses' => 'InternasionalController@getDelete',
+            ]);
+			Route::post('/delete-many', [
+                'as' => 'internasional.delete.many',
+                'uses' => 'InternasionalController@postDeleteMany',
+                'permission' => 'internasional.delete',
+            ]);
+			Route::post('/change-status', [
+                'as' => 'internasional.change.status',
+                'uses' => 'InternasionalController@postChangeStatus',
+                'permission' => 'internasional.change',
+            ]);
+		});
+		
+		Route::group(['prefix' => 'provinsi'], function () {
+			Route::get('/', [
+                'as' => 'provinsi.list',
+                'uses' => 'ProvinsiController@getList',
+            ]);
+			Route::get('/create', [
+                'as' => 'provinsi.create',
+                'uses' => 'ProvinsiController@getCreate',
+            ]);	
+			Route::post('/create', [
+                'as' => 'provinsi.create',
+                'uses' => 'ProvinsiController@postCreate',
+           	
+            ]);
+			Route::get('/edit/{id}', [
+                'as' => 'provinsi.edit',
+                'uses' => 'ProvinsiController@getEdit',
+            ]);
+			Route::post('/edit/{id}', [
+                'as' => 'provinsi.edit',
+                'uses' => 'ProvinsiController@postEdit',
+            ]);
+			Route::get('/delete/{id}', [
+                'as' => 'provinsi.delete',
+                'uses' => 'ProvinsiController@getDelete',
+            ]);
+			Route::post('/delete-many', [
+                'as' => 'provinsi.delete.many',
+                'uses' => 'ProvinsiController@postDeleteMany',
+                'permission' => 'provinsi.delete',
+            ]);
+			Route::post('/change-status', [
+                'as' => 'provinsi.change.status',
+                'uses' => 'ProvinsiController@postChangeStatus',
+                'permission' => 'provinsi.change',
+            ]);
+		});
+		
+		Route::group(['prefix' => 'kabupaten'], function () {
+			Route::get('/', [
+                'as' => 'kabupaten.list',
+                'uses' => 'KabupatenController@getList',
+            ]);
+			Route::get('/create', [
+                'as' => 'kabupaten.create',
+                'uses' => 'KabupatenController@getCreate',
+            ]);	
+			Route::post('/create', [
+                'as' => 'kabupaten.create',
+                'uses' => 'KabupatenController@postCreate',
+           	
+            ]);
+			Route::get('/edit/{id}', [
+                'as' => 'kabupaten.edit',
+                'uses' => 'KabupatenController@getEdit',
+            ]);
+			Route::post('/edit/{id}', [
+                'as' => 'kabupaten.edit',
+                'uses' => 'KabupatenController@postEdit',
+            ]);
+			Route::get('/delete/{id}', [
+                'as' => 'kabupaten.delete',
+                'uses' => 'KabupatenController@getDelete',
+            ]);
+			Route::post('/delete-many', [
+                'as' => 'kabupaten.delete.many',
+                'uses' => 'KabupatenController@postDeleteMany',
+                'permission' => 'kabupaten.delete',
+            ]);
+			Route::post('/change-status', [
+                'as' => 'kabupaten.change.status',
+                'uses' => 'KabupatenController@postChangeStatus',
+                'permission' => 'kabupaten.change',
+            ]);
+		});
 
         
     });

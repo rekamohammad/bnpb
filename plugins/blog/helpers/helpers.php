@@ -7,6 +7,7 @@ use Botble\Blog\Repositories\Interfaces\AlbumInterface;
 use Botble\Blog\Repositories\Interfaces\DioramaInterface;
 use Botble\Blog\Repositories\Interfaces\TagInterface;
 use Botble\Blog\Repositories\Interfaces\TagPostInterface;
+use Botble\Blog\Repositories\Interfaces\NasionalInterface;
 use Botble\Blog\Supports\PostFormat;
 
 if (!function_exists('get_featured_posts')) {
@@ -288,6 +289,19 @@ if (!function_exists('get_diorama_by_album')) {
     function get_diorama_by_album($albumId)
     {
         return app(DioramaInterface::class)->getDioramaByAlbum($albumId);
+    }
+}
+
+if (!function_exists('get_list_nasional')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_list_nasional()
+    {
+        return app(NasionalInterface::class)->getListLinks();
     }
 }
 

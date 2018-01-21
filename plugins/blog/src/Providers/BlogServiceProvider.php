@@ -4,6 +4,22 @@ namespace Botble\Blog\Providers;
 
 use Botble\Base\Events\SessionStarted;
 use Botble\Base\Supports\Helper;
+use Botble\Blog\Models\Kabupaten;
+use Botble\Blog\Repositories\Caches\KabupatenCacheDecorator;
+use Botble\Blog\Repositories\Eloquent\KabupatenRepository;
+use Botble\Blog\Repositories\Interfaces\KabupatenInterface;
+use Botble\Blog\Models\Provinsi;
+use Botble\Blog\Repositories\Caches\ProvinsiCacheDecorator;
+use Botble\Blog\Repositories\Eloquent\ProvinsiRepository;
+use Botble\Blog\Repositories\Interfaces\ProvinsiInterface;
+use Botble\Blog\Models\Internasional;
+use Botble\Blog\Repositories\Caches\InternasionalCacheDecorator;
+use Botble\Blog\Repositories\Eloquent\InternasionalRepository;
+use Botble\Blog\Repositories\Interfaces\InternasionalInterface;
+use Botble\Blog\Models\Nasional;
+use Botble\Blog\Repositories\Caches\NasionalCacheDecorator;
+use Botble\Blog\Repositories\Eloquent\NasionalRepository;
+use Botble\Blog\Repositories\Interfaces\NasionalInterface;
 use Botble\Blog\Models\Album;
 use Botble\Blog\Repositories\Caches\AlbumCacheDecorator;
 use Botble\Blog\Repositories\Eloquent\AlbumRepository;
@@ -55,6 +71,18 @@ class BlogServiceProvider extends ServiceProvider
     public function register()
     {
         if (setting('enable_cache', false)) {
+			$this->app->singleton(KabupatenInterface::class, function () {
+                return new KabupatenCacheDecorator(new KabupatenRepository(new Kabupaten()), new Cache($this->app['cache'], __CLASS__));
+            });
+			$this->app->singleton(ProvinsiInterface::class, function () {
+                return new ProvinsiCacheDecorator(new ProvinsiRepository(new Provinsi()), new Cache($this->app['cache'], __CLASS__));
+            });
+			$this->app->singleton(InternasionalInterface::class, function () {
+                return new InternasionalCacheDecorator(new InternasionalRepository(new Internasional()), new Cache($this->app['cache'], __CLASS__));
+            });
+			$this->app->singleton(NasionalInterface::class, function () {
+                return new NasionalCacheDecorator(new NasionalRepository(new Nasional()), new Cache($this->app['cache'], __CLASS__));
+            });
             $this->app->singleton(AlbumInterface::class, function () {
                 return new AlbumCacheDecorator(new AlbumRepository(new Album()), new Cache($this->app['cache'], __CLASS__));
             });
@@ -84,6 +112,18 @@ class BlogServiceProvider extends ServiceProvider
             });
 			
         } else {
+			$this->app->singleton(KabupatenInterface::class, function () {
+                return new KabupatenRepository(new Kabupaten());
+            });
+			$this->app->singleton(ProvinsiInterface::class, function () {
+                return new ProvinsiRepository(new Provinsi());
+            });
+			$this->app->singleton(InternasionalInterface::class, function () {
+                return new InternasionalRepository(new Internasional());
+            });
+			$this->app->singleton(NasionalInterface::class, function () {
+                return new NasionalRepository(new Nasional());
+            });
             $this->app->singleton(AlbumInterface::class, function () {
                 return new AlbumRepository(new Album());
             });
@@ -226,6 +266,51 @@ class BlogServiceProvider extends ServiceProvider
                     'icon' => null,
                     'url' => route('infografis.list'),
                     'permissions' => ['infografis.list'],
+                ])
+				->registerItem([
+                    'id' => 'cms-plugins-links',
+                    'priority' => 5,
+                    'parent_id' => null,
+                    'name' => trans('blog::links.menu_name'),
+                    'icon' => "fa fa-link",
+                    'url' => route('nasional.list'),
+                    'permissions' => ['nasional.list'],
+                ])
+				->registerItem([
+                    'id' => 'cms-plugins-link-nasional',
+                    'priority' => 2,
+                    'parent_id' => "cms-plugins-links",
+                    'name' => trans('blog::links.nasional_name'),
+                    'icon' => null,
+                    'url' => route('nasional.list'),
+                    'permissions' => ['nasional.list'],
+                ])
+				->registerItem([
+                    'id' => 'cms-plugins-link-internasional',
+                    'priority' => 2,
+                    'parent_id' => "cms-plugins-links",
+                    'name' => trans('blog::links.international_name'),
+                    'icon' => null,
+                    'url' => route('internasional.list'),
+                    'permissions' => ['internasional.list'],
+                ])
+				->registerItem([
+                    'id' => 'cms-plugins-link-provinsi',
+                    'priority' => 2,
+                    'parent_id' => "cms-plugins-links",
+                    'name' => trans('blog::links.provinsi_name'),
+                    'icon' => null,
+                    'url' => route('provinsi.list'),
+                    'permissions' => ['provinsi.list'],
+                ])
+				->registerItem([
+                    'id' => 'cms-plugins-link-kabupaten',
+                    'priority' => 2,
+                    'parent_id' => "cms-plugins-links",
+                    'name' => trans('blog::links.kabupaten_name'),
+                    'icon' => null,
+                    'url' => route('kabupaten.list'),
+                    'permissions' => ['kabupaten.list'],
                 ]);
         });
     }

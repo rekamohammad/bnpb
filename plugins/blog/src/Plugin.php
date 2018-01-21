@@ -80,6 +80,72 @@ class Plugin implements PluginInterface
                 'flag' => 'album.delete',
                 'parent_flag' => 'album.list',
             ],
+			
+			[
+                'name' => 'Nasional',
+                'flag' => 'nasional.list',
+                'is_feature' => true,
+            ],
+            [
+                'name' => 'Create',
+                'flag' => 'nasional.create',
+                'parent_flag' => 'nasional.list',
+            ],
+            [
+                'name' => 'Edit',
+                'flag' => 'nasional.edit',
+                'parent_flag' => 'nasional.list',
+            ],
+            [
+                'name' => 'Delete',
+                'flag' => 'nasional.delete',
+                'parent_flag' => 'nasional.list',
+            ],
+			
+			//International
+			[
+                'name' => 'Internasional',
+                'flag' => 'internasional.list',
+                'is_feature' => true,
+            ],
+            [
+                'name' => 'Create',
+                'flag' => 'internasional.create',
+                'parent_flag' => 'internasional.list',
+            ],
+            [
+                'name' => 'Edit',
+                'flag' => 'internasional.edit',
+                'parent_flag' => 'internasional.list',
+            ],
+            [
+                'name' => 'Delete',
+                'flag' => 'internasional.delete',
+                'parent_flag' => 'internasional.list',
+            ],
+			
+			//Provinsi
+			[
+                'name' => 'Provinsi',
+                'flag' => 'provinsi.list',
+                'is_feature' => true,
+            ],
+            [
+                'name' => 'Create',
+                'flag' => 'provinsi.create',
+                'parent_flag' => 'provinsi.list',
+            ],
+            [
+                'name' => 'Edit',
+                'flag' => 'provinsi.edit',
+                'parent_flag' => 'provinsi.list',
+            ],
+            [
+                'name' => 'Delete',
+                'flag' => 'provinsi.delete',
+                'parent_flag' => 'provinsi.list',
+            ],
+			
 
             [
                 'name' => 'Diorama',
