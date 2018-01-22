@@ -13,7 +13,7 @@ class CreateProvinsiTable extends Migration
      */
     public function up()
     {
-        Schema::create('Provinsi', function (Blueprint $table) {
+        Schema::create('provinsi', function (Blueprint $table) {
             $table->increments('id');
 			$table->string('name', 50);
 			$table->softDeletes();;
@@ -28,6 +28,6 @@ class CreateProvinsiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Provinsi');
+        Schema::dropIfExists('provinsi');
     }
 }
