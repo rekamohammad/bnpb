@@ -64,5 +64,5 @@ class Kabupaten extends Eloquent
 	public function provinsi_get()
     {
         return $this->belongsToMany(ProvinsiPost::class,'province')->withTimestamps();
-    }
+    } 
 }

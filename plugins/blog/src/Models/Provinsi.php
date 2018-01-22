@@ -63,5 +63,5 @@ class Provinsi extends Eloquent
 	public function prov()
     {
         return $this->belongsTo(ProvinsiPost::class,'province');
-    }
+    } 
 }

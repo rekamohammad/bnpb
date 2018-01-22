@@ -55,7 +55,7 @@ class ProvinsiPost extends Eloquent
      */
     protected $fillable = [
         'name',
-    ];
+    ]; 
 	
 	
 }

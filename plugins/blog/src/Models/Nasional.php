@@ -58,5 +58,5 @@ class Nasional extends Eloquent
 		'name',
 		'address',
 		'status',
-    ];
+    ]; 
 }

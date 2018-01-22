@@ -58,5 +58,5 @@ class Internasional extends Eloquent
 		'name',
 		'url',
 		'status',
-    ];
+    ]; 
 }

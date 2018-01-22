@@ -64,7 +64,7 @@ class ProvinsiController extends BaseController
         if ($request->input('submit') === 'save') {
             return redirect()->route('provinsi.list')->with('success_msg', trans('bases::notices.create_success_message'));
         } else {
-            return redirect()->route('provinsi.edit', $Provinsi->id)->with('success_msg', trans('bases::notices.create_success_message'));
+            return redirect()->route('provinsi.edit', $provinsi->id)->with('success_msg', trans('bases::notices.create_success_message'));
         }
     }
 	
