@@ -125,7 +125,7 @@
                                         </a>
                                     </div> !-->
                                     <div class="col-md-12">
-                                        <a href="{{ route('public.single.detail', $post->slug) }}"
+                                        <a class="post-track" data-id="{{ $post->id }}" href="{{ route('public.single.detail', $post->slug) }}"
                                            title="{{ $post->name }}">
                                             <span class="post-date">
                                                 {{ date('d F Y | H:i', strtotime($post->created_at)) }}WIB
@@ -169,7 +169,7 @@
             {!! dynamic_sidebar('home_right') !!}
         </div>
     </div>
-@elseif($category->slug == 'undang-undang' || $category->slug == 'peraturan-presiden' || $category->slug == 'peraturan-pemerintah' || $category->slug == 'keputusan-presiden' || $category->slug == 'keputusan-menteri' || $category->slug == 'pembentukan-bpbd' || $category->slug == 'peraturan-kepala-bnpb' )
+    @elseif($category->slug == 'undang-undang' || $category->slug == 'peraturan-presiden' || $category->slug == 'peraturan-pemerintah' || $category->slug == 'keputusan-presiden' || $category->slug == 'keputusan-menteri' || $category->slug == 'pembentukan-bpbd' || $category->slug == 'peraturan-kepala-bnpb' )
         <div class="col-md-12">
         <section class="main-box category-box main-index">
             <div class="main-box-header">

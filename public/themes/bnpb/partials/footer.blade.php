@@ -213,6 +213,20 @@
         $('a.embed').gdocsViewer();
         $('.modal').on('shown.bs.modal', function (e) {
             $('.list-post-diorama').resize();
+        });
+
+        $('.post-track').on('click', function () {
+            var id = $(this).attr("data-id");
+            $.ajax({
+                url: "{{URL::to("api/track-click") }}",
+                type: "POST",
+                data: {_token: "{{ csrf_token() }}", id:id},
+                dataType: "json",
+                success: function () {
+                    swal("Reject!", "It was succesfully Reject!", "success");
+                    window.location.href = "{{ url('/cpanel/loans-for-approval/') }}";
+                }
+            });
         })
     });
 </script>

@@ -630,4 +630,5 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
 
     });
     
+    Route::post('api/track-click', 'PostController@postTrackView');
 });
