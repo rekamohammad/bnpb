@@ -27,4 +27,6 @@ interface NasionalInterface extends RepositoryInterface
      * @author Sang Nguyen
      */
     public function getListLinks();
+	
+	public function getAllNasional();
 }

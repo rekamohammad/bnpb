@@ -26,5 +26,9 @@ interface ProvinsiInterface extends RepositoryInterface
      * @return mixed
      * @author Sang Nguyen
      */
+
     public function getListLinks();
+	
+	
+	public function getAllProvinsi();
 }

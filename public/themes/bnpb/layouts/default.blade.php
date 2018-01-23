@@ -308,7 +308,47 @@
     </div>
     </div>
     </main>
+@elseif (Request::segment(1) == 'nasionals')
+    
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12">
+					{!! Theme::partial('post-nasionals') !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+@elseif (Request::segment(1) == 'internasionals')
+    
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12">
+					{!! Theme::partial('post-internasionals') !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>	
 	
+@elseif (Request::segment(1) == 'bpbd-provinsi')
+    
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12">
+					{!! Theme::partial('post-bpbd-provinsi') !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>		
+    
 @elseif (Request::segment(1) == 'galleries')
 	<main class="main" id="main">
 	<div class="container">
@@ -321,20 +361,7 @@
 		</div>
 	</div>
 	</main>
-	
-@elseif (Request::segment(1) == 'nasionals')
-	<main class="main" id="main">
-	<div class="container">
-		<div class="main-content">
-			<div class="row">
-				<div class="col-md-12">
-					{!! Theme::content() !!}
-				</div>
-			</div>
-		</div>
-	</div>
-	</main>	
-	
+
 @else
     <main class="main" id="main">
     <div class="container">

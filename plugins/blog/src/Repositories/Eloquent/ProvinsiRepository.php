@@ -63,4 +63,12 @@ class ProvinsiRepository extends RepositoriesAbstract implements ProvinsiInterfa
      * @return mixed
      * @author Sang Nguyen
      */
+	  public function getAllProvinsi()
+	{
+		$data = $this->model->where('links.categories', '=', 'Provinsi')
+            ->select('provinsi.name','links.address')->join('provinsi','links.province','=','provinsi.id')->orderBy('provinsi.created_at', 'ASC');
+        $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
+        $this->resetModel();
+        return $data;
+	}
 }

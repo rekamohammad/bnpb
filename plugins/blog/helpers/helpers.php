@@ -8,6 +8,8 @@ use Botble\Blog\Repositories\Interfaces\DioramaInterface;
 use Botble\Blog\Repositories\Interfaces\TagInterface;
 use Botble\Blog\Repositories\Interfaces\TagPostInterface;
 use Botble\Blog\Repositories\Interfaces\NasionalInterface;
+use Botble\Blog\Repositories\Interfaces\InternasionalInterface;
+use Botble\Blog\Repositories\Interfaces\ProvinsiInterface;
 use Botble\Blog\Supports\PostFormat;
 
 if (!function_exists('get_featured_posts')) {
@@ -302,6 +304,45 @@ if (!function_exists('get_list_nasional')) {
     function get_list_nasional()
     {
         return app(NasionalInterface::class)->getListLinks();
+    }
+}
+
+if (!function_exists('get_all_nasional')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_nasional()
+    {
+        return app(NasionalInterface::class)->getAllNasional();
+    }
+}
+
+if (!function_exists('get_all_internasional')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_internasional()
+    {
+        return app(InternasionalInterface::class)->getAllInternasional();
+    }
+}
+
+if (!function_exists('get_all_provinsi')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_provinsi()
+    {
+        return app(ProvinsiInterface::class)->getAllProvinsi();
     }
 }
 
