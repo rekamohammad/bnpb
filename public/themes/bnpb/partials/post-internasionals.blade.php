@@ -12,11 +12,13 @@
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 				
 				@if(count(get_all_internasional())>0)
-					@foreach(get_all_internasional() as $number=>$international)
+					
 						<ol>
-							<li><a href="{{ $international->url }}">{{ $international->name }}</a></li>		
+						@foreach(get_all_internasional() as $number=>$international)
+							<li><a href="{{ $international->url }}">{{ $international->name }}</a></li>	
+						@endforeach		
 						</ol>
-					@endforeach
+					
 						
 				@else
 						<div style="text-align:center; font-weight:800">Empty data international</div>	
