@@ -11,8 +11,8 @@
 		</div>
 		@if (count($_news) > 0)
 			@foreach ($_news as $news_item)
-				<a class="post-track" data-id="{{ $news_item->id }}" href="{{ route('public.single.detail', $news_item->slug) }}"
-				title="{{ $news_item->name }}" class="block-has-border">
+				<a href="{{ route('public.single.detail', $news_item->slug) }}" data-id="{{ $news_item->id }}"
+				title="{{ $news_item->name }}" class="block-has-border post-track">
 					@if ($_img)
 						<img class="img-full img-bg" src="{{ get_object_image($news_item->image, $loop->first ? 'featured' : 'medium') }}" alt="{{ $news_item->name }}"
 						style="background-image: url('{{ get_object_image($news_item->image) }}');">
