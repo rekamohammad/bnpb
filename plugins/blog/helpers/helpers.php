@@ -10,6 +10,7 @@ use Botble\Blog\Repositories\Interfaces\TagPostInterface;
 use Botble\Blog\Repositories\Interfaces\NasionalInterface;
 use Botble\Blog\Repositories\Interfaces\InternasionalInterface;
 use Botble\Blog\Repositories\Interfaces\ProvinsiInterface;
+use Botble\Blog\Repositories\Interfaces\KabupatenInterface;
 use Botble\Blog\Supports\PostFormat;
 
 if (!function_exists('get_featured_posts')) {
@@ -343,6 +344,34 @@ if (!function_exists('get_all_provinsi')) {
     function get_all_provinsi()
     {
         return app(ProvinsiInterface::class)->getAllProvinsi();
+    }
+}
+
+if (!function_exists('get_all_kabupaten')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_kabupaten()
+    {
+        return app(KabupatenInterface::class)->getAllKabupaten();
+    }
+
+	
+}
+
+if (!function_exists('get_all_kab_detail')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_kab_detail($province)
+    {
+        return app(KabupatenInterface::class)->getAllKabDetail($province);
     }
 }
 

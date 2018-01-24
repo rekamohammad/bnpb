@@ -27,4 +27,9 @@ interface KabupatenInterface extends RepositoryInterface
      * @author Sang Nguyen
      */
     public function getListLinks();
+	
+	public function getAllKabupaten();
+	
+	public function getAllKabDetail($province);
+	
 }

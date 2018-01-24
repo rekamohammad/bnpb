@@ -2,6 +2,7 @@
 
 namespace Botble\Blog\Repositories\Eloquent;
 
+use Botble\Blog\Models\ProvinsiPost;
 use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Botble\Blog\Repositories\Interfaces\KabupatenInterface;
 
@@ -63,4 +64,20 @@ class KabupatenRepository extends RepositoriesAbstract implements KabupatenInter
      * @return mixed
      * @author Sang Nguyen
      */
+	 
+	public function getAllKabupaten()
+	{
+		$data = ProvinsiPost::select('provinsi.*')->orderBy('provinsi.created_at', 'ASC');
+        return $data->get();
+	}
+	
+	public function getAllKabDetail($province)
+	{
+		$data = $this->model->where('links.categories', '=', 'Kabupaten')
+			->where('links.province','=',$province)
+            ->select('links.*')->orderBy('links.created_at', 'ASC');
+        $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
+        $this->resetModel();
+        return $data;
+	}
 }

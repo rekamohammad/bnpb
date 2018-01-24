@@ -348,6 +348,19 @@
 		</div>
 	</div>
 	</main>		
+@elseif (Request::segment(1) == 'bpbd-kabupaten')
+    
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12"> 
+					{!! Theme::partial('post-bpbd-kabupaten') !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>			
     
 @elseif (Request::segment(1) == 'galleries')
 	<main class="main" id="main">
