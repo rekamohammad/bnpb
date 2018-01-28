@@ -289,7 +289,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
 		
 		$data = $posts->join('post_category','posts.id','=','post_category.post_id')
 		->where('post_category.category_id','=',17)
-		->where(DB::raw('posts.created_at >= last_day(now() + interval 1 day - interval 2 month)'))
+		//->where(DB::raw('posts.created_at >= last_day(now() + interval 1 day - interval 2 month)'))
 		->select('posts.*')->limit($limit)
 		->orderBy('posts.created_at','DESC')
 		->orderBy('posts.views','DESC');
