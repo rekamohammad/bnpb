@@ -293,7 +293,6 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
 		->select('posts.*')->limit($limit)
 		->orderBy('posts.created_at','DESC')
 		->orderBy('posts.views','DESC');
-		
         if (!empty(array_get($args, 'where'))) {
             $data = $data->where($args['where']);
         }
