@@ -4,6 +4,7 @@ namespace Botble\Blog\Repositories\Eloquent;
 
 use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
+use DB;
 
 class PostRepository extends RepositoriesAbstract implements PostInterface
 {
@@ -284,15 +285,15 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
      */
     public function getPopularPosts($limit, array $args = [])
     {
-		$month = date("m");
-		//$months = strtotime(date("Y-m-d", strtotime($month)) . " -3 month");
-		//$months = date("Y-m-d",$months);
-		$Year = date("Y");
+		$posts = $this->model->whereStatus(1);
 		
+		$data = $posts->join('post_category','posts.id','=','post_category.post_id')
+		->where('post_category.category_id','=',17)
+		->where(DB::raw('posts.created_at >= last_day(now() + interval 1 day - interval 2 month)'))
+		->select('posts.*')->limit($limit)
+		->orderBy('posts.created_at','DESC')
+		->orderBy('posts.views','DESC');
 		
-        $data = $this->model->where('posts.category','=','17')
-            ->select('posts.*')
-            ->limit($limit)->orderBy('posts.views','DESC')->orderBy('posts.created_at','DESC');
         if (!empty(array_get($args, 'where'))) {
             $data = $data->where($args['where']);
         }

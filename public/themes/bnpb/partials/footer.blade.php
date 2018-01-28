@@ -89,7 +89,7 @@
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/css/lightgallery.css">
 <script type="text/javascript" src="/themes/bnpb/assets/js/lightgallery.js"></script>
 <script src="/themes/bnpb/assets/js/fancybox.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/js/lightgallery-all.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.5/js/lightgallery-all.js"></script>
 <script type="text/javascript" src="/themes/bnpb/assets/js/jquery.gdocsviewer.min.js"></script>
 <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 <script src="https://vjs.zencdn.net/6.6.0/video.js"></script>
@@ -98,9 +98,14 @@
 @endif
 <script>
 @if (Request::segment(1) == 'galleries')
-    for($i=1; $i<$('.thumbnail').length; $i++) {
+    for($i=1; $i<=$('.thumbnail').length; $i++) {
         $('#lightgallery-'+$i).lightGallery();
+			
     }
+	
+	lg.one("onCloseAfter.lg", function() {
+    lg.data('lightGallery').destroy(true);
+	});
 	
 @endif	
 @if (Request::segment(1) == 'diorama')
