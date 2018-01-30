@@ -55,15 +55,15 @@ $(document).ready(function() {
 		d = d.concat('<div class="aligncenter margintop40 marginbottom20 fontarial font18 fontblue">',f.title,'</div>');
 		
 		d = d.concat('<div id="svg" style="overflow:hidden;"></div>');
-		if(f.urutan == 1) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.dev/uploads/json/struktur_utama.js", "#svg");</script>');
-		if(f.urutan == 2) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.dev/uploads/json/struktur_sestama.js", "#svg");</script>');
-		if(f.urutan == 3) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.dev/uploads/json/struktur_irtama.js", "#svg");</script>');
-		if(f.urutan == 4) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.dev/uploads/json/struktur_pusdatinmas.js", "#svg");</script>');
-		if(f.urutan == 5) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.dev/uploads/json/struktur_pusdiklat.js", "#svg");</script>');
-		if(f.urutan == 6) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.dev/uploads/json/struktur_deputi_pencegahan.js", "#svg");</script>');
-		if(f.urutan == 7) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.dev/uploads/json/struktur_deputi_penanganan.js", "#svg");</script>');
-		if(f.urutan == 8) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.dev/uploads/json/struktur_deputi_rehab.js", "#svg");</script>');
-		if(f.urutan == 9) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.dev/uploads/json/struktur_deputi_logistik.js", "#svg");</script>');
+		if(f.urutan == 1) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.go.id/uploads/json/struktur_utama.js", "#svg");</script>');
+		if(f.urutan == 2) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.go.id/uploads/json/struktur_sestama.js", "#svg");</script>');
+		if(f.urutan == 3) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.go.id/uploads/json/struktur_irtama.js", "#svg");</script>');
+		if(f.urutan == 4) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.go.id/uploads/json/struktur_pusdatinmas.js", "#svg");</script>');
+		if(f.urutan == 5) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.go.id/uploads/json/struktur_pusdiklat.js", "#svg");</script>');
+		if(f.urutan == 6) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.go.id/uploads/json/struktur_deputi_pencegahan.js", "#svg");</script>');
+		if(f.urutan == 7) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.go.id/uploads/json/struktur_deputi_penanganan.js", "#svg");</script>');
+		if(f.urutan == 8) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.go.id/uploads/json/struktur_deputi_rehab.js", "#svg");</script>');
+		if(f.urutan == 9) d = d.concat('<script type="text/javascript">var orgchart = new OrgChart("https://bnpb.go.id/uploads/json/struktur_deputi_logistik.js", "#svg");</script>');
 		return d;
 	}
 
