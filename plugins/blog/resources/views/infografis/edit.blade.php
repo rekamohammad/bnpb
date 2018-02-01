@@ -48,8 +48,8 @@
                                     <div id="edit-slug-box">
                                         <label class="control-label required" for="current-slug">Permalink:</label>
                                         <span id="sample-permalink">
-                                            <a class="permalink" target="_blank" href="{{ url('/infografis/detail/'.substr($post->slug, 17)) }}">
-                                                <span class="default-slug">{{ url('infografis/detail/') }}/<span id="editable-post-name">{{ substr($post->slug, 17) }}</span>.html</span>
+                                            <a class="permalink" target="_blank" href="{{ url('/infografis/detail/'.substr($post->slug, 19)) }}">
+                                                <span class="default-slug">{{ url('infografis/detail/') }}/<span id="editable-post-name">{{ substr($post->slug, 19) }}</span>.html</span>
                                             </a>
                                         </span>
                                         ‎<span id="edit-slug-buttons">
@@ -70,11 +70,6 @@
                                     <label class="control-label required">{{ trans('blog::infografis.form.content') }}</label>
                                     {!! render_editor('content', old('content'), true) !!}
                                     {!! Form::error('content', $errors) !!}
-                                </div>
-                                <div class="form-group @if ($errors->has('description')) has-error @endif">
-                                    <label for="description" class="control-label required">{{ trans('blog::infografis.form.description') }}</label>
-                                    {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 4, 'id' => 'description', 'placeholder' => trans('blog::infografis.form.description_placeholder'), 'data-counter' => 300]) !!}
-                                    {!! Form::error('description', $errors) !!}
                                 </div>
                             </div>
                         </div>

@@ -48,11 +48,6 @@
                                     {!! render_editor('content', old('content'), true) !!}
                                     {!! Form::error('content', $errors) !!}
                                 </div>
-                                <div class="form-group @if ($errors->has('description')) has-error @endif">
-                                    <label for="description" class="control-label required">{{ trans('blog::infografis.form.description') }}</label>
-                                    {!! Form::textarea('description', old('description'), ['class' => 'form-control', 'rows' => 4, 'id' => 'description', 'placeholder' => trans('blog::infografis.form.description_placeholder'), 'data-counter' => 300]) !!}
-                                    {!! Form::error('description', $errors) !!}
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -80,7 +75,7 @@
             </div>
         </div>
         <script>
-            jQuery('.multi-choices-widget .mt-checkbox input').prop('checked', true); 
+            jQuery('.multi-choices-widget .mt-checkbox input').prop('checked', true);
             $('#section_options').hide();
             $('#categories').on('change', function() {
                 var categories_val = $('#categories').val();
