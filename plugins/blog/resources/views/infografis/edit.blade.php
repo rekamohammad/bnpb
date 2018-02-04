@@ -48,8 +48,8 @@
                                     <div id="edit-slug-box">
                                         <label class="control-label required" for="current-slug">Permalink:</label>
                                         <span id="sample-permalink">
-                                            <a class="permalink" target="_blank" href="{{ url('/infografis/detail/'.substr($post->slug, 19)) }}">
-                                                <span class="default-slug">{{ url('infografis/detail/') }}/<span id="editable-post-name">{{ substr($post->slug, 19) }}</span>.html</span>
+                                            <a class="permalink" target="_blank" href="{{ url('/infografis/detail/'.substr($post->slug, 20)) }}">
+                                                <span class="default-slug">{{ url('infografis/detail/') }}/<span id="editable-post-name">{{ substr($post->slug, 20) }}</span>.html</span>
                                             </a>
                                         </span>
                                         ‎<span id="edit-slug-buttons">
