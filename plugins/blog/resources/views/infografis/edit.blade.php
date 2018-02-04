@@ -58,8 +58,8 @@
                                             <button type="button" class="cancel button-link">Cancel</button>
                                         </span>
                                     </div>
-                                    <input id="current-slug" name="slug" value="{{ substr($post->slug, 17) }}" type="hidden">
-                                    <div data-url="{{ url('/admin/infografis/create-slug/') }}" data-view="{{ url('/infografis/detail/'.substr($post->slug, 17)) }}" id="object_id" data-id="{{ $post->id }}"></div>
+                                    <input id="current-slug" name="slug" value="{{ substr($post->slug, 20) }}" type="hidden">
+                                    <div data-url="{{ url('/admin/infografis/create-slug/') }}" data-view="{{ url('/infografis/detail/'.substr($post->slug, 20)) }}" id="object_id" data-id="{{ $post->id }}"></div>
                                 </div>
                                 <div class="form-group @if ($errors->has('image')) has-error @endif">
                                     <label class="control-label required">{{ trans('blog::infografis.form.thumbnail') }}</label>
