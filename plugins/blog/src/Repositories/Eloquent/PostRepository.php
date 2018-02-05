@@ -4,7 +4,7 @@ namespace Botble\Blog\Repositories\Eloquent;
 
 use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
-use DB;
+use Carbon\Carbon;
 
 class PostRepository extends RepositoriesAbstract implements PostInterface
 {
@@ -287,8 +287,11 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     {
 		$posts = $this->model->whereStatus(1);
 		
+		$carbon = Carbon::now()->subDays(30);
+		
 		$data = $posts->join('post_category','posts.id','=','post_category.post_id')
 		->where('post_category.category_id','=',17)
+		->whereBetween('posts.created_at', array($carbon, Carbon::now() ))
 		//->where(DB::raw('posts.created_at >= last_day(now() + interval 1 day - interval 2 month)'))
 		->select('posts.*')->limit($limit)
 		->orderBy('posts.views','DESC');
