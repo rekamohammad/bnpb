@@ -98,7 +98,6 @@
 @elseif (Request::segment(1) == 'struktur')
     <main class="main" id="main">
         <div class="container">
-        <script src="/themes/bnpb/assets/orgChart/main.js" type="text/javascript"></script>
         <script type="text/javascript" src="/themes/bnpb/assets/orgChart/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="/themes/bnpb/assets/orgChart/jquery.atooltip.min.js"></script>
         <script type="text/javascript" src="/themes/bnpb/assets/orgChart/organisasi.js"></script>
