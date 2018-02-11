@@ -82,32 +82,21 @@
 <![endif]-->
 
 <!-- <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58b80e5cfacf57001271be31&product=sticky-share-buttons"></script> -->
+<link href="/themes/bnpb/assets/css/lightgallery.min.css" rel="stylesheet">
 <link media="all" type="text/css" rel="stylesheet" href="/themes/bnpb/assets/css/fancybox.css">
 <link type="text/css" rel="stylesheet" href="/themes/bnpb/assets/css/grid.min.css">
 <link type="text/css" rel="stylesheet" href="/themes/bnpb/assets/css/orgchart.css">
 <link href="https://vjs.zencdn.net/6.6.0/video-js.css" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/css/lightgallery.css">
-<script type="text/javascript" src="/themes/bnpb/assets/js/lightgallery.js"></script>
 <script src="/themes/bnpb/assets/js/fancybox.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.5/js/lightgallery-all.js"></script>
 <script type="text/javascript" src="/themes/bnpb/assets/js/jquery.gdocsviewer.min.js"></script>
 <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 <script src="https://vjs.zencdn.net/6.6.0/video.js"></script>
+<script type="text/javascript" src="/themes/bnpb/assets/js/lightgallery.min.js"></script>
 @if (Request::segment(1) == 'gpr')
 <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
 @endif
 <script>
-@if (Request::segment(1) == 'galleries')
-    for($i=1; $i<=$('.thumbnail').length; $i++) {
-        $('#lightgallery-'+$i).lightGallery();
-			
-    }
-	
-	lg.one("onCloseAfter.lg", function() {
-    lg.data('lightGallery').destroy(true);
-	});
-	
-@endif	
+
 @if (Request::segment(1) == 'diorama')
     $('.list-diorama').slick({
         centerPadding: '40px',
@@ -236,6 +225,15 @@
             });
         })
     });
+	
+@if (Request::segment(1) == 'galleries')
+    for($i=1; $i<=$('.thumbnail').length; $i++) {
+        $('#lightgallery-'+$i).lightGallery();	
+	}
+	var stateObj = { foo: "/galleries" };
+	history.pushState(stateObj, "page 1", "/galleries");
+	
+@endif		
 </script>
 @if(!empty(theme_option('facebook-app-id')))
 <div id="fb-root"></div>
