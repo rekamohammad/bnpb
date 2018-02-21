@@ -70,10 +70,19 @@
 		    
             $filenameGempa = $newDate.''.$newTime;
         @endphp
+        
+        @php 
+            $image = "http://dataweb.bmkg.go.id/INATEWS/shakemaprasa/".$filenameGempa.".jpg";
+            if (file_exists($image)) {
+                $image = "http://dataweb.bmkg.go.id/INATEWS/shakemaprasa/".$filenameGempa.".jpg";
+            } else {
+                $image = "http://data.bmkg.go.id/eqmap.gif";
+            }
+        @endphp
 
         <div class="img-maps">
-            <a href="http://dataweb.bmkg.go.id/INATEWS/shakemaprasa/{{ $filenameGempa }}.jpg" target="_blank">
-                <img src="http://dataweb.bmkg.go.id/INATEWS/shakemaprasa/{{ $filenameGempa }}.jpg" class="img-responsive" style="width:100%;">
+            <a href="{{ $image }}" target="_blank">
+                <img src="{{ $image }}" class="img-responsive" style="width:100%;">
             </a>
             <div>
                 <p class="font13 fontarial">
