@@ -1663,7 +1663,7 @@ height: 240px!important;
     color: #fff !important;
 }
 
-.nav-sidebar { 
+/*.nav-sidebar { 
     width: 100%;
     padding: 8px 0; 
     border: 1px solid #ddd;
@@ -1698,7 +1698,23 @@ height: 240px!important;
     overflow: hidden;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis; 
-}
+}*/
 .modal-margin {
     margin-bottom: 20px;
+}
+
+.undang-sidebar{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.undang-sidebar li{
+    padding:5px 0;
+}
+.undang-sidebar li a{
+    display:block;
+    padding-bottom:5px;
+    border-bottom:1px solid #ccc;
+    font-weight:800;
 }

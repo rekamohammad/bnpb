@@ -312,8 +312,11 @@
     <div class="container">
     <div class="main-content">
         <div class="row">
+            <div class="col-md-12">
+                <h3 class="block-title"><span><a href="{{ url('/undang-undang.html') }}" title="Publikasi BNPB">Link Produk Hukum</a></span></h3>
+            </div>
             <div class="col-md-3">
-                <nav class="nav-sidebar">
+                <nav class="undang-sidebar">
                      {!!
                         Menu::generateMenu([
                             'slug' => 'left-menu',
