@@ -47,7 +47,7 @@
                                                 <a href="#tab_video_url" data-toggle="tab"> Video Url</a>
                                             </li>
                                             <li>
-                                                <a href="#tab_youtube_url" data-toggle="tab"> Youtube </a>
+                                                <a href="#tab_youtube_url" data-toggle="tab"> Youtube / Vimeo</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content">

@@ -25,8 +25,8 @@
 			@php
 				$path = $_SERVER['REQUEST_URI'];
 				$folders = explode('/', $path);
-				$getSplit =  explode('?',$folders[2]);
-			@endphp 	
+				$getSplit =  explode('?',$folders[3]);
+			@endphp
             {!! $_infografis->setPath($getSplit[0]) !!}
             </nav>
         @endif

@@ -13,6 +13,7 @@ require_once __DIR__ . '/../widgets/popular-posts/popular-posts.php';
 require_once __DIR__ . '/../widgets/video-posts/video-posts.php';
 require_once __DIR__ . '/../widgets/info-bencana/info-bencana.php';
 require_once __DIR__ . '/../widgets/siaga-bencana/siaga-bencana.php';
+require_once __DIR__ . '/../widgets/gempa/gempa.php';
 
 register_widget(CustomMenuWidget::class);
 register_widget(RecentPostsWidget::class);
@@ -21,3 +22,4 @@ register_widget(PopularPostsWidget::class);
 register_widget(VideoPostsWidget::class);
 register_widget(InfoBencanaWidget::class);
 register_widget(SiagaBencanaWidget::class);
+register_widget(GempaWidget::class);

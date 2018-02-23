@@ -19,7 +19,7 @@
 
         <div class="article-date">
             <span class="post-date">
-                {{ date('d F Y | H:i', strtotime($post->created_at)) }}WIB
+                {{ date('d F Y | H:i', strtotime($post->created_at)) }} WIB | Dilihat {{ $post->views }} kali
             </span>
         </div>
 

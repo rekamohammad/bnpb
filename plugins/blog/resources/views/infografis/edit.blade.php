@@ -48,8 +48,8 @@
                                     <div id="edit-slug-box">
                                         <label class="control-label required" for="current-slug">Permalink:</label>
                                         <span id="sample-permalink">
-                                            <a class="permalink" target="_blank" href="{{ url('/infografis/detail/'.substr($post->slug, 17)) }}">
-                                                <span class="default-slug">{{ url('infografis/detail/') }}/<span id="editable-post-name">{{ substr($post->slug, 17) }}</span>.html</span>
+                                            <a class="permalink" target="_blank" href="{{ url('/infografis/detail/'.substr($post->slug, 18)) }}">
+                                                <span class="default-slug">{{ url('infografis/detail/') }}/<span id="editable-post-name">{{ substr($post->slug, 18) }}</span>.html</span>
                                             </a>
                                         </span>
                                         ‎<span id="edit-slug-buttons">
@@ -58,8 +58,8 @@
                                             <button type="button" class="cancel button-link">Cancel</button>
                                         </span>
                                     </div>
-                                    <input id="current-slug" name="slug" value="{{ substr($post->slug, 17) }}" type="hidden">
-                                    <div data-url="{{ url('/admin/infografis/create-slug/') }}" data-view="{{ url('/infografis/detail/'.substr($post->slug, 17)) }}" id="object_id" data-id="{{ $post->id }}"></div>
+                                    <input id="current-slug" name="slug" value="{{ substr($post->slug, 18) }}" type="hidden">
+                                    <div data-url="{{ url('/admin/infografis/create-slug/') }}" data-view="{{ url('/infografis/detail/'.substr($post->slug, 18)) }}" id="object_id" data-id="{{ $post->id }}"></div>
                                 </div>
                                 <div class="form-group @if ($errors->has('image')) has-error @endif">
                                     <label class="control-label required">{{ trans('blog::infografis.form.thumbnail') }}</label>
@@ -70,11 +70,6 @@
                                     <label class="control-label required">{{ trans('blog::infografis.form.content') }}</label>
                                     {!! render_editor('content', old('content'), true) !!}
                                     {!! Form::error('content', $errors) !!}
-                                </div>
-                                <div class="form-group @if ($errors->has('description')) has-error @endif">
-                                    <label for="description" class="control-label required">{{ trans('blog::infografis.form.description') }}</label>
-                                    {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 4, 'id' => 'description', 'placeholder' => trans('blog::infografis.form.description_placeholder'), 'data-counter' => 300]) !!}
-                                    {!! Form::error('description', $errors) !!}
                                 </div>
                             </div>
                         </div>

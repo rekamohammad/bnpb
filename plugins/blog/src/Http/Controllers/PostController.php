@@ -283,4 +283,15 @@ class PostController extends BaseController
             'data' => view('blog::posts.widgets.posts', compact('posts', 'limit'))->render(),
         ];
     }
+
+    public function postTrackView(Request $request)  {
+        $post = $this->postRepository->findById($request->id);
+        if (empty($post)) {
+            abort(404);
+        }
+
+        $post->views = $post->views + 1;
+        $post->save();
+        dd($post);
+    }
 }

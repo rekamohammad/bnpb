@@ -142,6 +142,7 @@ class MediaFile extends Eloquent
         'png' => 'image/png',
         'gif' => 'image/gif',
         'csv' => 'text/csv',
+		'mp4' => 'video/mp4',
         'txt' => 'text/plain',
         'pdf' => 'application/pdf',
         'doc' => 'application/msword',

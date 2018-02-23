@@ -95,6 +95,42 @@
             @endphp
         </div>
     </main>
+@elseif (Request::segment(1) == 'struktur')
+    <main class="main" id="main">
+        <div class="container">
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/jquery.atooltip.min.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/organisasi.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/d3.min.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/orgchart.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/orgchart_common.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/orgchart_container.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/orgchart_events.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/orgchart_renderer.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/layout_grid.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/layout_hierarchy.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/layout_main.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/layout_tree.js"></script>
+        <script type="text/javascript" src="/themes/bnpb/assets/orgChart/layout_footer.js"></script>
+        <script type="text/javascript" src="/uploads/json/data.js"></script>
+        <div class="col-md-12">
+            <div class="row">
+                <div id="content ">
+                    <div id="unit-kerja"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                <div id="content unit-kerja">
+                    <div id="struktur"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
 @elseif (Request::segment(1) == 'berita')
     <main class="main" id="main">
     <div class="container">
@@ -308,7 +344,60 @@
     </div>
     </div>
     </main>
+@elseif (Request::segment(1) == 'nasionals')
+    
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12">
+					{!! Theme::partial('post-nasionals') !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+@elseif (Request::segment(1) == 'internasionals')
+    
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12">
+					{!! Theme::partial('post-internasionals') !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>	
 	
+@elseif (Request::segment(1) == 'bpbd-provinsi')
+    
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12">
+					{!! Theme::partial('post-bpbd-provinsi') !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>		
+@elseif (Request::segment(1) == 'bpbd-kabupaten')
+    
+	<main class="main" id="main">
+	<div class="container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-md-12"> 
+					{!! Theme::partial('post-bpbd-kabupaten') !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>			
+    
 @elseif (Request::segment(1) == 'galleries')
 	<main class="main" id="main">
 	<div class="container">
@@ -321,7 +410,7 @@
 		</div>
 	</div>
 	</main>
-	
+
 @else
     <main class="main" id="main">
     <div class="container">
