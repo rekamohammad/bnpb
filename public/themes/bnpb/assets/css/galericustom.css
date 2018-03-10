@@ -29,3 +29,18 @@
 	height:100%;
 	width:100%;
 }
+
+
+@media (min-width:1200px) {
+	.thumbnail {
+    list-style: none;
+    display: inline-block;
+    width: 32.333333333%;
+    margin: 0;
+    overflow: hidden;
+    height: 25%;
+	}
+}
+	
+	
+}
