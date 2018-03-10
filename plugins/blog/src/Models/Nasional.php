@@ -56,7 +56,7 @@ class Nasional extends Eloquent
     protected $fillable = [
         'categories',
 		'name',
-		'address',
+		'url',
 		'status',
     ]; 
 }

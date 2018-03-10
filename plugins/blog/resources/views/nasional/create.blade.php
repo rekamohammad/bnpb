@@ -19,10 +19,10 @@
                                     {!! Form::text('name', old('name'), ['class' => 'form-control', 'id' => 'name', 'placeholder' => trans('blog::nasional.form.name_placeholder'), 'data-counter' => 120]) !!}
                                     {!! Form::error('name', $errors) !!}
                                 </div>
-                                <div class="form-group @if ($errors->has('address')) has-error @endif">
-                                    <label class="control-label required">{{ trans('blog::nasional.form.address') }}</label>
-                                    {!! Form::textarea('address', old('address'), ['class' => 'form-control', 'rows' => 4, 'id' => 'address', 'placeholder' => trans('blog::nasional.form.address_placeholder')]) !!}
-                                    {!! Form::error('address', $errors) !!}
+                                <div class="form-group @if ($errors->has('url')) has-error @endif">
+                                    <label for="url" class="control-label required">{{ trans('blog::nasional.form.url') }}</label>
+                                    {!! Form::text('url', old('url'), ['class' => 'form-control', 'id' => 'url', 'placeholder' => trans('blog::nasional.form.url_placeholder')]) !!}
+                                    {!! Form::error('url', $errors) !!}
                                 </div>
                             </div>
                         </div>

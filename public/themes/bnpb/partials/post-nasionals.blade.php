@@ -10,39 +10,11 @@
 				
 				
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<ol>
 				@foreach(get_all_nasional() as $number=>$nasional)
-					@if($number+1 ==1)
-					  <div class="panel panel-default">
-						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$number+1}}" aria-expanded="true" aria-controls="collapse{{$number+1}}">
-						<div class="panel-heading" role="tab" id="heading{{$number+1}}" style="background: #3b5999;color: #fff;">
-						  <h4 class="panel-title">
-							{{$number+1}}. {{ $nasional->name }} <span class="fa fa-angle-down"></span>
-						  </h4>
-						</div>
-						</a>
-						<div id="collapse{{$number+1}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{$number+1}}">
-						  <div class="panel-body">
-							{{ $nasional->address }} 
-						  </div>
-						</div>
-					  </div>
-					@else
-						<div class="panel panel-default">
-						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$number+1}}" aria-expanded="true" aria-controls="collapseOne">
-						<div class="panel-heading" role="tab" id="heading{{$number+1}}" style="background: #3b5999;color: #fff;">
-						  <h4 class="panel-title">
-							{{$number+1}}. {{ $nasional->name }} <span class="fa fa-angle-down"></span>
-						  </h4>
-						</div>
-						</a>
-						<div id="collapse{{$number+1}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$number+1}}">
-						  <div class="panel-body">
-							{{ $nasional->address }}
-						  </div>
-						</div>
-					  </div>
-					@endif		
-				  @endforeach
+					<li><a href="{{ $nasional->url }}">{{ $nasional->name }}</a></li>		
+				@endforeach
+				</ol>	  
 				</div>
 				
 				<!-- end start content !-->
