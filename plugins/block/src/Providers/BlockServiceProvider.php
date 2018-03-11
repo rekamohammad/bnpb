@@ -56,7 +56,7 @@ class BlockServiceProvider extends ServiceProvider
         }
 
         Event::listen(SessionStarted::class, function () {
-            dashboard_menu()->registerItem([
+          /**  dashboard_menu()->registerItem([
                 'id' => 'cms-plugins-block',
                 'priority' => 6,
                 'parent_id' => null,
@@ -65,6 +65,8 @@ class BlockServiceProvider extends ServiceProvider
                 'url' => route('block.list'),
                 'permissions' => ['block.list'],
             ]);
+			
+			*/
         });
 
         $this->app->register(HookServiceProvider::class);
