@@ -145,8 +145,6 @@ class Plugin implements PluginInterface
                 'flag' => 'provinsi.delete',
                 'parent_flag' => 'provinsi.list',
             ],
-			
-
             [
                 'name' => 'Diorama',
                 'flag' => 'diorama.list',

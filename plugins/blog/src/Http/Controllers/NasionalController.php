@@ -50,7 +50,7 @@ class NasionalController extends BaseController
         $nasional = New nasional;
 		$nasional->categories = 'Nasional';
         $nasional->name = $request->name;
-        $nasional->address = $request->address;
+        $nasional->url = $request->url;
 		$nasional->status = $request->status;
         $nasional->save();
 
@@ -88,7 +88,7 @@ class NasionalController extends BaseController
             abort(404);
         }
         $nasional->name = $request->name;
-        $nasional->address = $request->address;
+        $nasional->url = $request->url;
 		$nasional->status = $request->status;
         $nasional->save();
 

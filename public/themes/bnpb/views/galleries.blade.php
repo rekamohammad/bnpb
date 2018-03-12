@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-content">
-                    
+						<h3 class="block-title"><span>Gallery</span></h3>
                         <div class="post__content">
 						 @if (isset($galleries) && !$galleries->isEmpty())
 							@foreach ($galleries as $number=>$gallery)	 

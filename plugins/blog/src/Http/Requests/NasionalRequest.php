@@ -17,7 +17,7 @@ class NasionalRequest extends Request
     {
         return [
             'name' => 'required|max:120',
-            'address' => 'required',
+            'url' => 'required|url',
         ];
     }
 }
