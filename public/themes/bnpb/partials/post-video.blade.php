@@ -17,7 +17,10 @@
     	    				}
     			        @endphp
 		            	<div class="embed-responsive embed-responsive-16by9">
-					        <iframe class="embed-responsive-item" allowfullscreen frameborder="0" height="315" width="420" src="{{ str_replace('watch?v=', 'embed/', $url) }}"></iframe>
+					        {{-- <iframe class="embed-responsive-item" allowfullscreen frameborder="0" height="315" width="420" src="{{ str_replace('watch?v=', 'embed/', $url) }}"></iframe> --}}
+					        <video width="315" height="420" controls allowfullscreen frameborder="0" >
+							    <source src="{{ str_replace('watch?v=', 'embed/', $url) }}" type="video/mp4" id="myvideo">
+							</video>
 					    </div>
 		            @endforeach
 					@if ($_cats[$catIds])

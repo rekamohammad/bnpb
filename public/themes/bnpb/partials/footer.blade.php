@@ -248,5 +248,17 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 @endif
+<script type="text/javascript">
+    $(document).ready(function() {
+        var elem = document.getElementById("myvideo");
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        }
+    });
+</script>
 </body>
 </html>

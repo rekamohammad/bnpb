@@ -41,12 +41,19 @@
 			            @foreach ($_news[$catIds] as $news_item)
 			            <a href="{{ route('public.single.detail', $news_item->slug) }}"
 			               title="{{ $news_item->name }}" class="block-has-border">
-			                <span class="post-date">
-			                    {{ date('d F Y | H:i', strtotime($news_item->created_at)) }}WIB
-			                </span>
 			                <span class="post-item"
 			                      title="{{ $news_item->name }}">
 			                    <h3>{{ $news_item->name }}</h3>
+			                </span>
+			                <span class="post-date">
+			                    {{ date('d F Y | H:i', strtotime($news_item->created_at)) }}WIB
+			                </span><br>
+			                
+			                <span>
+			                	<p align="justify">
+			                	{{-- {{str_limit('The PHP framework for web artisans.', 7)}} --}}
+			                	{{ str_limit(strip_tags( $news_item->content),300)}}
+			               		</p>
 			                </span>
 			            </a>
 			            @endforeach
@@ -66,13 +73,17 @@
 			            @foreach ($_news[$catIds] as $news_item)
 			            <a href="{{ route('public.single.detail', $news_item->slug) }}"
 			               title="{{ $news_item->name }}" class="block-has-border">
-			                <span class="post-date">
-			                    {{ date('d F Y | H:i', strtotime($news_item->created_at)) }}WIB
-			                </span>
 			                <span class="post-item"
 			                      title="{{ $news_item->name }}">
 			                    <h3>{{ $news_item->name }}</h3>
 			                </span>
+			                 <span class="post-date">
+			                    {{ date('d F Y | H:i', strtotime($news_item->created_at)) }}WIB
+			                </span><br>
+			               {{--  <span>
+			                	{{str_limit('The PHP framework for web artisans.', 7)}}
+			                	{{ str_limit(strip_tags( $news_item->content),300)}}
+			                </span> --}}
 			            </a>
 			            @endforeach
 			            <a href="{{ url('/siaran-pers') }}" class="block-button">
@@ -91,13 +102,17 @@
 			            @foreach ($_news[$catIds] as $news_item)
 			            <a href="{{ route('public.single.detail', $news_item->slug) }}"
 			               title="{{ $news_item->name }}" class="block-has-border">
-			                <span class="post-date">
-			                    {{ date('d F Y | H:i', strtotime($news_item->created_at)) }}WIB
-			                </span>
 			                <span class="post-item"
 			                      title="{{ $news_item->name }}">
 			                    <h3>{{ $news_item->name }}</h3>
 			                </span>
+			                <span class="post-date">
+			                    {{ date('d F Y | H:i', strtotime($news_item->created_at)) }}WIB
+			                </span><br>
+{{-- 			                <span>
+			                	{{str_limit('The PHP framework for web artisans.', 7)}}
+			                	{{ str_limit(strip_tags( $news_item->content),300)}}
+			                </span> --}}
 			            </a>
 			            @endforeach
 			            <a href="{{ route('public.single.detail', $_cats[$catIds]->slug) }}" class="block-button">
