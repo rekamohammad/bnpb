@@ -28,11 +28,11 @@
                                     {!! Form::textarea('description', old('description'), ['class' => 'form-control', 'rows' => 4, 'id' => 'description', 'placeholder' => trans('blog::posts.form.description_placeholder'), 'data-counter' => 300]) !!}
                                     {!! Form::error('description', $errors) !!}
                                 </div>
-                                <div class="form-group @if ($errors->has('featured')) has-error @endif">
+                              <!-- <div class="form-group @if ($errors->has('featured')) has-error @endif">
                                     {!! Form::onOff('featured', old('featured', null)) !!}
                                     <label for="featured">{{ trans('bases::forms.featured') }}</label>
                                     {!! Form::error('featured', $errors) !!}
-                                </div>
+                                </div>  -->
                                 <div class="form-group @if ($errors->has('content')) has-error @endif">
                                     <label class="control-label required">{{ trans('blog::posts.form.content') }}</label>
                                     <a class="btn_gallery" data-mode="attach" data-result="content" data-action="image_post"
