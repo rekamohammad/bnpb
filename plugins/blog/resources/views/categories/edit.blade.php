@@ -25,11 +25,11 @@
                             {!! Form::textarea('description', $category->description, ['class' => 'form-control', 'rows' => 4, 'id' => 'description', 'placeholder' => trans('bases::forms.description_placeholder'), 'data-counter' => 400]) !!}
                             {!! Form::error('description', $errors) !!}
                         </div>
-                        <div class="form-group @if ($errors->has('is_default')) has-error @endif">
+                       <!-- <div class="form-group @if ($errors->has('is_default')) has-error @endif">
                             {!! Form::onOff('is_default', $category->is_default) !!}
                             <label for="is_default">{{ trans('bases::forms.is_default') }}</label>
                             {!! Form::error('is_default', $errors) !!}
-                        </div>
+                        </div> -->
                         <div class="form-group @if ($errors->has('icon')) has-error @endif">
                             <label for="icon" class="control-label">{{ trans('bases::forms.icon') }}</label>
                             {!! Form::text('icon', $category->icon, ['class' => 'form-control', 'id' => 'icon', 'placeholder' => trans('bases::forms.icon_placeholder'), 'data-counter' => 60]) !!}
@@ -40,11 +40,11 @@
                             {!! Form::text('order', $category->order, ['class' => 'form-control', 'id' => 'order', 'placeholder' => trans('bases::forms.order_by_placeholder'), 'data-counter' => 60]) !!}
                             {!! Form::error('order', $errors) !!}
                         </div>
-                        <div class="form-group @if ($errors->has('featured')) has-error @endif">
+                       <!-- <div class="form-group @if ($errors->has('featured')) has-error @endif">
                             {!! Form::onOff('featured', $category->featured) !!}
                             <label for="featured">{{ trans('bases::forms.featured') }}</label>
                             {!! Form::error('featured', $errors) !!}
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 @php do_action(BASE_ACTION_META_BOXES, CATEGORY_MODULE_SCREEN_NAME, 'advanced', $category) @endphp
