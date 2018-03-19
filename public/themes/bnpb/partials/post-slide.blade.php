@@ -5,7 +5,7 @@
     <div class="banner-slider-wrap">
     	@foreach ($category_ids as $catIds)
     		@php
-	            $_news[$catIds] = get_posts_by_category($catIds,4,4);
+	            $_news[$catIds] = get_posts_by_category($catIds,6 ,4);
 	        @endphp
 	        @if ($_news[$catIds])
     			@foreach ($_news[$catIds] as $feature_item)
