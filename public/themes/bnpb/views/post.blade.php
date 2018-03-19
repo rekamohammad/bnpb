@@ -82,7 +82,7 @@
 						@foreach (get_related_posts($post->categories->first()->id, 5, $post->views) as $related_item)
 						  <!--  <div class="media-news">
 								<a href="{{ route('public.single.detail', $related_item->slug) }}" title="{{ $related_item->name }}" class="media-news-img">
-									<img class="img-full img-bg" src="{{ get_object_image($related_item->image) }}" style="background-image: url('{{ get_object_image($related_item->image) }}');" alt="{{ $related_item->name }}">
+									<img class="img-full img-bg" src="{{ get_object_image($related_item->image) }}" style="background-image: url('{{ get_object_image($related_item->image) }}');" alt="{{ $related_item->name }}" height= "30%">
 								</a>
 								<div class="media-news-body">
 									<p class="common-title">
