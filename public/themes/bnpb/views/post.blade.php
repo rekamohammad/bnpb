@@ -32,7 +32,7 @@
                 @foreach (gallery_meta_data($post->id, 'post') as $image)
                     @if ($image)
                         <div class="col-xs-3">
-                            <img src="{{ url(array_get($image, 'img')) }}" alt="{{ array_get($image, 'description') }}" class="img-responsive">
+                            <img src="{{ url(array_get($image, 'img')) }}" alt="{{ array_get($image, 'description') }}" class="img-responsive" style="height: 30%;">
                         </div>
                     @endif
                 @endforeach
@@ -82,7 +82,7 @@
 						@foreach (get_related_posts($post->categories->first()->id, 5, $post->views) as $related_item)
 						  <!--  <div class="media-news">
 								<a href="{{ route('public.single.detail', $related_item->slug) }}" title="{{ $related_item->name }}" class="media-news-img">
-									<img class="img-full img-bg" src="{{ get_object_image($related_item->image) }}" style="background-image: url('{{ get_object_image($related_item->image) }}');" alt="{{ $related_item->name }}" height= "30%">
+									<img class="img-full img-bg" src="{{ get_object_image($related_item->image) }}" style="background-image: url('{{ get_object_image($related_item->image) }}');" alt="{{ $related_item->name }}">
 								</a>
 								<div class="media-news-body">
 									<p class="common-title">
