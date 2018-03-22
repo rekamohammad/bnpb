@@ -7,6 +7,7 @@ use Botble\Blog\Http\Requests\PostRequest;
 use Botble\Blog\Http\Requests\PostRequestEdit;
 use Assets;
 use Botble\Blog\Models\Post;
+use Botble\Blog\Models\PostCategory;
 use Botble\Blog\Repositories\Interfaces\CategoryInterface;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
 use Botble\Blog\Http\DataTables\PostDataTable;
@@ -102,6 +103,12 @@ class PostController extends BaseController
         $tagService->execute($request, $post);
 
         $categoryService->execute($request, $post);
+
+        // Add Additional Category to News //
+        $newsCategory = New PostCategory;
+        $newsCategory->category_id = 17;
+        $newsCategory->post_id = $post->id;
+        $newsCategory->save();
 
         if ($request->input('submit') === 'save') {
             return redirect()->route('posts.list')->with('success_msg', trans('bases::notices.create_success_message'));

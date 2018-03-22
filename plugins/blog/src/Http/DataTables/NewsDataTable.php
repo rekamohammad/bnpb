@@ -58,7 +58,7 @@ class NewsDataTable extends DataTableAbstract
         $query = $model
         ->select(['posts.id', 'posts.name', 'posts.created_at', 'posts.status', 'posts.category'])
         ->join('post_category', 'post_category.post_id', '=', 'posts.id')
-        ->where('post_category.category_id', '=', $news_id);
+        ->where('post_category.category_id', '=', $news_id)->orderBy('posts.created_at', 'desc');
 
         return $this->applyScopes(apply_filters(BASE_FILTER_DATATABLES_QUERY, $query, $model, POST_MODULE_SCREEN_NAME));
     }
