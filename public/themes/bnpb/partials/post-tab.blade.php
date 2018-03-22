@@ -35,7 +35,7 @@
     		@if ($catIds == 'Berita Terbaru')
         		<div id="tab01" class="tab-pane fade in {{$_pane}}">
 			        @php
-			            $_news[$catIds] = get_posts_by_category(17,10,5);
+			            $_news[$catIds] = get_posts_by_category(17,3,5);
 			        @endphp
 			        @if (count($_news[$catIds]) > 0)
 			            @foreach ($_news[$catIds] as $news_item)
