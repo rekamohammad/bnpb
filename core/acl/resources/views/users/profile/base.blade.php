@@ -252,7 +252,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <input type="hidden" name="id" value="{{ $user->id }}">
                                 <div class="form-group">
                                     <div class="form-actions">
                                         <div class="btn-set pull-right">

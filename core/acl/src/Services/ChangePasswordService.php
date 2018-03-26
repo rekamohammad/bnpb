@@ -45,7 +45,7 @@ class ChangePasswordService implements ProduceServiceInterface
             }
         }
 
-        $user = $this->userRepository->findById($request->input('id', acl_get_current_user_id()));
+        $user = $this->userRepository->findById($request->id);
         Sentinel::getUserRepository()->update($user, [
             'password' => $request->input('password'),
         ]);
