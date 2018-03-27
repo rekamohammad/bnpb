@@ -35,6 +35,7 @@ class SiagaBencanaWidget extends AbstractWidget
         parent::__construct([
             'name' => 'Siaga Bencana',
             'description' => __('This is a sample widget'),
+            'content' => null,
         ]);
     }
 }
