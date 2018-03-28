@@ -99,21 +99,21 @@ theme_option()->setField([
     'helper' => __('Copyright on footer of site'),
 ]);
 
-theme_option()->setField([
-    'id' => 'theme-color',
-    'section_id' => 'opt-text-subsection-general',
-    'type' => 'select',
-    'label' => __('Theme color'),
-    'attributes' => [
-        'name' => 'theme_color',
-        'list' => ['red' => 'Red', 'green' => 'Green', 'blue' => 'Blue'],
-        'value' => 'red',
-        'options' => [
-            'class' => 'form-control',
-        ],
-    ],
-    'helper' => __('Primary theme color'),
-]);
+// theme_option()->setField([
+//     'id' => 'theme-color',
+//     'section_id' => 'opt-text-subsection-general',
+//     'type' => 'select',
+//     'label' => __('Theme color'),
+//     'attributes' => [
+//         'name' => 'theme_color',
+//         'list' => ['red' => 'Red', 'green' => 'Green', 'blue' => 'Blue'],
+//         'value' => 'red',
+//         'options' => [
+//             'class' => 'form-control',
+//         ],
+//     ],
+//     'helper' => __('Primary theme color'),
+// ]);
 
 theme_option()->setSection([
     'title' => __('News Feed'),
