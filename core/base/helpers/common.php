@@ -200,7 +200,8 @@ if (!function_exists('render_editor')) {
     function render_editor($name, $value = null, $with_short_code = false)
     {
         $editor = new Editor();
-        return $editor->render($name, $value, $with_short_code);
+		return $editor->render($name, $value);
+        /** return $editor->render($name, $value, $with_short_code); */
     }
 }
 

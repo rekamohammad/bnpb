@@ -43,11 +43,11 @@
                                     {!! Form::text('order', old('order', 0), ['class' => 'form-control', 'id' => 'order', 'placeholder' => trans('bases::forms.order_by_placeholder'), 'data-counter' => 60]) !!}
                                     {!! Form::error('order', $errors) !!}
                                 </div>
-                                <div class="form-group @if ($errors->has('featured')) has-error @endif">
+                                <!-- <div class="form-group @if ($errors->has('featured')) has-error @endif">
                                     {!! Form::onOff('featured', old('featured', null)) !!}
                                     <label for="featured">{{ trans('bases::forms.featured') }}</label>
                                     {!! Form::error('featured', $errors) !!}
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         {!! apply_filters(BASE_FILTER_REGISTER_CONTENT_TAB_INSIDE, null, PAGE_MODULE_SCREEN_NAME, null) !!}

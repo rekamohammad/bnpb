@@ -46,11 +46,11 @@
                                     {!! Form::text('order', $page->order, ['class' => 'form-control', 'id' => 'order', 'placeholder' => trans('bases::forms.order_by_placeholder'), 'data-counter' => 60]) !!}
                                     {!! Form::error('order', $errors) !!}
                                 </div>
-                                <div class="form-group @if ($errors->has('featured')) has-error @endif">
+                               <!-- <div class="form-group @if ($errors->has('featured')) has-error @endif">
                                     {!! Form::onOff('featured', $page->featured) !!}
                                     <label for="featured">{{ trans('bases::forms.featured') }}</label>
                                     {!! Form::error('featured', $errors) !!}
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="tab-pane" id="tab_history">
