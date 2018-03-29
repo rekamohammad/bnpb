@@ -5,16 +5,14 @@
     <div class="banner-slider-wrap">
     	@foreach ($category_ids as $catIds)
     		@php
-	            $_news[$catIds] = get_posts_by_category($catIds,6 ,4);
+	            $_news[$catIds] = get_posts_by_category_slide($catIds,6 ,4);
 	        @endphp
 	        @if ($_news[$catIds])
     			@foreach ($_news[$catIds] as $feature_item)
 				    <div class="slide-item">
-                        <a href="#"
-                           title="{{ $feature_item->name }}"
-                           style="display: block">
+                        <a href="#" title="{{ $feature_item->name }}" style="display: block">
                             <img class="img-full img-bg" src="{{ get_object_image($feature_item->image, $loop->first ? 'featured' : 'medium') }}" alt="{{ $feature_item->name }}"
-                                 style="background-image: url('{{ get_object_image($feature_item->image) }}');">
+                                 style="height: 370px; background-image: url('{{ get_object_image($feature_item->image) }}');">
                             <span class="slide-item-link"
                                   title="{{ $feature_item->name }}">
                                 <span class="post-date">

@@ -38,11 +38,11 @@
                                     {!! Form::text('created_at', null, ['class' => 'form-control', 'id' => 'created_at', 'placeholder' => trans('blog::posts.form.date_placeholder'), 'data-counter' => 20]) !!}
                                     {!! Form::error('created_at', $errors) !!}
                                 </div>
-                               <!-- <div class="form-group @if ($errors->has('featured')) has-error @endif">
+                                <div class="form-group @if ($errors->has('featured')) has-error @endif">
                                     {!! Form::onOff('featured', $post->featured) !!}
-                                    <label for="featured">{{ trans('bases::forms.featured') }}</label>
+                                    <label for="featured">{{ trans('blog::posts.form.slide') }}</label>
                                     {!! Form::error('featured', $errors) !!}
-                                </div> !-->
+                                </div>
                                 <div class="form-group @if ($errors->has('content')) has-error @endif">
                                     <label class="control-label required">{{ trans('blog::posts.form.content') }}</label>
                                     {!! render_editor('content', $post->content, true) !!}

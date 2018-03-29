@@ -66,6 +66,20 @@ if (!function_exists('get_posts_by_category')) {
     }
 }
 
+if (!function_exists('get_posts_by_category_slide')) {
+    /**
+     * @param $category_id
+     * @param $paginate
+     * @param $limit
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_posts_by_category_slide($category_id, $paginate = 12, $limit = 0)
+    {
+        return app(PostInterface::class)->getByCategoryFeatured($category_id, $paginate, $limit);
+    }
+}
+
 if (!function_exists('get_posts_by_ids')) {
     /**
      * @param $post_ids

@@ -45,7 +45,16 @@ interface PostInterface extends RepositoryInterface
      * @return mixed
      * @author Sang Nguyen
      */
+    
     public function getByCategory($category, $paginate = 12, $limit = 0);
+
+    /**
+     * @param $category
+     * @param int $limit
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    public function getByCategoryFeatured($category, $paginate = 12, $limit = 0);
 
     /**
      * @param $user_id

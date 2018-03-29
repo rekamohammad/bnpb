@@ -139,6 +139,36 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         return $data;
     }
 
+    /**
+     * @param $category_id
+     * @param int $paginate
+     * @param int $limit
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    public function getByCategoryFeatured($category_id, $paginate = 12, $limit = 0)
+    {
+        if (!is_array($category_id)) {
+            $category_id = [$category_id];
+        }
+        $data = $this->model->where('posts.status', '=', 1)
+            ->join('post_category', 'post_category.post_id', '=', 'posts.id')
+            ->join('categories', 'post_category.category_id', '=', 'categories.id')
+            ->whereIn('post_category.category_id', $category_id)
+            ->where('posts.featured', 1)
+            ->select('posts.*')
+            ->distinct()
+            ->orderBy('posts.created_at', 'desc');
+        $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME);
+        if ($paginate != 0) {
+            return $data->paginate($paginate);
+        }
+        $data = $data->limit($limit)->get();
+        dd($data);
+        $this->resetModel();
+        return $data;
+    }
+
     public function getByIds($post_ids, $paginate = 12, $limit = 0)
     {
         if (!is_array($post_ids)) {

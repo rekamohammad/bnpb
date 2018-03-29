@@ -66,6 +66,11 @@
                                     {!! Form::mediaImage('image', $post->image) !!}
                                     {!! Form::error('image', $errors) !!}
                                 </div>
+                                <div class="form-group @if ($errors->has('featured')) has-error @endif">
+                                    {!! Form::onOff('featured', $post->featured) !!}
+                                    <label for="featured">{{ trans('blog::infografis.form.slide') }}</label>
+                                    {!! Form::error('featured', $errors) !!}
+                                </div>
                                 <div class="form-group @if ($errors->has('content')) has-error @endif">
                                     <label class="control-label required">{{ trans('blog::infografis.form.content') }}</label>
                                     {!! render_editor('content', old('content'), true) !!}

@@ -18,6 +18,7 @@ return [
         'featured' => 'Is featured?',
         'note' => 'Note content',
         'format_type' => 'Format',
+        'slide' => 'Is Set To Slide ?',
     ],
     'notices' => [
         'no_select' => 'Please select at least one record to take this action!',

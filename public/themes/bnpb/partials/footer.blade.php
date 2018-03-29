@@ -219,11 +219,7 @@
                 url: "{{URL::to("api/track-click") }}",
                 type: "POST",
                 data: {_token: "{{ csrf_token() }}", id:id},
-                dataType: "json",
-                success: function () {
-                    swal("Reject!", "It was succesfully Reject!", "success");
-                    window.location.href = "{{ url('/cpanel/loans-for-approval/') }}";
-                }
+                dataType: "json"
             });
         })
     });
