@@ -164,7 +164,6 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             return $data->paginate($paginate);
         }
         $data = $data->limit($limit)->get();
-        dd($data);
         $this->resetModel();
         return $data;
     }
