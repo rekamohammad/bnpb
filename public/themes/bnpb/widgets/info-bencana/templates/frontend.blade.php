@@ -21,6 +21,6 @@
                 <a href="{{ url('/publikasi/rekapitulasi-bencana') }}">Selengkapnya &gt;&gt;</a>
             </strong>
         </div>
-        <br>
+        <br><br>
     </div>
 </div>

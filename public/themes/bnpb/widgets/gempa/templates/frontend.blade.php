@@ -106,6 +106,5 @@
                 </strong>
             </p>
         </div>
-        <br>
     </div>
 </div>
