@@ -10,7 +10,7 @@ return [
         'name' => 'Name',
         'name_placeholder' => 'Post\'s name (Maximum 120 characters)',
         'description' => 'Description',
-        'description_placeholder' => 'Short description for post (Maximum 400 characters)',
+        'description_placeholder' => 'Short description for post (Maximum 300 characters)',
         'categories' => 'Categories',
         'tags' => 'Tags',
         'tags_placeholder' => 'Tags',
