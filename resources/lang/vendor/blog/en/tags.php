@@ -7,7 +7,7 @@ return [
         'name' => 'Name',
         'name_placeholder' => 'Tag\'s name (Maximum 120 characters)',
         'description' => 'Description',
-        'description_placeholder' => 'Short description for tag (Maximum 400 characters)',
+        'description_placeholder' => 'Short description for tag (Maximum 300 characters)',
         'categories' => 'Categories',
     ],
     'notices' => [

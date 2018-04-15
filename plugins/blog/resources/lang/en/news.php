@@ -10,7 +10,7 @@ return [
         'name' => 'Name',
         'name_placeholder' => 'News name (Maximum 120 characters)',
         'description' => 'Description',
-        'description_placeholder' => 'Short description for news (Maximum 400 characters)',
+        'description_placeholder' => 'Short description for news (Maximum 300 characters)',
         'categories' => 'Categories',
         'tags' => 'Tags',
         'tags_placeholder' => 'Tags',
