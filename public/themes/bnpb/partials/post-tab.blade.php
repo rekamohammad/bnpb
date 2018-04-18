@@ -57,7 +57,7 @@
 			                </span>
 			            </a>
 			            @endforeach
-			            <a href="{{ route('public.single.detail', $_cats[$catIds]->slug) }}" class="block-button">
+			            <a href="{{ route('public.single.detail', 'berita') }}" class="block-button">
 			                <span class="post-date">
 			                    Berita Terbaru Lainnya
 			                </span>
@@ -86,7 +86,7 @@
 			                </span> 
 			            </a>
 			            @endforeach
-			            <a href="{{ url('/siaran-pers') }}" class="block-button">
+			            <a href="{{ url('siaran-pers') }}" class="block-button">
 			                <span class="post-date">
 							Siaran Pers Lainnya
 			                </span>
@@ -115,7 +115,7 @@
 			                </span> 
 			            </a>
 			            @endforeach
-			            <a href="{{ route('public.single.detail', $_cats[$catIds]->slug) }}" class="block-button">
+			            <a href="{{ route('public.single.detail', 'pengumuman') }}" class="block-button">
 			                <span class="post-date">
 			                    Pengumuman Lainnya
 			                </span>
