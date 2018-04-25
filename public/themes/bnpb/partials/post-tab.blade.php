@@ -15,14 +15,14 @@
 		    	@php
 		    		$_cats[$catIds] = get_category_by_id(17);
 			    @endphp
-        		<li class="{{$_tab}}"><a data-toggle="tab" href="#tab01">Berita Terbaru</a></li>
+        		<li class="{{$_tab}}"><a data-toggle="tab" href="#tab01">{{ __('tabs.berita_terbaru') }}</a></li>
 		    @elseif ($catIds == 'Siaran Pers')
 		    	@php
 		    		$_cats[$catIds] = get_category_by_id(23);
 			    @endphp
-        		<li class="{{$_tab}}"><a data-toggle="tab" href="#tab02">Siaran Pers</a></li>
+        		<li class="{{$_tab}}"><a data-toggle="tab" href="#tab02">{{ __('tabs.siaran_pers') }}</a></li>
     		@elseif ($_cats[$catIds])
-        		<li class="{{$_tab}}"><a data-toggle="tab" href="#tab{{$catIds}}">{{ $_cats[$catIds]->name }}</a></li>
+        		<li class="{{$_tab}}"><a data-toggle="tab" href="#tab{{$catIds}}">{{ __('tabs.pengumuman') }}</a></li>
     		@endif
         	@php
         		$_tab = '';
@@ -59,7 +59,7 @@
 			            @endforeach
 			            <a href="{{ route('public.single.detail', 'berita') }}" class="block-button">
 			                <span class="post-date">
-			                    Berita Terbaru Lainnya
+			                    {{ __('tabs.berita_terbaru_lainnya') }}
 			                </span>
 			            </a>
 			        @endif
@@ -88,7 +88,7 @@
 			            @endforeach
 			            <a href="{{ url('siaran-pers') }}" class="block-button">
 			                <span class="post-date">
-							Siaran Pers Lainnya
+							{{ __('tabs.siaran_pers_lainnya') }}
 			                </span>
 			            </a>
 			        @endif
@@ -117,7 +117,7 @@
 			            @endforeach
 			            <a href="{{ route('public.single.detail', 'pengumuman') }}" class="block-button">
 			                <span class="post-date">
-			                    Pengumuman Lainnya
+			                    {{ __('tabs.pengumuman_lainnya') }}
 			                </span>
 			            </a>
 			        @endif

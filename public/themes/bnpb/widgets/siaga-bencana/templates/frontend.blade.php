@@ -10,7 +10,7 @@
         <br>
         <div class="pull-right">
             <strong>
-                <a href="{{ url('/publikasi/siaga-bencana') }}">Selengkapnya &gt;&gt;</a>
+                <a href="{{ url('/publikasi/siaga-bencana') }}">{{ __('tabs.selengkapnya') }}>></a>
             </strong>
         </div>
         <br>

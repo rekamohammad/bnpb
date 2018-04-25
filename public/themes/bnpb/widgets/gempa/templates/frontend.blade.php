@@ -86,23 +86,23 @@
             </a>
             <div>
                 <p class="font13 fontarial">
-                    <span class="fa fa-calendar" aria-hidden="true"></span> Waktu Gempa : {{ $tanggal }}
+                    <span class="fa fa-calendar" aria-hidden="true"></span> {{ __('tabs.waktu_gempa') }} : {{ $tanggal }}
             </div>
             <div>
                 <p class="font13 fontarial">
-                    <span class="fa fa-location-arrow" aria-hidden="true"></span> Magnitudo : {{ $mag }}
+                    <span class="fa fa-location-arrow" aria-hidden="true"></span> {{ __('tabs.magnitudo') }} : {{ $mag }}
             </div>
             <div>
                 <p class="font13 fontarial">
-                    <span class="fa fa-map-o" aria-hidden="true"></span> Kedalaman : {{ $kedalaman }}
+                    <span class="fa fa-map-o" aria-hidden="true"></span> {{ __('tabs.kedalaman') }} : {{ $kedalaman }}
             </div>
             <div>
                 <p class="font15 fontarial">
-                    <span class="fa fa-flag-o" aria-hidden="true"></span> Lokasi : {{ $wilayah }}
+                    <span class="fa fa-flag-o" aria-hidden="true"></span> {{ __('tabs.lokasi') }} : {{ $wilayah }}
             </div>
             <p style="text-align: right;">
                 <strong>
-                    <a href="http://www.bmkg.go.id/gempabumi/gempabumi-terkini.bmkg" target=_blank>Selengkapnya >></a>
+                    <a href="http://www.bmkg.go.id/gempabumi/gempabumi-terkini.bmkg" target=_blank>{{ __('tabs.selengkapnya') }}>></a>
                 </strong>
             </p>
         </div>

@@ -22,7 +22,7 @@
                                 <div class="form-group @if ($errors->has('url')) has-error @endif">
                                     <label for="url" class="control-label required">{{ trans('blog::nasional.form.url') }}</label>
                                     {!! Form::text('url', old('url'), ['class' => 'form-control', 'id' => 'url', 'placeholder' => trans('blog::nasional.form.url_placeholder')]) !!}
-                                    {!! Form::error('url', $errors) !!}
+                                    {!! Form::error('url', $errors) !!} 
                                 </div>
                             </div>
                         </div>

@@ -1,12 +1,12 @@
 <div>
-    <div class="editor-action-item">
+    <!--<div class="editor-action-item">
         <a class="btn_gallery btn btn-primary"
            data-result="{{ $name }}"
            data-multiple="true"
            data-action="media-insert-{{ setting('rich_editor', config('cms.editor.primary')) }}">
             <i class="fa fa-picture-o"></i> {{ trans('media::media.add') }}
         </a>
-    </div>
+    </div> !-->
     @if (isset($with_short_code) && $with_short_code == true)
         <div class="editor-action-item list-shortcode-items">
             <div class="dropdown">

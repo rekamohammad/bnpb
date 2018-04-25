@@ -35,9 +35,7 @@
                                 </div>
                                 <div class="form-group @if ($errors->has('content')) has-error @endif">
                                     <label class="control-label required">{{ trans('blog::posts.form.content') }}</label>
-                                    <a class="btn_gallery" data-mode="attach" data-result="content" data-action="image_post"
-                                       data-backdrop="static" data-keyboard="false" data-toggle="modal"
-                                       data-target=".media_modal">{{ trans('media::media.add') }}</a>
+                                    
                                     {!! render_editor('content', old('content'), true) !!}
                                     {!! Form::error('content', $errors) !!}
                                 </div>

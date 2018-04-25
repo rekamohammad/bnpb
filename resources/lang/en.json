@@ -1,5 +1,13 @@
 {
   "Beranda":"Home",
+  "Profil":"Profile",
+  "Layanan Publik":"Public Service",
+  "Berita":"News",
+  "Kontak":"Contacts",
+  "Berita Populer":"Popular News",
+  "Gempa Terkini":"Recent Earthquake",
+  "Info Bencana":"Disaster Info",
+  "Status Gunung Api":"Volcano Status",
   "Informasi Publik":"Public Information",
   "Publikasi":"Publication",
   "Kerjasama":"Cooperation",
@@ -63,6 +71,15 @@
   "Rekapitulasi Bencana" : "Disaster Recapitulation",
   "Publikasi Rekapitulasi Bencana" : "Publication Of Disaster Recapitulation",
   "Kejadian Bencana" : "Disaster Event",
-  "Publikasi Kejadian Bencana" : "Publication Of Disaster Event"
+  "Publikasi Kejadian Bencana" : "Publication Of Disaster Event",
+  "Sejarah":"History",
+  "Tugas dan Fungsi":"Job and Function",
+  "Struktur Organisasi":"Organization Structure",
+  "Komposisi Pegawai":"Employee Composition",
+  "Lapor!":"Report!",
+  "Aplikasi":"Aplication",
+  "Perpustakaan":"Library",
+  "Peta bencana":"Disaster Map",
+  "Galeri Foto":"Photo Gallery"
 
 }
