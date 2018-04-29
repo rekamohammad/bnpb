@@ -38,6 +38,7 @@
                     <p>{!! __(theme_option('copyright')) !!}</p>
                 </div>
                 <div class="col-md-6">
+				
                     {!!
                         Menu::generateMenu([
                             'slug' => 'footer-end-menu',

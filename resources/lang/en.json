@@ -16,8 +16,9 @@
   "Link Terkait":"Related Links",
   "Produk Hukum":"Product of law",
   "Publikasi":"Publication",
-  "Galeri foto":"Photo Gallery",
+  "Galeri Foto":"Photo Gallery",
   "Poster":"Poster",
+  "Kajian Bencana" : "Disaster Assessment",
   "Leaflet":"Leaflet",
   "Buku":"Book",
   "Buletin Bencana":"Disaster book",
@@ -79,7 +80,6 @@
   "Lapor!":"Report!",
   "Aplikasi":"Aplication",
   "Perpustakaan":"Library",
-  "Peta bencana":"Disaster Map",
-  "Galeri Foto":"Photo Gallery"
+  "Peta bencana":"Disaster Map"
 
 }

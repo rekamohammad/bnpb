@@ -3,6 +3,6 @@
         <h3>{{ __($config['name']) }}</h3>
     </div>
     <div class="panel-content">
-        <p>{!! $config['content'] !!}</p>
+        <p> {!! __($config['content']) !!} </p>
     </div>
 </div>

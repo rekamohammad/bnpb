@@ -59,7 +59,7 @@
                                     $_news = get_popular_posts(3);
                                 @endphp
                                 <div class="widget-title">
-                                    <span>Berita Populer</span>
+                                    <span>{{ __('Berita Populer') }}</span>
                                 </div>
                                 @if (count($_news) > 0)
                                     @foreach ($_news as $news_item)
