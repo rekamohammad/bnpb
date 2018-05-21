@@ -22,12 +22,7 @@
 		@endforeach
 		@if ($_infografis->count() > 0)
             <nav class="pagination-wrap">
-			@php
-				$path = $_SERVER['REQUEST_URI'];
-				$folders = explode('/', $path);
-				$getSplit =  explode('?',$folders[3]);
-			@endphp
-            {!! $_infografis->setPath($getSplit[0]) !!}
+				{{ $_infografis->links() }}
             </nav>
         @endif
 	@else
