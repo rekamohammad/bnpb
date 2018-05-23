@@ -149,12 +149,7 @@
         </section>
         @if ($posts->count() > 0)
             <nav class="pagination-wrap">
-		@php
-		$path = $_SERVER['REQUEST_URI'];
-		$folders = explode('/', $path);
-		$getSplit =  explode('?',$folders[2]);
-		@endphp 	
-                {!! $posts->setPath($getSplit[0]) !!}
+                {{ $posts->links() }}
             </nav>
         @endif
     </div>
@@ -254,12 +249,7 @@
         </section>
         @if ($posts->count() > 0)
             <nav class="pagination-wrap">
-        @php
-        $path = $_SERVER['REQUEST_URI'];
-        $folders = explode('/', $path);
-        $getSplit =  explode('?',$folders[2]);
-        @endphp     
-                {!! $posts->setPath($getSplit[0]) !!}
+                {{ $posts->links() }}
             </nav>
         @endif
     </div>
@@ -348,12 +338,7 @@
         </section>
         @if ($posts->count() > 0)
             <nav class="pagination-wrap">
-        @php
-        $path = $_SERVER['REQUEST_URI'];
-        $folders = explode('/', $path);
-        $getSplit =  explode('?',$folders[2]);
-        @endphp     
-                {!! $posts->setPath($getSplit[0]) !!}
+                {{ $posts->links() }}
             </nav>
         @endif
     </div>
@@ -402,12 +387,7 @@
         </section>
         @if ($posts->count() > 0)
             <nav class="pagination-wrap">
-        @php
-        $path = $_SERVER['REQUEST_URI'];
-        $folders = explode('/', $path);
-        $getSplit =  explode('?',$folders[2]);
-        @endphp     
-                {!! $posts->setPath($getSplit[0]) !!}
+                {{ $posts->links() }}
             </nav>
         @endif
     </div>
