@@ -149,7 +149,7 @@
         </section>
         @if ($posts->count() > 0)
             <nav class="pagination-wrap">
-                {{ $posts->links() }}
+				{!! $posts->links() !!}
             </nav>
         @endif
     </div>
@@ -249,7 +249,7 @@
         </section>
         @if ($posts->count() > 0)
             <nav class="pagination-wrap">
-                {{ $posts->links() }}
+			{!! $posts->links() !!}
             </nav>
         @endif
     </div>
@@ -338,7 +338,7 @@
         </section>
         @if ($posts->count() > 0)
             <nav class="pagination-wrap">
-                {{ $posts->links() }}
+			{!! $posts->links() !!}
             </nav>
         @endif
     </div>
@@ -387,7 +387,7 @@
         </section>
         @if ($posts->count() > 0)
             <nav class="pagination-wrap">
-                {{ $posts->links() }}
+				{!! $posts->links() !!}
             </nav>
         @endif
     </div>
