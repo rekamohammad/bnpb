@@ -103,9 +103,9 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        @php
+                        {{-- @php
                             echo Theme::partial('post-video', ['category_ids' => explode(',', theme_option('home-right-feed'))]);
-                        @endphp
+                        @endphp  --}}
                         <div class="dynamic-sidebar">
                             {!! dynamic_sidebar('home_right') !!}
                         </div>

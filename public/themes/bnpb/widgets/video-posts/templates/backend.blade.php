@@ -1,8 +1,8 @@
 <div class="form-group">
-    <label for="widget-name">{{ __('Name') }}</label>
-    <input type="text" class="form-control" name="name" value="{{ $config['name'] }}">
+    <label for="widget-name">{{ __('URL Video') }}</label>
+    <input type="text" class="form-control" name="name" value="{{ $config['url_video'] }}">
 </div>
 <div class="form-group">
-    <label for="number_display">{{ __('Number posts to display') }}</label>
-    <input type="number" class="form-control" name="number_display" value="{{  $config['number_display'] }}">
+    <label for="url_more_video">{{ __('Link More Video') }}</label>
+    <input type="text" class="form-control" name="url_more_video" value="{{  $config['url_more_video'] }}">
 </div>

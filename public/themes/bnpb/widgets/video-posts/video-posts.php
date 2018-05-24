@@ -21,7 +21,9 @@ class VideoPostsWidget extends AbstractWidget
     {
         parent::__construct([
             'name' => 'VideoPosts',
-            'description' => 'This is a sample widget',
+			'url_video' => 'https://bnpb.go.id//uploads/24/video/BNPB-PSA-Kenali-Bahayanya-Kurangi-Risikonya.mp4',
+            'url_more_video' => 'http://bnpbindonesia.tv/',
+			'description' => 'description name',
             'number_display' => 5,
         ]);
     }
