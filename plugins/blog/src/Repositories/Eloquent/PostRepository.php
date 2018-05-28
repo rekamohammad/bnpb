@@ -327,6 +327,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         if (!empty(array_get($args, 'where'))) {
             $data = $data->where($args['where']);
         }
+		$this->resetModel();
         return apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
     }
 
