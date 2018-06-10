@@ -317,7 +317,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
 		$posts = $this->model->whereStatus(1);
 		$settings = Setting::where('key', '=','popular_post_duration')->first();
 		//dd($settings->value);
-		$carbon = Carbon::now()->subDays($settings->value);
+		$carbon = Carbon::now()->subDays(14);
 		
 		$data = $posts->join('post_category','posts.id','=','post_category.post_id')
 		->where('post_category.category_id','=',17)
