@@ -70,6 +70,23 @@ return [
             ],
         ]
     ],
+	'PopularPost' => [
+		'name' => trans('settings::setting.general.popular_post'),
+        'settings' => [
+			[
+			'label' => trans('settings::setting.general.duration'),
+			'type' => 'text',
+			'attributes' => [
+                    'name' => 'popular_post_duration',
+                    'value' => null,
+                    'options' => [
+                        'class' => 'form-control',
+                        'placeholder' => trans('settings::setting.general.placeholder.duration'),
+                    ],
+                ],
+			]
+		]
+	],
     'contact' => [
         'name' => trans('settings::setting.general.contact_block'),
         'settings' => [

@@ -16,6 +16,8 @@ class AlterSettingsTable extends Migration
         Schema::table('settings', function (Blueprint $table) {
             $table->text('value')->nullable()->change();
         });
+		
+		
     }
 
     /**

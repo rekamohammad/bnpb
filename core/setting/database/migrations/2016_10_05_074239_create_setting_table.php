@@ -21,6 +21,7 @@ class CreateSettingTable extends Migration
             $table->timestamps();
             $table->engine = 'InnoDB';
         });
+		
     }
 
     /**

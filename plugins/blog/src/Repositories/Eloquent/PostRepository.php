@@ -5,7 +5,7 @@ namespace Botble\Blog\Repositories\Eloquent;
 use Botble\Support\Repositories\Eloquent\RepositoriesAbstract;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
 use Carbon\Carbon;
-
+use Botble\Blog\Models\Setting;
 class PostRepository extends RepositoriesAbstract implements PostInterface
 {
 
@@ -315,8 +315,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     public function getPopularPosts($limit, array $args = [])
     {
 		$posts = $this->model->whereStatus(1);
-		
-		$carbon = Carbon::now()->subDays(14);
+		$settings = Setting::where('key', '=','popular_post_duration')->first();
+		//dd($settings->value);
+		$carbon = Carbon::now()->subDays($settings->value);
 		
 		$data = $posts->join('post_category','posts.id','=','post_category.post_id')
 		->where('post_category.category_id','=',17)
