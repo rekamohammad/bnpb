@@ -319,6 +319,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
 		//dd($settings->value);
 		$carbon = Carbon::now()->subDays($settings);
 		
+		
 		$data = $posts->join('post_category','posts.id','=','post_category.post_id')
 		->where('post_category.category_id','=',17)
 		->whereBetween('posts.created_at', array($carbon, Carbon::now() ))
