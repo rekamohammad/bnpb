@@ -6,44 +6,44 @@
         $detect = new App\MobileDetect\Mobile_Detect;
     @endphp
     @if ($detect->isMobile())
-    <main class="main" id="main">
-        <div class="container">
-            <div class="main-index">
-                <div class="row">
-                    <div class="col-md-12">
-                        @php
-                            echo Theme::partial('post-newest');
-                        @endphp
-                        <a href="{{ url('/berita') }}" class="block-button">
-                            <span class="post-date">
-                            Berita Terbaru Lainnya
-                            </span>
-                        </a><br>
-                    </div>
-                    <div class="col-md-12">
-                        @php
-                            echo Theme::partial('post-announcement');
-                        @endphp
-                        <a href="{{ url('/pengumuman') }}" class="block-button">
-                            <span class="post-date">
-                            Pengumuman Terbaru Lainnya
-                            </span>
-                        </a><br>
-                    </div>
-                    <div class="col-md-12">
-                        @php
-                            echo Theme::partial('post-popular');
-                        @endphp
-                        <a href="{{ url('/berita') }}" class="block-button">
-                            <span class="post-date">
-                            Berita Terpopuler Lainnya
-                            </span>
-                        </a><br>
+        <main class="main" id="main">
+            <div class="container">
+                <div class="main-index">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @php
+                                echo Theme::partial('post-newest');
+                            @endphp
+                            <a href="{{ url('/berita') }}" class="block-button">
+                                <span class="post-date">
+                                Berita Terbaru Lainnya
+                                </span>
+                            </a><br>
+                        </div>
+                        <div class="col-md-12">
+                            @php
+                                echo Theme::partial('post-announcement');
+                            @endphp
+                            <a href="{{ url('/pengumuman') }}" class="block-button">
+                                <span class="post-date">
+                                Pengumuman Terbaru Lainnya
+                                </span>
+                            </a><br>
+                        </div>
+                        <div class="col-md-12">
+                            @php
+                                echo Theme::partial('post-popular');
+                            @endphp
+                            <a href="{{ url('/berita') }}" class="block-button">
+                                <span class="post-date">
+                                Berita Terpopuler Lainnya
+                                </span>
+                            </a><br>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
     @else
     <main class="main" id="main">
         <div class="container">

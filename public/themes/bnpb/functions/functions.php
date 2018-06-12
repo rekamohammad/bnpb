@@ -192,6 +192,20 @@ theme_option()->setSection([
                 ]
             ],
         ],
+        [
+            'id' => 'home-popular-post',
+            'type' => 'text',
+            'label' => __('Home Popular Post (Hari)'),
+            'attributes' => [
+                'name' => 'home-popular-post',
+                'value' => null,
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Change Home Popular Post (Hari)'),
+                    'data-counter' => 20,
+                ]
+            ],
+        ],
     ],
 ]);
 

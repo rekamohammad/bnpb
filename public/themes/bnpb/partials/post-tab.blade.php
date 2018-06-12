@@ -4,6 +4,7 @@
         $_news = [];
         $_tab = 'active';
         $_pane = 'active';
+		setlocale(LC_TIME, 'Indonesian');
     @endphp
 
     <ul class="nav nav-tabs">
@@ -39,23 +40,32 @@
 			        @endphp
 			        @if (count($_news[$catIds]) > 0)
 			            @foreach ($_news[$catIds] as $news_item)
-			            <a href="{{ route('public.single.detail', $news_item->slug) }}"
-			               title="{{ $news_item->name }}" class="block-has-border">
-			                <span class="post-item"
-			                      title="{{ $news_item->name }}">
-			                    <h3>{{ $news_item->name }}</h3>
-			                </span>
-			                <span class="post-date">
-			                    {{ date('d F Y | H:i', strtotime($news_item->created_at)) }}WIB
-			                </span><br>
-			                
-			                <span>
-			                	<p align="justify">
-			                	{{-- {{str_limit('The PHP framework for web artisans.', 7)}} --}}
-			                	{{ str_limit(strip_tags( $news_item->content),300)}}
-			               		</p>
-			                </span>
-			            </a>
+						<article id="{{ $news_item->id }}">
+							<a href="{{ route('public.single.detail', $news_item->slug) }}" title="{{ $news_item->name }}" class="block-has-border">
+								@if (empty($news_item->image))
+									<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
+								@else
+									@if (file_exists(get_object_image($news_item->image)))
+										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ get_object_image($news_item->image, $loop->first ? 'thumb' : 'thumb') }}" alt="{{ $news_item->name }}" style="background-image: url('{{ get_object_image($news_item->image) }}');">
+									@else
+										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
+									@endif
+								@endif
+								<span class="post-item" title="{{ $news_item->name }}">
+									<h3>{{ $news_item->name }}</h3>
+								</span>
+								<span class="post-date">
+									{{ date('d F Y | H:i', strtotime($news_item->created_at)) }} WIB
+								</span><br>
+								<span>
+									<p align="justify">
+									{{-- {{str_limit('The PHP framework for web artisans.', 7)}} --}}
+									{{ str_limit(strip_tags( $news_item->content),200)}}
+									</p>
+								</span>
+							</a>
+						</article>
+						<div class="clearfix"></div>
 			            @endforeach
 			            <a href="{{ route('public.single.detail', 'berita') }}" class="block-button">
 			                <span class="post-date">
@@ -71,20 +81,30 @@
 			        @endphp
 			        @if (count($_news[$catIds]) > 0)
 			            @foreach ($_news[$catIds] as $news_item)
-			            <a href="{{ route('public.single.detail', $news_item->slug) }}"
-			               title="{{ $news_item->name }}" class="block-has-border">
-			                <span class="post-item"
-			                      title="{{ $news_item->name }}">
-			                    <h3>{{ $news_item->name }}</h3>
-			                </span>
-			                 <span class="post-date">
-			                    {{ date('d F Y | H:i', strtotime($news_item->created_at)) }}WIB
-			                </span><br>
-			                 <span>
-			                	{{-- {{str_limit('The PHP framework for web artisans.', 7)}} --}}
-			                	{{ str_limit(strip_tags( $news_item->description),300)}}
-			                </span> 
-			            </a>
+						<article id="{{ $news_item->id }}">
+							<a href="{{ route('public.single.detail', $news_item->slug) }}" title="{{ $news_item->name }}" class="block-has-border">
+								@if (empty($news_item->image))
+									<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
+								@else
+									@if (file_exists(get_object_image($news_item->image)))
+										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ get_object_image($news_item->image, $loop->first ? 'thumb' : 'thumb') }}" alt="{{ $news_item->name }}" style="background-image: url('{{ get_object_image($news_item->image) }}');">
+									@else
+										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
+									@endif
+								@endif
+								<span class="post-item" title="{{ $news_item->name }}">
+									<h3>{{ $news_item->name }}</h3>
+								</span>
+								<span class="post-date">
+									{{ date('d F Y | H:i', strtotime($news_item->created_at)) }} WIB
+								</span><br>
+								<span>
+									{{-- {{str_limit('The PHP framework for web artisans.', 7)}} --}}
+									{{ str_limit(strip_tags( $news_item->description),200)}}
+								</span> 
+							</a>
+						</article>
+						<div class="clearfix"></div>
 			            @endforeach
 			            <a href="{{ url('siaran-pers') }}" class="block-button">
 			                <span class="post-date">
@@ -100,20 +120,30 @@
 			        @endphp
 			        @if (count($_news[$catIds]) > 0)
 			            @foreach ($_news[$catIds] as $news_item)
-			            <a href="{{ route('public.single.detail', $news_item->slug) }}"
-			               title="{{ $news_item->name }}" class="block-has-border">
-			                <span class="post-item"
-			                      title="{{ $news_item->name }}">
-			                    <h3>{{ $news_item->name }}</h3>
-			                </span>
-			                <span class="post-date">
-			                    {{ date('d F Y | H:i', strtotime($news_item->created_at)) }}WIB
-			                </span><br>
- 			                <span>
-			                	{{-- {{str_limit('The PHP framework for web artisans.', 7)}} --}}
-			                	{{ str_limit(strip_tags( $news_item->description),300)}}
-			                </span> 
-			            </a>
+						<article id="{{ $news_item->id }}">
+							<a href="{{ route('public.single.detail', $news_item->slug) }}" title="{{ $news_item->name }}" class="block-has-border">
+								@if (empty($news_item->image))
+									<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
+								@else
+									@if (file_exists(get_object_image($news_item->image)))
+										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ get_object_image($news_item->image, $loop->first ? 'thumb' : 'thumb') }}" alt="{{ $news_item->name }}" style="background-image: url('{{ get_object_image($news_item->image) }}');">
+									@else
+										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
+									@endif
+								@endif
+								<span class="post-item" title="{{ $news_item->name }}">
+									<h3>{{ $news_item->name }}</h3>
+								</span>
+								<span class="post-date">
+									{{ date('d F Y | H:i', strtotime($news_item->created_at)) }} WIB
+								</span><br>
+								<span>
+									{{-- {{str_limit('The PHP framework for web artisans.', 7)}} --}}
+									{{ str_limit(strip_tags( $news_item->description),200)}}
+								</span> 
+							</a>
+						</article>
+						<div class="clearfix"></div>
 			            @endforeach
 			            <a href="{{ route('public.single.detail', 'pengumuman') }}" class="block-button">
 			                <span class="post-date">

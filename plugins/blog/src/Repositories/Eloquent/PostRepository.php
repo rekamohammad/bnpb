@@ -315,10 +315,12 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     public function getPopularPosts($limit, array $args = [])
     {
 		$posts = $this->model->whereStatus(1);
-		$settings = Setting::where('key', '=','popular_post_duration')->first();
-		//dd($settings->value);
-		$carbon = Carbon::now()->subDays($settings->value);
-		
+        $setting = Setting::where('key', '=','theme-bnpb-home-popular-post')->first();
+        if (! empty($setting)) {
+            $carbon = Carbon::now()->subDays($setting->value);
+        } else {
+            $carbon = Carbon::now()->subDays(7);
+        }
 		
 		$data = $posts->join('post_category','posts.id','=','post_category.post_id')
 		->where('post_category.category_id','=',17)
