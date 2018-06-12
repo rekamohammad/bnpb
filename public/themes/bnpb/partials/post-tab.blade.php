@@ -43,12 +43,12 @@
 						<article id="{{ $news_item->id }}">
 							<a href="{{ route('public.single.detail', $news_item->slug) }}" title="{{ $news_item->name }}" class="block-has-border">
 								@if (empty($news_item->image))
-									<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }};">
+									<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
 								@else
-									@if (file_exists(get_object_image($news_item->image)))
+									@if (file_exists(public_path($news_item->image)))
 										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ get_object_image($news_item->image, $loop->first ? 'thumb' : 'thumb') }}" alt="{{ $news_item->name }}" style="background-image: url('{{ get_object_image($news_item->image) }}');">
 									@else
-										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }};">
+										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
 									@endif
 								@endif
 								<span class="post-item" title="{{ $news_item->name }}">
@@ -84,12 +84,12 @@
 						<article id="{{ $news_item->id }}">
 							<a href="{{ route('public.single.detail', $news_item->slug) }}" title="{{ $news_item->name }}" class="block-has-border">
 								@if (empty($news_item->image))
-									<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }};">
+									<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
 								@else
-									@if (file_exists(get_object_image($news_item->image)))
+									@if (file_exists(public_path($news_item->image)))
 										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ get_object_image($news_item->image, $loop->first ? 'thumb' : 'thumb') }}" alt="{{ $news_item->name }}" style="background-image: url('{{ get_object_image($news_item->image) }}');">
 									@else
-										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }};">
+										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
 									@endif
 								@endif
 								<span class="post-item" title="{{ $news_item->name }}">
@@ -123,12 +123,12 @@
 						<article id="{{ $news_item->id }}">
 							<a href="{{ route('public.single.detail', $news_item->slug) }}" title="{{ $news_item->name }}" class="block-has-border">
 								@if (empty($news_item->image))
-									<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }};">
+									<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
 								@else
-									@if (file_exists(get_object_image($news_item->image)))
+									@if (file_exists(public_path($news_item->image)))
 										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ get_object_image($news_item->image, $loop->first ? 'thumb' : 'thumb') }}" alt="{{ $news_item->name }}" style="background-image: url('{{ get_object_image($news_item->image) }}');">
 									@else
-										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/folder-baru/bnpb-thumbnail-default-150x150.jpg') }};">
+										<img class="img-bg pull-left" style="margin: 0 15px 0 0" src="{{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }}" alt="{{ $news_item->name }}" style="background-image: {{ url('/uploads/24/bnpb-thumbnail-default-150x150.jpg') }};">
 									@endif
 								@endif
 								<span class="post-item" title="{{ $news_item->name }}">
