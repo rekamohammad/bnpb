@@ -11,6 +11,8 @@ return [
     'order_by' => 'Order By',
     'order' => 'Order',
     'status' => 'Status',
+    'mountain_status' => 'Mountain Status',
+    'date_of_the_incident' => 'Date of the Incident',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
     'description' => 'Description',

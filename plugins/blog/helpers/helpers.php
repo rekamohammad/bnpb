@@ -11,6 +11,7 @@ use Botble\Blog\Repositories\Interfaces\NasionalInterface;
 use Botble\Blog\Repositories\Interfaces\InternasionalInterface;
 use Botble\Blog\Repositories\Interfaces\ProvinsiInterface;
 use Botble\Blog\Repositories\Interfaces\KabupatenInterface;
+use Botble\Blog\Repositories\Interfaces\MountainsInterface;
 use Botble\Blog\Supports\PostFormat;
 
 if (!function_exists('get_featured_posts')) {
@@ -386,6 +387,21 @@ if (!function_exists('get_all_kab_detail')) {
     function get_all_kab_detail($province)
     {
         return app(KabupatenInterface::class)->getAllKabDetail($province);
+    }
+}
+
+if (!function_exists('get_all_mountains')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_mountains()
+    {
+        setlocale(LC_TIME, 'Indonesian');
+        
+        return app(MountainsInterface::class)->getAllActiveMountains();
     }
 }
 

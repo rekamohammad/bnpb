@@ -28,6 +28,10 @@ use Botble\Blog\Models\Diorama;
 use Botble\Blog\Repositories\Caches\DioramaCacheDecorator;
 use Botble\Blog\Repositories\Eloquent\DioramaRepository;
 use Botble\Blog\Repositories\Interfaces\DioramaInterface;
+use Botble\Blog\Models\Mountains;
+use Botble\Blog\Repositories\Caches\MountainsCacheDecorator;
+use Botble\Blog\Repositories\Eloquent\MountainsRepository;
+use Botble\Blog\Repositories\Interfaces\MountainsInterface;
 use Botble\Blog\Models\Post;
 use Botble\Blog\Repositories\Caches\PostCacheDecorator;
 use Botble\Blog\Repositories\Eloquent\PostRepository;
@@ -110,6 +114,10 @@ class BlogServiceProvider extends ServiceProvider
 			$this->app->singleton(TagPostInterface::class, function () {
                 return new TagCacheDecorator(new TagPostRepository(new TagPost()), new Cache($this->app['cache'], __CLASS__));
             });
+
+            $this->app->singleton(MountainsInterface::class, function () {
+                return new MountainsDecorator(new MountainsRepository(new Mountains()), new Cache($this->app['cache'], __CLASS__));
+            });
 			
         } else {
 			$this->app->singleton(KabupatenInterface::class, function () {
@@ -147,8 +155,13 @@ class BlogServiceProvider extends ServiceProvider
             $this->app->singleton(TagInterface::class, function () {
                 return new TagRepository(new Tag());
             });
+
 			$this->app->singleton(TagPostInterface::class, function () {
                 return new TagPostRepository(new TagPost());
+            });
+
+            $this->app->singleton(MountainsInterface::class, function () {
+                return new MountainsRepository(new Mountains());
             });
         }
 
@@ -267,9 +280,18 @@ class BlogServiceProvider extends ServiceProvider
                     'url' => route('infografis.list'),
                     'permissions' => ['infografis.list'],
                 ])
+                ->registerItem([
+                    'id' => 'cms-plugins-mountains',
+                    'priority' => 5,
+                    'parent_id' => null,
+                    'name' => trans('blog::mountains.menu_name'),
+                    'icon' => 'fa fa-map',
+                    'url' => route('mountains.list'),
+                    'permissions' => ['mountains.list'],
+                ])
 				->registerItem([
                     'id' => 'cms-plugins-links',
-                    'priority' => 5,
+                    'priority' => 6,
                     'parent_id' => null,
                     'name' => trans('blog::links.menu_name'),
                     'icon' => "fa fa-link",
