@@ -77,7 +77,7 @@
 		    @elseif ($catIds == 'Siaran Pers')
         		<div id="tab02" class="tab-pane fade in {{$_pane}}">
 			        @php
-			            $_news[$catIds] = get_posts_by_category(60,10,5);
+			            $_news[$catIds] = get_posts_by_category(60,3,5);
 			        @endphp
 			        @if (count($_news[$catIds]) > 0)
 			            @foreach ($_news[$catIds] as $news_item)
@@ -116,7 +116,7 @@
     		@elseif ($_cats[$catIds])
 			    <div id="tab{{$catIds}}" class="tab-pane fade in {{$_pane}}">
 			        @php
-			            $_news[$catIds] = get_posts_by_category($catIds,10,5);
+			            $_news[$catIds] = get_posts_by_category($catIds,3,5);
 			        @endphp
 			        @if (count($_news[$catIds]) > 0)
 			            @foreach ($_news[$catIds] as $news_item)
