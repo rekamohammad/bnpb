@@ -15,6 +15,8 @@ require_once __DIR__ . '/../widgets/info-bencana/info-bencana.php';
 require_once __DIR__ . '/../widgets/siaga-bencana/siaga-bencana.php';
 require_once __DIR__ . '/../widgets/status-gunung/status-gunung.php';
 require_once __DIR__ . '/../widgets/gempa/gempa.php';
+require_once __DIR__ . '/../widgets/streaming-twitter/streaming-twitter.php';
+require_once __DIR__ . '/../widgets/banner/banner.php';
 
 register_widget(CustomMenuWidget::class);
 register_widget(RecentPostsWidget::class);
@@ -25,3 +27,5 @@ register_widget(InfoBencanaWidget::class);
 register_widget(SiagaBencanaWidget::class);
 register_widget(StatusGunungWidget::class);
 register_widget(GempaWidget::class);
+register_widget(StreamingTwitterWidget::class);
+register_widget(BannerWidget::class);
