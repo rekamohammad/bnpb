@@ -643,6 +643,44 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
                 'permission' => 'kabupaten.change',
             ]);
 		});
+		
+		Route::group(['prefix' => 'slider'], function () {
+			Route::get('/', [
+                'as' => 'slider.list',
+                'uses' => 'SliderController@getList',
+            ]);
+			Route::get('/create', [
+                'as' => 'slider.create',
+                'uses' => 'SliderController@getCreate',
+            ]);	
+			Route::post('/create', [
+                'as' => 'slider.create',
+                'uses' => 'SliderController@postCreate',
+           	
+            ]);
+			Route::get('/edit/{id}', [
+                'as' => 'slider.edit',
+                'uses' => 'SliderController@getEdit',
+            ]);
+			Route::post('/edit/{id}', [
+                'as' => 'slider.edit',
+                'uses' => 'SliderController@postEdit',
+            ]);
+			Route::get('/delete/{id}', [
+                'as' => 'slider.delete',
+                'uses' => 'SliderController@getDelete',
+            ]);
+			Route::post('/delete-many', [
+                'as' => 'slider.delete.many',
+                'uses' => 'SliderController@postDeleteMany',
+                'permission' => 'slider.delete',
+            ]);
+			Route::post('/change-status', [
+                'as' => 'slider.change.status',
+                'uses' => 'SliderController@postChangeStatus',
+                'permission' => 'slider.change',
+            ]);
+		});
 
         
     });

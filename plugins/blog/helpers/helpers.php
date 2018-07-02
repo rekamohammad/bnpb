@@ -12,6 +12,7 @@ use Botble\Blog\Repositories\Interfaces\InternasionalInterface;
 use Botble\Blog\Repositories\Interfaces\ProvinsiInterface;
 use Botble\Blog\Repositories\Interfaces\KabupatenInterface;
 use Botble\Blog\Repositories\Interfaces\MountainsInterface;
+use Botble\Blog\Repositories\Interfaces\SliderInterface;
 use Botble\Blog\Supports\PostFormat;
 
 if (!function_exists('get_featured_posts')) {
@@ -78,6 +79,19 @@ if (!function_exists('get_posts_by_category_slide')) {
     function get_posts_by_category_slide($category_id, $paginate = 12, $limit = 0)
     {
         return app(PostInterface::class)->getByCategoryFeatured($category_id, $paginate, $limit);
+    }
+}
+
+if (!function_exists('get_List_Slider')) {
+    /**
+     * @param $limit
+     * @param array $excepts
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_List_Slider($limit)
+    {
+        return app(SliderInterface::class)->getListSlider($limit);
     }
 }
 

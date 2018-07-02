@@ -55,6 +55,10 @@ use Botble\Blog\Models\Tag;
 use Botble\Blog\Repositories\Caches\TagCacheDecorator;
 use Botble\Blog\Repositories\Eloquent\TagRepository;
 use Botble\Blog\Repositories\Interfaces\TagInterface;
+use Botble\Blog\Models\Slider;
+use Botble\Blog\Repositories\Caches\SliderCacheDecorator;
+use Botble\Blog\Repositories\Eloquent\SliderRepository;
+use Botble\Blog\Repositories\Interfaces\SliderInterface;
 
 /**
  * Class PostServiceProvider
@@ -118,6 +122,9 @@ class BlogServiceProvider extends ServiceProvider
             $this->app->singleton(MountainsInterface::class, function () {
                 return new MountainsDecorator(new MountainsRepository(new Mountains()), new Cache($this->app['cache'], __CLASS__));
             });
+			$this->app->singleton(SliderInterface::class, function () {
+                return new SliderDecorator(new SliderRepository(new Slider()), new Cache($this->app['cache'], __CLASS__));
+            });
 			
         } else {
 			$this->app->singleton(KabupatenInterface::class, function () {
@@ -162,6 +169,9 @@ class BlogServiceProvider extends ServiceProvider
 
             $this->app->singleton(MountainsInterface::class, function () {
                 return new MountainsRepository(new Mountains());
+            });
+			$this->app->singleton(SliderInterface::class, function () {
+                return new SliderRepository(new Slider());
             });
         }
 
@@ -333,6 +343,15 @@ class BlogServiceProvider extends ServiceProvider
                     'icon' => null,
                     'url' => route('kabupaten.list'),
                     'permissions' => ['kabupaten.list'],
+                ])
+				->registerItem([
+                    'id' => 'cms-plugins-slider',
+                    'priority' => 6,
+                    'parent_id' => null,
+                    'name' => trans('blog::slider.menu_name'),
+                    'icon' => "fa fa-cube",
+                    'url' => route('slider.list'),
+                    'permissions' => ['slider.list'],
                 ]);
         });
     }
