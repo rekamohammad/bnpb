@@ -1,5 +1,5 @@
 @extends('bases::layouts.master')
-@section('content')
+@section('content') 
     {!! Form::open() !!}
         @php do_action(BASE_ACTION_CREATE_CONTENT_NOTIFICATION, POST_MODULE_SCREEN_NAME, request(), null) @endphp
         <div class="row">
