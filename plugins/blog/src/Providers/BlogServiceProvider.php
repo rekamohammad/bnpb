@@ -346,7 +346,6 @@ class BlogServiceProvider extends ServiceProvider
                 ])
 				->registerItem([
                     'id' => 'cms-plugins-slider',
-                    'priority' => 6,
                     'parent_id' => null,
                     'name' => trans('blog::slider.menu_name'),
                     'icon' => "fa fa-cube",
