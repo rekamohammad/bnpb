@@ -28,5 +28,29 @@ class MountainsRepository extends RepositoriesAbstract implements MountainsInter
         $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
         $this->resetModel();
         return $data;
-	}	
+    }	
+
+    public function getMountainsAwas()
+	{
+		$data = $this->model->where('mountain_status', 'awas')->where('status', 1)->orderBy('created_at', 'ASC');
+        $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
+        $this->resetModel();
+        return $data;
+    }
+    
+    public function getMountainsSiaga()
+	{
+		$data = $this->model->where('mountain_status', 'siaga')->where('status', 1)->orderBy('created_at', 'ASC');
+        $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
+        $this->resetModel();
+        return $data;
+    }
+    
+    public function getMountainsWaspada()
+	{
+		$data = $this->model->where('mountain_status', 'waspada')->where('status', 1)->orderBy('created_at', 'ASC');
+        $data = apply_filters(BASE_FILTER_BEFORE_GET_FRONT_PAGE_ITEM, $data, $this->model, POST_MODULE_SCREEN_NAME)->get();
+        $this->resetModel();
+        return $data;
+	}
 }

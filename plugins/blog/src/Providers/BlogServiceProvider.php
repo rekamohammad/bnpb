@@ -59,6 +59,10 @@ use Botble\Blog\Models\Slider;
 use Botble\Blog\Repositories\Caches\SliderCacheDecorator;
 use Botble\Blog\Repositories\Eloquent\SliderRepository;
 use Botble\Blog\Repositories\Interfaces\SliderInterface;
+use Botble\Blog\Models\Kebencanaan;
+use Botble\Blog\Repositories\Caches\KebencanaanCacheDecorator;
+use Botble\Blog\Repositories\Eloquent\KebencanaanRepository;
+use Botble\Blog\Repositories\Interfaces\KebencanaanInterface;
 
 /**
  * Class PostServiceProvider
@@ -125,6 +129,9 @@ class BlogServiceProvider extends ServiceProvider
 			$this->app->singleton(SliderInterface::class, function () {
                 return new SliderDecorator(new SliderRepository(new Slider()), new Cache($this->app['cache'], __CLASS__));
             });
+            $this->app->singleton(KebencanaanInterface::class, function () {
+                return new KebencanaanDecorator(new KebencanaanRepository(new Slider()), new Cache($this->app['cache'], __CLASS__));
+            });
 			
         } else {
 			$this->app->singleton(KabupatenInterface::class, function () {
@@ -172,6 +179,9 @@ class BlogServiceProvider extends ServiceProvider
             });
 			$this->app->singleton(SliderInterface::class, function () {
                 return new SliderRepository(new Slider());
+            });
+            $this->app->singleton(KebencanaanInterface::class, function () {
+                return new KebencanaanRepository(new Slider());
             });
         }
 
@@ -289,6 +299,42 @@ class BlogServiceProvider extends ServiceProvider
                     'icon' => null,
                     'url' => route('infografis.list'),
                     'permissions' => ['infografis.list'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-pengetahuan-bencana',
+                    'priority' => 5,
+                    'parent_id' => null,
+                    'name' => trans('blog::kebencanaan.menu_name'),
+                    'icon' => 'fa fa-list',
+                    'url' => route('kebencanaan.list'),
+                    'permissions' => ['kebencanaan.list'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-publikasi-definisi-bencana',
+                    'priority' => 1,
+                    'parent_id' => 'cms-plugins-pengetahuan-bencana',
+                    'name' => trans('blog::kebencanaan.definisi_bencana'),
+                    'icon' => null,
+                    'url' => route('definisi.create'),
+                    'permissions' => ['definisi.create'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-publikasi-potensi-bencana',
+                    'priority' => 2,
+                    'parent_id' => 'cms-plugins-pengetahuan-bencana',
+                    'name' => trans('blog::kebencanaan.potensi_bencana'),
+                    'icon' => null,
+                    'url' => route('potensi.create'),
+                    'permissions' => ['potensi.create'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-publikasi-penanggulangan-bencana',
+                    'priority' => 2,
+                    'parent_id' => 'cms-plugins-pengetahuan-bencana',
+                    'name' => trans('blog::kebencanaan.penanggulangan_bencana'),
+                    'icon' => null,
+                    'url' => route('penanggulangan.create'),
+                    'permissions' => ['penanggulangan.create'],
                 ])
                 ->registerItem([
                     'id' => 'cms-plugins-mountains',

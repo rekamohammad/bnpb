@@ -13,6 +13,7 @@ use Botble\Blog\Repositories\Interfaces\ProvinsiInterface;
 use Botble\Blog\Repositories\Interfaces\KabupatenInterface;
 use Botble\Blog\Repositories\Interfaces\MountainsInterface;
 use Botble\Blog\Repositories\Interfaces\SliderInterface;
+use Botble\Blog\Repositories\Interfaces\KebencanaanInterface;
 use Botble\Blog\Supports\PostFormat;
 
 if (!function_exists('get_featured_posts')) {
@@ -376,34 +377,6 @@ if (!function_exists('get_all_provinsi')) {
     }
 }
 
-if (!function_exists('get_all_kabupaten')) {
-    /**
-     * @param integer $limit
-     * @param array $args
-     * @return mixed
-     * @author Sang Nguyen
-     */
-    function get_all_kabupaten()
-    {
-        return app(KabupatenInterface::class)->getAllKabupaten();
-    }
-
-	
-}
-
-if (!function_exists('get_all_kab_detail')) {
-    /**
-     * @param integer $limit
-     * @param array $args
-     * @return mixed
-     * @author Sang Nguyen
-     */
-    function get_all_kab_detail($province)
-    {
-        return app(KabupatenInterface::class)->getAllKabDetail($province);
-    }
-}
-
 if (!function_exists('get_all_mountains')) {
     /**
      * @param integer $limit
@@ -416,6 +389,122 @@ if (!function_exists('get_all_mountains')) {
         setlocale(LC_TIME, 'Indonesian');
         
         return app(MountainsInterface::class)->getAllActiveMountains();
+    }
+}
+
+if (!function_exists('get_all_mountains_awas')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_mountains_awas()
+    {
+        setlocale(LC_TIME, 'Indonesian');
+        
+        return app(MountainsInterface::class)->getMountainsAwas();
+    }
+}
+
+if (!function_exists('get_all_mountains_siaga')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_mountains_siaga()
+    {
+        setlocale(LC_TIME, 'Indonesian');
+        
+        return app(MountainsInterface::class)->getMountainsSiaga();
+    }
+}
+
+if (!function_exists('get_all_mountains_waspada')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_mountains_waspada()
+    {
+        setlocale(LC_TIME, 'Indonesian');
+        
+        return app(MountainsInterface::class)->getMountainsWaspada();
+    }
+}
+
+if (!function_exists('get_definisi_bencana')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_definisi_bencana()
+    {
+        setlocale(LC_TIME, 'Indonesian');
+        
+        return app(KebencanaanInterface::class)->getDefinisiBencana();
+    }
+}
+
+if (!function_exists('get_potensi_bencana')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_potensi_bencana()
+    {
+        setlocale(LC_TIME, 'Indonesian');
+        
+        return app(KebencanaanInterface::class)->getPotensiBencana();
+    }
+}
+
+if (!function_exists('get_penanggulangan_bencana')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_penanggulangan_bencana()
+    {
+        setlocale(LC_TIME, 'Indonesian');
+        
+        return app(KebencanaanInterface::class)->getPenanggulanganBencana();
+    }
+}
+
+if (!function_exists('get_all_kabupaten')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_kabupaten()
+    {
+        return app(KabupatenInterface::class)->getAllKabupaten();
+    }
+}
+
+if (!function_exists('get_all_kab_detail')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_all_kab_detail($province)
+    {
+        return app(KabupatenInterface::class)->getAllKabDetail($province);
     }
 }
 

@@ -340,58 +340,60 @@
         }
     @endphp
     @endif
-@elseif (Request::segment(1) == 'undang-undang.html' || Request::segment(1) == 'peraturan-presiden.html' || Request::segment(1) == 'keputusan-presiden.html' || Request::segment(1) == 'keputusan-menteri.html' ||  Request::segment(1) == 'pembentukan-bpbd.html' || Request::segment(1) == 'peraturan-pemerintah.html' || Request::segment(1) == 'peraturan-kepala-bnpb.html')
+@elseif (Request::segment(1) == 'undang-undang.html' || Request::segment(1) == 'peraturan-presiden.html' ||
+        Request::segment(1) == 'keputusan-presiden.html' || Request::segment(1) == 'keputusan-menteri.html' || 
+        Request::segment(1) == 'pembentukan-bpbd.html' || Request::segment(1) == 'peraturan-pemerintah.html' ||
+        Request::segment(1) == 'peraturan-kepala-bnpb.html')
     <main class="main" id="main">
-    <div class="container">
-    <div class="main-content">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="block-title"><span><a href="{{ url('/undang-undang.html') }}" title="Publikasi BNPB">Link Produk Hukum</a></span></h3>
-            </div>
-            <div class="col-md-3">
-                <nav class="undang-sidebar">
-                     {!!
-                        Menu::generateMenu([
-                            'slug' => 'left-menu',
-                            'options' => ['class' => 'nav'],
-                            'view' => 'main-menu'
-                        ])
-                    !!}
-                </nav>  
-            </div>
-           {{--  <div class="col-md-3">
-                <div class="dynamic-sidebar">
-                    @php
-                        echo Theme::partial('post-popular');
-                        echo Theme::partial('mountain-status', ['category_ids' => explode(',', theme_option('mountain-status'))]);
-                    @endphp
-                        {!! dynamic_sidebar('home_left') !!}
-                </div>
-            </div> --}}
-            <div class="col-md-9 middle-widget">
+        <div class="container">
+            <div class="main-content">
                 <div class="row">
                     <div class="col-md-12">
-                        {!! Theme::breadcrumb()->render() !!}
+                        <h3 class="block-title"><span><a href="{{ url('/undang-undang.html') }}" title="Publikasi BNPB">Link Produk Hukum</a></span></h3>
                     </div>
-                    {!! Theme::content() !!}
+                    <div class="col-md-3">
+                        <nav class="undang-sidebar">
+                            {!!
+                                Menu::generateMenu([
+                                    'slug' => 'left-menu',
+                                    'options' => ['class' => 'nav'],
+                                    'view' => 'main-menu'
+                                ])
+                            !!}
+                        </nav>  
+                    </div>
+                {{--  <div class="col-md-3">
+                        <div class="dynamic-sidebar">
+                            @php
+                                echo Theme::partial('post-popular');
+                                echo Theme::partial('mountain-status', ['category_ids' => explode(',', theme_option('mountain-status'))]);
+                            @endphp
+                                {!! dynamic_sidebar('home_left') !!}
+                        </div>
+                    </div> --}}
+                    <div class="col-md-9 middle-widget">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {!! Theme::breadcrumb()->render() !!}
+                            </div>
+                            {!! Theme::content() !!}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </main>
 @elseif (Request::segment(1) == 'nasionals')
-    
 	<main class="main" id="main">
-	<div class="container">
-		<div class="main-content">
-			<div class="row">
-				<div class="col-md-12">
-					{!! Theme::partial('post-nasionals') !!}
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="container">
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        {!! Theme::partial('post-nasionals') !!}
+                    </div>
+                </div>
+            </div>
+        </div>
 	</main>
 @elseif (Request::segment(1) == 'internasionals')
     
@@ -406,7 +408,6 @@
 		</div>
 	</div>
 	</main>	
-	
 @elseif (Request::segment(1) == 'bpbd-provinsi')
     
 	<main class="main" id="main">
@@ -457,6 +458,42 @@
 			</div>
 		</div>
 	</div>
+	</main>
+@elseif (Request::segment(1) == 'definisi-bencana')
+	<main class="main" id="main">
+        <div class="container">
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        {!! Theme::partial('post-definisi-bencana') !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+	</main>
+@elseif (Request::segment(1) == 'potensi-bencana')
+	<main class="main" id="main">
+        <div class="container">
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        {!! Theme::partial('post-potensi-bencana') !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+	</main>
+@elseif (Request::segment(1) == 'penanggulangan-bencana')
+	<main class="main" id="main">
+        <div class="container">
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        {!! Theme::partial('post-penanggulangan-bencana') !!}
+                    </div>
+                </div>
+            </div>
+        </div>
 	</main>
 @else
     <main class="main" id="main">

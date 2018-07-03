@@ -220,62 +220,6 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
             ]);
         });
 
-        Route::group(['prefix' => 'mountains'], function () {
-            Route::get('/', [
-                'as' => 'mountains.list',
-                'uses' => 'MountainsController@getList',
-            ]);
-
-            Route::get('/create', [
-                'as' => 'mountains.create',
-                'uses' => 'MountainsController@getCreate',
-            ]);
-
-            Route::post('/create', [
-                'as' => 'mountains.create',
-                'uses' => 'MountainsController@postCreate',
-            ]);
-
-            Route::get('/edit/{id}', [
-                'as' => 'mountains.edit',
-                'uses' => 'MountainsController@getEdit',
-            ]);
-
-            Route::post('/edit/{id}', [
-                'as' => 'mountains.edit',
-                'uses' => 'MountainsController@postEdit',
-            ]);
-
-            Route::get('/delete/{id}', [
-                'as' => 'mountains.delete',
-                'uses' => 'MountainsController@getDelete',
-            ]);
-
-            Route::post('/delete-many', [
-                'as' => 'mountains.delete.many',
-                'uses' => 'MountainsController@postDeleteMany',
-                'permission' => 'mountains.delete',
-            ]);
-
-            Route::post('/change-status', [
-                'as' => 'mountains.change.status',
-                'uses' => 'MountainsController@postChangeStatus',
-                'permission' => 'mountains.edit',
-            ]);
-
-            Route::post('/create-slug', [
-                'as' => 'mountains.create.slug',
-                'uses' => 'MountainsController@postCreateSlug',
-                'permission' => 'mountains.create',
-            ]);
-
-            Route::get('/widgets/recent-posts', [
-                'as' => 'mountains.widget.recent-posts',
-                'uses' => 'MountainsController@getWidgetRecentPosts',
-                'permission' => false,
-            ]);
-        });
-
         Route::group(['prefix' => 'infografis'], function () {
 
             Route::get('/', [
@@ -332,6 +276,105 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
                 'permission' => false,
             ]);
         });
+
+        Route::group(['prefix' => 'bencana'], function () {
+            Route::get('/', [
+                'as' => 'kebencanaan.list',
+                'uses' => 'KebencanaanController@getList',
+            ]);
+        });
+
+        Route::group(['prefix' => 'definisi'], function () {
+            Route::get('/article', [
+                'as' => 'definisi.create',
+                'uses' => 'KebencanaanController@getDefinisi',
+            ]);
+
+            Route::post('/article', [
+                'as' => 'definisi.create',
+                'uses' => 'KebencanaanController@postDefinisi',
+            ]);
+        });
+
+        Route::group(['prefix' => 'potensi'], function () {
+            Route::get('/article', [
+                'as' => 'potensi.create',
+                'uses' => 'KebencanaanController@getPotensi',
+            ]);
+
+            Route::post('/article', [
+                'as' => 'potensi.create',
+                'uses' => 'KebencanaanController@postPotensi',
+            ]);
+        });
+
+        Route::group(['prefix' => 'penanggulangan'], function () {
+            Route::get('/article', [
+                'as' => 'penanggulangan.create',
+                'uses' => 'KebencanaanController@getPenanggulangan',
+            ]);
+
+            Route::post('/article', [
+                'as' => 'penanggulangan.create',
+                'uses' => 'KebencanaanController@postPenanggulangan',
+            ]);
+        });
+
+        Route::group(['prefix' => 'mountains'], function () {
+            Route::get('/', [
+                'as' => 'mountains.list',
+                'uses' => 'MountainsController@getList',
+            ]);
+
+            Route::get('/create', [
+                'as' => 'mountains.create',
+                'uses' => 'MountainsController@getCreate',
+            ]);
+
+            Route::post('/create', [
+                'as' => 'mountains.create',
+                'uses' => 'MountainsController@postCreate',
+            ]);
+
+            Route::get('/edit/{id}', [
+                'as' => 'mountains.edit',
+                'uses' => 'MountainsController@getEdit',
+            ]);
+
+            Route::post('/edit/{id}', [
+                'as' => 'mountains.edit',
+                'uses' => 'MountainsController@postEdit',
+            ]);
+
+            Route::get('/delete/{id}', [
+                'as' => 'mountains.delete',
+                'uses' => 'MountainsController@getDelete',
+            ]);
+
+            Route::post('/delete-many', [
+                'as' => 'mountains.delete.many',
+                'uses' => 'MountainsController@postDeleteMany',
+                'permission' => 'mountains.delete',
+            ]);
+
+            Route::post('/change-status', [
+                'as' => 'mountains.change.status',
+                'uses' => 'MountainsController@postChangeStatus',
+                'permission' => 'mountains.edit',
+            ]);
+
+            Route::post('/create-slug', [
+                'as' => 'mountains.create.slug',
+                'uses' => 'MountainsController@postCreateSlug',
+                'permission' => 'mountains.create',
+            ]);
+
+            Route::get('/widgets/recent-posts', [
+                'as' => 'mountains.widget.recent-posts',
+                'uses' => 'MountainsController@getWidgetRecentPosts',
+                'permission' => false,
+            ]);
+        });     
 
         Route::group(['prefix' => 'posts'], function () {
 
