@@ -337,6 +337,15 @@ class BlogServiceProvider extends ServiceProvider
                     'permissions' => ['penanggulangan.create'],
                 ])
                 ->registerItem([
+                    'id' => 'cms-plugins-publikasi-announcement-bencana',
+                    'priority' => 2,
+                    'parent_id' => 'cms-plugins-pengetahuan-bencana',
+                    'name' => trans('blog::kebencanaan.announcement_bencana'),
+                    'icon' => null,
+                    'url' => route('announcement.create'),
+                    'permissions' => ['announcement.create'],
+                ])
+                ->registerItem([
                     'id' => 'cms-plugins-mountains',
                     'priority' => 5,
                     'parent_id' => null,

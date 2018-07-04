@@ -258,8 +258,6 @@ if (!function_exists('get_popular_tags')) {
     }
 }
 
-
-
 if (!function_exists('get_popular_posts')) {
     /**
      * @param integer $limit
@@ -479,6 +477,21 @@ if (!function_exists('get_penanggulangan_bencana')) {
         setlocale(LC_TIME, 'Indonesian');
         
         return app(KebencanaanInterface::class)->getPenanggulanganBencana();
+    }
+}
+
+if (!function_exists('get_announcement_bencana')) {
+    /**
+     * @param integer $limit
+     * @param array $args
+     * @return mixed
+     * @author Sang Nguyen
+     */
+    function get_announcement_bencana()
+    {
+        setlocale(LC_TIME, 'Indonesian');
+        
+        return app(KebencanaanInterface::class)->getAnnouncementBencana();
     }
 }
 

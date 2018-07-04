@@ -1,7 +1,7 @@
 <div class="col-md-12">
 	<div class="page-content">
 		<div class="row">
-			<div class="col-md-3">{!! Theme::partial('kebencanaan-menu') !!}</div>
+			{!! Theme::partial('kebencanaan-menu') !!}
 			<div class="col-md-9">
 				<!-- start content !-->
 				@if (! empty(get_penanggulangan_bencana()))

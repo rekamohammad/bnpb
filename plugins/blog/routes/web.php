@@ -320,6 +320,18 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
             ]);
         });
 
+        Route::group(['prefix' => 'announcement'], function () {
+            Route::get('/article', [
+                'as' => 'announcement.create',
+                'uses' => 'KebencanaanController@getAnnouncement',
+            ]);
+
+            Route::post('/article', [
+                'as' => 'announcement.create',
+                'uses' => 'KebencanaanController@postAnnouncement',
+            ]);
+        });
+
         Route::group(['prefix' => 'mountains'], function () {
             Route::get('/', [
                 'as' => 'mountains.list',

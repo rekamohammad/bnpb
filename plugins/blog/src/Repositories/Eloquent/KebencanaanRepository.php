@@ -34,5 +34,12 @@ class KebencanaanRepository extends RepositoriesAbstract implements KebencanaanI
 		$data = Kebencanaan::where('type', 'penanggulangan')->first();
         $this->resetModel();
         return $data;
+    }
+
+    public function getAnnouncementBencana()
+	{
+		$data = Kebencanaan::where('type', 'announcement')->first();
+        $this->resetModel();
+        return $data;
     }	
 }

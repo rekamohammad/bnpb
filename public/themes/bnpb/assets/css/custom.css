@@ -1422,10 +1422,10 @@ body .center-column .tab-content {
 }
 
 body #kotakbencana {
-    width: 258px;
-    border: .5px solid #D6D5D5;
-    height: 580px;
-    margin-top: 30px
+    height: auto;
+    display: inline-block;
+    margin-top: 10px;
+    border: 0.5px solid #D6D5D5;
 }
 
 body .default a {

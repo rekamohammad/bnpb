@@ -35,5 +35,6 @@ return [
     'definisi_bencana' => 'Definisi Bencana',
     'potensi_bencana' => 'Potensi Bencana',
     'penanggulangan_bencana' => 'Penanggulangan Bencana',
+    'announcement_bencana' => 'Announcement',
     'all_posts' => 'All Article',
 ];

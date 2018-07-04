@@ -12,4 +12,6 @@ interface KebencanaanInterface extends RepositoryInterface
     public function getPotensiBencana();
 
     public function getPenanggulanganBencana();
+
+    public function getAnnouncementBencana();
 }

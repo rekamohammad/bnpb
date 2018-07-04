@@ -178,4 +178,48 @@ class KebencanaanController extends BaseController
 
         return redirect()->route('penanggulangan.create')->with('success_msg', trans('bases::notices.create_success_message'));
     }
+
+    public function getAnnouncement()
+    {
+        $kebencanaan = Kebencanaan::where('type', 'announcement')->first();
+
+        page_title()->setTitle(trans('blog::kebencanaan.create'));
+
+        Assets::addJavascript(['bootstrap-tagsinput', 'typeahead', 'are-you-sure']);
+        Assets::addStylesheets(['bootstrap-tagsinput']);
+
+        if (empty($kebencanaan)) {
+            return view('blog::kebencanaan.create');
+        } else {
+            return view('blog::kebencanaan.edit', compact('kebencanaan'));
+        }
+    }
+
+    /**
+     * @param KebencanaanRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @author Sang Nguyen
+     */
+    public function postAnnouncement(KebencanaanRequest $request)
+    {
+        /**
+         * @var Kebencanaan $post
+         */
+
+        $kebencanaan = Kebencanaan::where('type', 'announcement')->first();
+
+        if (empty ($kebencanaan)) {
+            $kebencanaan = New Kebencanaan;
+        }
+        $kebencanaan->name = $request->name;
+        $kebencanaan->type = "announcement";
+        $kebencanaan->image = $request->image;
+        $kebencanaan->content = $request->content;
+        $kebencanaan->user_id = acl_get_current_user_id();
+        $kebencanaan->save();
+
+        do_action(BASE_ACTION_AFTER_CREATE_CONTENT, POST_MODULE_SCREEN_NAME, $request, $kebencanaan);
+
+        return redirect()->route('announcement.create')->with('success_msg', trans('bases::notices.create_success_message'));
+    }
 }
