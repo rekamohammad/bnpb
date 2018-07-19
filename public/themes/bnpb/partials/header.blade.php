@@ -11,7 +11,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="canonical" href="{{ url('/') }}">
     <meta http-equiv="content-language" content="en">
     <link rel="shortcut icon" href="{{ theme_option('favicon') }}">
