@@ -2,6 +2,7 @@
 
 namespace Botble\Blog\Http\Controllers;
 
+use App;
 use Botble\Base\Http\Controllers\BaseController;
 use Botble\Blog\Http\Requests\PostRequest;
 use Botble\Blog\Http\Requests\PostRequestEdit;
@@ -16,6 +17,8 @@ use Botble\Blog\Services\StoreCategoryService;
 use Botble\Blog\Services\StoreTagService;
 use Exception;
 use Illuminate\Http\Request;
+use DateTime;
+use URL;
 
 class PostController extends BaseController
 {
@@ -300,5 +303,39 @@ class PostController extends BaseController
         $post->views = $post->views + 1;
         $post->save();
         dd($post);
+    }
+
+    public function getSitemap()  {
+        $datetime = date(DateTime::RFC3339, time());
+        $posts = $this->postRepository->getModel()->orderBy('created_at', 'desc')->get();
+        $sitemap = App::make("sitemap");
+        $sitemap->add(URL::to('/'), $datetime, '1.0', 'weekly');
+		$sitemap->add(URL::to('/home/sejarah'), $datetime, '1.0', 'weekly');
+		$sitemap->add(URL::to('/home/tugas'), $datetime, '1.0', 'weekly');
+		$sitemap->add(URL::to('/struktur'), $datetime, '1.0', 'weekly');
+        $sitemap->add(URL::to('/home/komposisi'), $datetime, '1.0', 'weekly');
+        $sitemap->add(URL::to('/berita'), $datetime, '0.5', 'daily');
+        $sitemap->add(URL::to('/galleries'), $datetime, '1.0', 'weekly');
+        $sitemap->add(URL::to('/publikasi'), $datetime, '0.5', 'daily');
+        $sitemap->add(URL::to('/publikasi/poster'), $datetime, '0.5', 'daily');
+        $sitemap->add(URL::to('/publikasi/leaflet'), $datetime, '0.5', 'daily');
+        $sitemap->add(URL::to('/publikasi/buku-data-bencana'), $datetime, '0.5', 'daily');
+        $sitemap->add(URL::to('/publikasi/buletin-bencana'), $datetime, '0.5', 'daily');
+        $sitemap->add(URL::to('/publikasi/siaga-bencana'), $datetime, '0.5', 'daily');
+        $sitemap->add(URL::to('/publikasi/atlas'), $datetime, '0.5', 'daily');
+        $sitemap->add(URL::to('/nasionals'), $datetime, '1.0', 'weekly');
+        $sitemap->add(URL::to('/internasionals'), $datetime, '1.0', 'weekly');
+        $sitemap->add(URL::to('/bpbd-provinsi'), $datetime, '1.0', 'weekly');
+        $sitemap->add(URL::to('/bpbd-kabupaten'), $datetime, '1.0', 'weekly');
+        $sitemap->add(URL::to('/home/definisi'), $datetime, '1.0', 'weekly');
+        $sitemap->add(URL::to('/home/potensi'), $datetime, '1.0', 'weekly');
+        $sitemap->add(URL::to('/home/sistem'), $datetime, '1.0', 'weekly');
+        // posts
+        foreach ($posts as $post)
+        {
+            $sitemap->add(URL::to('/'.$post->slug), $datetime, '1.0', 'weekly');
+        }
+        // show sitemap
+        return $sitemap->render('xml');
     }
 }

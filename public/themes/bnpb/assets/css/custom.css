@@ -1717,3 +1717,7 @@ height: 240px!important;
     border-bottom:1px solid #ccc;
     font-weight:800;
 }
+.banner-wrapper { 
+	width: 100%; 
+	height: 100px; 
+}

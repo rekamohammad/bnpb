@@ -18,7 +18,12 @@
     {!! Theme::header() !!}
     <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
     <link href="/themes/bnpb/assets/css/lightgallery.css" rel="stylesheet">
-	<link href="/themes/bnpb/assets/css/galericustom.css" rel="stylesheet">
+    <link href="/themes/bnpb/assets/css/galericustom.css" rel="stylesheet">
+    <link href="/themes/bnpb/assets/css/nivoSlider/default/default.css" type="text/css" media="screen" rel="stylesheet" />
+    <link href="/themes/bnpb/assets/css/nivoSlider/light/light.css" type="text/css" media="screen" rel="stylesheet" />
+    <link href="/themes/bnpb/assets/css/nivoSlider/dark/dark.css" type="text/css" media="screen" rel="stylesheet" />
+    <link href="/themes/bnpb/assets/css/nivoSlider/bar/bar.css" type="text/css" media="screen" rel="stylesheet" />
+    <link href="/themes/bnpb/assets/css/nivo-slider.css" type="text/css" media="screen" rel="stylesheet" />
     <style>
       @media (max-width: 767px) {
 	body .middle-widget .nav-tabs>li {width: 100%;}

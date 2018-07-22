@@ -17,6 +17,7 @@ require_once __DIR__ . '/../widgets/status-gunung/status-gunung.php';
 require_once __DIR__ . '/../widgets/gempa/gempa.php';
 require_once __DIR__ . '/../widgets/streaming-twitter/streaming-twitter.php';
 require_once __DIR__ . '/../widgets/banner/banner.php';
+require_once __DIR__ . '/../widgets/gpr/gpr.php';
 
 register_widget(CustomMenuWidget::class);
 register_widget(RecentPostsWidget::class);
@@ -29,3 +30,4 @@ register_widget(StatusGunungWidget::class);
 register_widget(GempaWidget::class);
 register_widget(StreamingTwitterWidget::class);
 register_widget(BannerWidget::class);
+register_widget(GprWidget::class);

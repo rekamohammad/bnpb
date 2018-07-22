@@ -2,6 +2,8 @@
 
 Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'web'], function () {
 
+    Route::get('sitemap', 'PostController@getSitemap');
+
     Route::group(['prefix' => config('cms.admin_dir'), 'middleware' => 'auth'], function () {
 
         Route::group(['prefix' => 'news'], function () {
@@ -737,7 +739,42 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers', 'middleware' => 'we
             ]);
 		});
 
-        
+        Route::group(['prefix' => 'banner'], function () {
+            Route::get('/', [
+                'as' => 'banner.list',
+                'uses' => 'BannerController@getList',
+            ]);
+			Route::get('/create', [
+                'as' => 'banner.create',
+                'uses' => 'BannerController@getCreate',
+            ]);	
+			Route::post('/create', [
+                'as' => 'banner.create',
+                'uses' => 'BannerController@postCreate',
+            ]);
+            Route::get('/edit/{id}', [
+                'as' => 'banner.edit',
+                'uses' => 'BannerController@getEdit',
+            ]);
+			Route::post('/edit/{id}', [
+                'as' => 'banner.edit',
+                'uses' => 'BannerController@postEdit',
+            ]);
+            Route::get('/delete/{id}', [
+                'as' => 'banner.delete',
+                'uses' => 'BannerController@getDelete',
+            ]);
+			Route::post('/delete-many', [
+                'as' => 'banner.delete.many',
+                'uses' => 'BannerController@postDeleteMany',
+                'permission' => 'banner.delete',
+            ]);
+			Route::post('/change-status', [
+                'as' => 'banner.change.status',
+                'uses' => 'BannerController@postChangeStatus',
+                'permission' => 'banner.change',
+            ]);
+        });
     });
 
     Route::group(apply_filters(BASE_FILTER_GROUP_PUBLIC_ROUTE, []), function () {

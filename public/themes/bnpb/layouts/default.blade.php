@@ -216,33 +216,6 @@
     </div>
     </div>
     </main>
-@elseif (Request::segment(1) == 'gpr')
-    <main class="main" id="main">
-    <div class="container">
-    <div class="main-index">
-        <div class="row">
-            <div class="col-md-3">
-                @php
-                    echo Theme::partial('post-popular');
-                    echo Theme::partial('mountain-status', ['category_ids' => explode(',', theme_option('mountain-status'))]);
-                @endphp
-            </div>
-            <div class="col-md-6">
-                <div id="gpr-kominfo-widget-container"></div>
-            </div>
-            <div class="col-md-3">
-                @php
-                    echo Theme::partial('post-video', ['category_ids' => explode(',', theme_option('home-right-feed'))]);
-                    $infografis_id = get_infografis('rekapitulasi-bencana')[0]['attributes']['id'];
-                    if($infografis_id) { 
-                        echo Theme::partial('post-infografis', ['category_ids' => [$infografis_id]]);
-                    }
-                @endphp
-            </div>
-        </div>
-    </div>
-    </div>
-    </main>
 @elseif (Request::segment(1) == 'publikasi')
     <main class="main" id="main">
     <div class="container">

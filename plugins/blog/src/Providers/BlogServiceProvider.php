@@ -63,6 +63,10 @@ use Botble\Blog\Models\Kebencanaan;
 use Botble\Blog\Repositories\Caches\KebencanaanCacheDecorator;
 use Botble\Blog\Repositories\Eloquent\KebencanaanRepository;
 use Botble\Blog\Repositories\Interfaces\KebencanaanInterface;
+use Botble\Blog\Models\Banner;
+use Botble\Blog\Repositories\Caches\BannerCacheDecorator;
+use Botble\Blog\Repositories\Eloquent\BannerRepository;
+use Botble\Blog\Repositories\Interfaces\BannerInterface;
 
 /**
  * Class PostServiceProvider
@@ -130,7 +134,10 @@ class BlogServiceProvider extends ServiceProvider
                 return new SliderDecorator(new SliderRepository(new Slider()), new Cache($this->app['cache'], __CLASS__));
             });
             $this->app->singleton(KebencanaanInterface::class, function () {
-                return new KebencanaanDecorator(new KebencanaanRepository(new Slider()), new Cache($this->app['cache'], __CLASS__));
+                return new KebencanaanDecorator(new KebencanaanRepository(new Kebencanaan()), new Cache($this->app['cache'], __CLASS__));
+            });
+            $this->app->singleton(BannerInterface::class, function () {
+                return new BannerDecorator(new BannerRepository(new Banner()), new Cache($this->app['cache'], __CLASS__));
             });
 			
         } else {
@@ -181,7 +188,10 @@ class BlogServiceProvider extends ServiceProvider
                 return new SliderRepository(new Slider());
             });
             $this->app->singleton(KebencanaanInterface::class, function () {
-                return new KebencanaanRepository(new Slider());
+                return new KebencanaanRepository(new Kebencanaan());
+            });
+            $this->app->singleton(BannerInterface::class, function () {
+                return new BannerRepository(new Banner());
             });
         }
 
@@ -406,6 +416,14 @@ class BlogServiceProvider extends ServiceProvider
                     'icon' => "fa fa-cube",
                     'url' => route('slider.list'),
                     'permissions' => ['slider.list'],
+                ])
+                ->registerItem([
+                    'id' => 'cms-plugins-banner',
+                    'parent_id' => null,
+                    'name' => trans('blog::banner.menu_name'),
+                    'icon' => "fa fa-list",
+                    'url' => route('banner.list'),
+                    'permissions' => ['banner.list'],
                 ]);
         });
     }

@@ -95,144 +95,143 @@
 <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 <script src="https://vjs.zencdn.net/6.6.0/video.js"></script>
 <!-- <script type="text/javascript" src="/themes/bnpb/assets/js/lightgallery.min.js"></script> -->
-@if (Request::segment(1) == 'gpr')
-<script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
-@endif
+<script type="text/javascript" src="/themes/bnpb/assets/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/themes/bnpb/assets/js/jquery.nivo.slider.pack.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script>
-
-@if (Request::segment(1) == 'diorama')
-    $('.list-diorama').slick({
-        centerPadding: '40px',
-        slidesToShow: 4,
-        responsive: [
-            {
-            breakpoint: 768,
-            settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '40px',
-                slidesToShow: 4
-            }
-            },
-            {
-            breakpoint: 480,
-            settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '40px',
-                slidesToShow: 1
-            }
-            }
-        ]
-    });
-    $('.slider-single').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        fade: false,
-        adaptiveHeight: true,
-        infinite: false,
-        useTransform: true,
-        speed: 400,
-        cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
-    });
-    $('.slider-nav').on('init', function(event, slick) {
- 		$('.slider-nav .slick-slide.slick-current').addClass('is-active');
- 	}).slick({
- 		slidesToShow: 4,
- 		slidesToScroll: 4,
- 		dots: false,
- 		focusOnSelect: false,
- 		infinite: false,
- 		responsive: [{
- 			breakpoint: 1024,
- 			settings: {
- 				slidesToShow: 5,
- 				slidesToScroll: 5,
- 			}
- 		}, {
- 			breakpoint: 640,
- 			settings: {
- 				slidesToShow: 4,
- 				slidesToScroll: 4,
-			}
- 		}, {
- 			breakpoint: 420,
- 			settings: {
- 				slidesToShow: 3,
- 				slidesToScroll: 3,
-		}
- 		}]
- 	});
-
-    $('.slider-single').on('afterChange', function(event, slick, currentSlide) {
-        $('.slider-nav').slick('slickGoTo', currentSlide);
-        var currrentNavSlideElem = '.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]';
-        $('.slider-nav .slick-slide.is-active').removeClass('is-active');
-        $(currrentNavSlideElem).addClass('is-active');
-    });
-
-    $('.slider-nav').on('click', '.slick-slide', function(event) {
-        event.preventDefault();
-        var goToSingleSlide = $(this).data('slick-index');
-
-        $('.slider-single').slick('slickGoTo', goToSingleSlide);
-    });
-
-    $('.btn-popup').on('click', function (e) {
-        $('.slider-single').resize();
-        $('.slider-nav').resize();
-        $('.slider-single').slick('refresh');
-        $('.slider-nav').slick('refresh');
-    });
-@endif
-    $(document).ready(function () {
-        $('.banner-slider-wrap').slick({
-            dots: true
+    @if (Request::segment(1) == 'diorama')
+        $('.list-diorama').slick({
+            centerPadding: '40px',
+            slidesToShow: 4,
+            responsive: [
+                {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 4
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                }
+                }
+            ]
         });
-        $("[data-fancybox]").fancybox({
-            loop : true,
-        });   
-        var windowsize = $(window).width();
-        if (windowsize < 768) {
-            $('body').on('click', '.menu-item-has-children > a', function(){
-                $(this).parent().siblings().find('.dropdown-menu').hide();
-                $(this).parent().find('> .dropdown-menu').slideToggle('fast');
-                console.log('jalan');
+        $('.slider-single').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            fade: false,
+            adaptiveHeight: true,
+            infinite: false,
+            useTransform: true,
+            speed: 400,
+            cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
+        });
+        $('.slider-nav').on('init', function(event, slick) {
+            $('.slider-nav .slick-slide.slick-current').addClass('is-active');
+        }).slick({
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            dots: false,
+            focusOnSelect: false,
+            infinite: false,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                }
+            }, {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                }
+            }, {
+                breakpoint: 420,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+            }
+            }]
+        });
+
+        $('.slider-single').on('afterChange', function(event, slick, currentSlide) {
+            $('.slider-nav').slick('slickGoTo', currentSlide);
+            var currrentNavSlideElem = '.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]';
+            $('.slider-nav .slick-slide.is-active').removeClass('is-active');
+            $(currrentNavSlideElem).addClass('is-active');
+        });
+
+        $('.slider-nav').on('click', '.slick-slide', function(event) {
+            event.preventDefault();
+            var goToSingleSlide = $(this).data('slick-index');
+
+            $('.slider-single').slick('slickGoTo', goToSingleSlide);
+        });
+
+        $('.btn-popup').on('click', function (e) {
+            $('.slider-single').resize();
+            $('.slider-nav').resize();
+            $('.slider-single').slick('refresh');
+            $('.slider-nav').slick('refresh');
+        });
+    @endif
+        $(document).ready(function () {
+            $('.banner-slider-wrap').slick({
+                dots: true
             });
+            $("[data-fancybox]").fancybox({
+                loop : true,
+            });   
+            var windowsize = $(window).width();
+            if (windowsize < 768) {
+                $('body').on('click', '.menu-item-has-children > a', function(){
+                    $(this).parent().siblings().find('.dropdown-menu').hide();
+                    $(this).parent().find('> .dropdown-menu').slideToggle('fast');
+                    console.log('jalan');
+                });
+            }
+            $('.popup-info').lightGallery({
+                thumbnail:true,
+                videojs: true
+            });
+            $('.view-pdf').lightGallery({
+                selector: 'this',
+                iframeMaxWidth: '82%',
+            });
+            $('a.embed').gdocsViewer();
+            $('.modal').on('shown.bs.modal', function (e) {
+                $('.list-post-diorama').resize();
+            });
+
+            $('.post-track').on('click', function () {
+                var id = $(this).attr("data-id");
+                $.ajax({
+                    url: "{{URL::to("api/track-click") }}",
+                    type: "POST",
+                    data: {_token: "{{ csrf_token() }}", id:id},
+                    dataType: "json"
+                });
+            })
+        });
+        
+    @if (Request::segment(1) == 'galleries')
+        for($i=1; $i<=$('.thumbnail').length; $i++) {
+            $('#lightgallery-'+$i).lightGallery();	
         }
-        $('.popup-info').lightGallery({
-            thumbnail:true,
-            videojs: true
-        });
-        $('.view-pdf').lightGallery({
-            selector: 'this',
-            iframeMaxWidth: '82%',
-        });
-        $('a.embed').gdocsViewer();
-        $('.modal').on('shown.bs.modal', function (e) {
-            $('.list-post-diorama').resize();
-        });
-
-        $('.post-track').on('click', function () {
-            var id = $(this).attr("data-id");
-            $.ajax({
-                url: "{{URL::to("api/track-click") }}",
-                type: "POST",
-                data: {_token: "{{ csrf_token() }}", id:id},
-                dataType: "json"
-            });
-        })
-    });
-	
-@if (Request::segment(1) == 'galleries')
-    for($i=1; $i<=$('.thumbnail').length; $i++) {
-        $('#lightgallery-'+$i).lightGallery();	
-	}
-	var stateObj = { foo: "/galleries" };
-	history.pushState(stateObj, "page 1", "/galleries");
-	
-@endif		
+        var stateObj = { foo: "/galleries" };
+        history.pushState(stateObj, "page 1", "/galleries");
+        
+    @endif		
 </script>
 @if(!empty(theme_option('facebook-app-id')))
 <div id="fb-root"></div>
@@ -255,6 +254,18 @@
         } else if (elem.webkitRequestFullscreen) {
           elem.webkitRequestFullscreen();
         }
+
+        $('#banner').nivoSlider({
+            effect: 'sliceDown',              // Specify sets like: 'fold,fade,sliceDown' 
+            slices: 15,                       // For slice animations 
+            directionNav: true,               // Next & Prev navigation 
+            controlNav: false,                 // 1,2,3... navigation 
+            controlNavThumbs: false,          // Use thumbnails for Control Nav 
+            pauseOnHover: true,               // Stop animation while hovering 
+            prevText: 'Prev',                    // Prev directionNav text 
+            nextText: 'Next',                    // Next directionNav text 
+            randomStart: true,               // Start on a random slide 
+        });
     });
 </script>
 </body>
